@@ -1,17 +1,25 @@
 import { useEffect } from "react";
 import { useStore } from "./stores/useStore";
+import { Message } from "./components/Message";
+import { Input } from "./components/Input";
 
 export const App = () => {
-  const { fetch, data } = useStore();
+  const { fetch, loading, userName } = useStore();
 
   useEffect(() => {
-    fetch();
-  }, []);
+    userName && fetch();
+  }, [userName]);
 
   return (
     <div>
-      Labyrinth Project
-      <p>{data.description}</p>
+      <h1>Labyrinth Project</h1>
+      {!userName ? (
+        <Input />
+      ) : loading ? (
+        <p>Adventure loading...</p>
+      ) : (
+        <Message />
+      )}
     </div>
   );
 };
