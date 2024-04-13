@@ -22,6 +22,7 @@ export const Input = () => {
         type="text"
         value={newName}
         onChange={handleChange}
+        placeholder="Pick your username"
       />
       <button>Start game</button>
     </form>
