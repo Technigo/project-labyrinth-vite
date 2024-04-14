@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const useGameStateStore = create((set) => ({
-  username: "Maze Man",
+  username: "",
 
   gameState: undefined,
 

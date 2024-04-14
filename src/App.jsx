@@ -1,21 +1,23 @@
 import { useEffect } from "react";
 import { useGameStateStore } from "./store";
+import { Menu } from "./Menu";
 
 export const App = () => {
   const username = useGameStateStore((state) => state.username);
   const gameState = useGameStateStore((state) => state.gameState);
-  const start = useGameStateStore((state) => state.start);
+
   const move = useGameStateStore((state) => state.move);
 
   useEffect(() => {
-    start("Maze Man");
+    // start("Maze Man");
   }, []);
 
   console.log(gameState);
 
   return (
     <div>
-      Labyrinth Project
+      {!username && <Menu />}
+
       {gameState && (
         <div>
           <p>{gameState.description}</p>
