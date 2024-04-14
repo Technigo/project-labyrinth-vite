@@ -23,6 +23,7 @@ export const useGameStateStore = create((set) => ({
   },
 
   move: (direction) => {
+    const username = useGameStateStore.getState().username;
     fetch("https://labyrinth.technigo.io/action", {
       method: "POST",
       headers: {

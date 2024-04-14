@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useGameStateStore } from "./store";
 import { Menu } from "./Menu";
+import { Game } from "./Game";
 
 export const App = () => {
   const username = useGameStateStore((state) => state.username);
@@ -16,21 +17,11 @@ export const App = () => {
 
   return (
     <div>
+      {/* ! means not, show the menu when there is no username  */}
       {!username && <Menu />}
 
       {gameState && (
-        <div>
-          <p>{gameState.description}</p>
-          <ul>
-            {gameState.actions.map((action, index) => (
-              <li key={index}>
-                <button onClick={() => move(action.direction)}>
-                  Go {action.direction}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Game />
       )}
     </div>
   );
