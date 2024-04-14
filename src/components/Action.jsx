@@ -1,9 +1,18 @@
+import { Button } from "./Button";
+import "../css/action.css";
+
 export const Action = ({ action }) => {
   console.log(action);
   return (
-    <details>
+    <details
+      className="situation-details"
+      name="situation-details">
       <summary>{`Look ${action.direction}`}</summary>
       {action.description}
+      <Button
+        key={`m-${action.direction}`}
+        direction={action.direction}
+      />
     </details>
   );
 };

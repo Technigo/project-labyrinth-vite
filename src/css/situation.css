@@ -1,0 +1,12 @@
+.situation-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt {
+  color: var(--primary-color);
+}
+
+.actions-container > * {
+  margin: 2rem;
+}

@@ -1,6 +1,7 @@
 import { useStore } from "../stores/useStore";
+import "../css/button.css";
 
-export const Move = ({ direction }) => {
+export const Button = ({ direction }) => {
   const { restart, fetchAction } = useStore();
 
   const handleClick = event => {
@@ -9,6 +10,7 @@ export const Move = ({ direction }) => {
 
   return (
     <button
+      className="btn move"
       onClick={handleClick}
       value={direction}>
       {`Go ${direction}`}

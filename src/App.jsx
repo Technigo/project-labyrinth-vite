@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useStore } from "./stores/useStore";
-import { Message } from "./components/Message";
+import { Situation } from "./components/Situation";
 import { Input } from "./components/Input";
 
 export const App = () => {
@@ -18,7 +18,7 @@ export const App = () => {
       ) : loading ? (
         <p>Adventure loading...</p>
       ) : (
-        <Message />
+        <Situation />
       )}
     </div>
   );
