@@ -1,8 +1,5 @@
+import { Home } from "./components/Home";
 
 export const App = () => {
-  return (
-  <div>
-    Labyrinth Project 
-  </div>
-  );
+  return <Home />;
 };
