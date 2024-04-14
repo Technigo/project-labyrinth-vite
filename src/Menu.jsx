@@ -1,3 +1,4 @@
+import "./Menu.css";
 import { useGameStateStore } from "./store";
 import { useState } from "react";
 export const Menu = () => {

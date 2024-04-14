@@ -1,7 +1,9 @@
+import "./App.css";
 import { useEffect } from "react";
 import { useGameStateStore } from "./store";
 import { Menu } from "./Menu";
 import { Game } from "./Game";
+
 
 export const App = () => {
   const username = useGameStateStore((state) => state.username);
@@ -16,7 +18,7 @@ export const App = () => {
   console.log(gameState);
 
   return (
-    <div>
+    <div className="App">
       {/* ! means not, show the menu when there is no username  */}
       {!username && <Menu />}
 
