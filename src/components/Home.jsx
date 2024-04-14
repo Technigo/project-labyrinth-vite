@@ -1,24 +1,20 @@
+import { useEffect } from "react";
 import { useLabyrinthStore } from "../store/useLabyrinthStore";
+import { UsernameInput } from "./UsernameInput";
+import { Scene } from "./Scene";
 
 export const Home = () => {
-  const { username, description, setNewUser, startGame } = useLabyrinthStore();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    startGame(username);
-    console.log(description.description);
-  };
+  const { apiData, username, loading } = useLabyrinthStore();
+
+  useEffect(() => {
+    console.log(apiData);
+  }, [username]);
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            type="text"
-            value={username}
-            onChange={(event) => setNewUser(event.target.value)}
-          />
-        </label>
-        <button type="submit">Start Game</button>
-      </form>
+      {!username ? <UsernameInput /> : <Scene />}
+      {loading && <div>Loading...</div>}
+      <div>{apiData.description}</div>
     </>
   );
 };
