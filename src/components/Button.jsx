@@ -1,11 +1,17 @@
 import { useStore } from "../stores/useStore";
 import "../css/button.css";
 
-export const Button = ({ direction }) => {
-  const { restart, fetchAction } = useStore();
+export const Button = ({ direction, action }) => {
+  const { restart, fetchAction, setHistory, setLoading } = useStore();
 
   const handleClick = event => {
-    direction === "home" ? restart() : fetchAction(event.target.value);
+    setLoading();
+    if (direction === "home") {
+      restart();
+    } else {
+      fetchAction(event.target.value);
+      setHistory({ action: action, move: direction });
+    }
   };
 
   return (

@@ -15,17 +15,20 @@ export const Input = () => {
   const handleChange = event => setNewName(event.target.value);
 
   return (
-    <form
-      name="name-form"
-      onSubmit={handleSubmit}>
-      <input
-        name="name-input"
-        type="text"
-        value={newName}
-        onChange={handleChange}
-        placeholder="Type username"
-      />
-      <button className="btn">Start game</button>
-    </form>
+    <div className="form-container">
+      <p>Enter a username to play</p>
+      <form
+        name="name-form"
+        onSubmit={handleSubmit}>
+        <input
+          name="name-input"
+          type="text"
+          value={newName}
+          onChange={handleChange}
+          placeholder="Type username"
+        />
+        <button className="btn">Start game</button>
+      </form>
+    </div>
   );
 };

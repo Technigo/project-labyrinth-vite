@@ -2,7 +2,6 @@ import { Button } from "./Button";
 import "../css/action.css";
 
 export const Action = ({ action }) => {
-  console.log(action);
   return (
     <details
       className="situation-details"
@@ -12,6 +11,7 @@ export const Action = ({ action }) => {
       <Button
         key={`m-${action.direction}`}
         direction={action.direction}
+        action={action.description}
       />
     </details>
   );
