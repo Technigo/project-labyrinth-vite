@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useStore } from "../stores/useStore";
+import "../css/input.css";
 
 export const Input = () => {
   const { setUserName } = useStore();
@@ -22,9 +23,9 @@ export const Input = () => {
         type="text"
         value={newName}
         onChange={handleChange}
-        placeholder="Pick your username"
+        placeholder="Type username"
       />
-      <button>Start game</button>
+      <button className="btn">Start game</button>
     </form>
   );
 };
