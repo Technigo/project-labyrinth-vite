@@ -2,7 +2,8 @@ import { create } from "zustand";
 
 export const useGameStateStore = create((set) => ({
   username: "",
-
+  // here we are declaring the loading after pressing button
+  loading: false,
   gameState: undefined,
 
   updateGameState: (newGameState) => set({ gameState: newGameState }),
@@ -23,6 +24,7 @@ export const useGameStateStore = create((set) => ({
   },
 
   move: (direction) => {
+    set({ loading: true });
     const username = useGameStateStore.getState().username;
     fetch("https://labyrinth.technigo.io/action", {
       method: "POST",
@@ -38,7 +40,7 @@ export const useGameStateStore = create((set) => ({
     })
       .then((res) => res.json())
       .then((res) => {
-        set({ gameState: res });
+        set({ gameState: res, loading: false });
       });
   },
 }));
