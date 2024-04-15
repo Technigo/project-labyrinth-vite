@@ -1,12 +1,18 @@
-import { AppContentStore } from '../stores/appContentStore'
+import { useState } from "react";
+import { appContentStore } from "../stores/appContentStore";
+import { Directions } from "./Directions";
 
 export const Game = () => {
-  const { gameData, progress } = AppContentStore()
+  const { gameData, progress } = appContentStore();
+  const [showDirections, setShowDirections] = useState(false);
+
   return (
     <div>
-      <button>Show Directions</button>
+      <button onClick={() => setShowDirections(true)}>Show Directions</button>
       <p>Current Level: {progress}</p>
       <p>Description: {gameData?.description}</p>
+
+      {showDirections && <Directions />}
     </div>
-  )
-}
+  );
+};
