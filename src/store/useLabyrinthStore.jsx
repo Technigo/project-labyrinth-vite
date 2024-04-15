@@ -5,6 +5,7 @@ export const useLabyrinthStore = create((set) => ({
   username: "",
   loading: false,
 
+
   startGame: async (userData) => {
     set({ loading: true });
     try {
@@ -25,5 +26,27 @@ export const useLabyrinthStore = create((set) => ({
     }
   },
 
-  
+  nextMove: async (username, moveDirection) => {
+    set({ loading: true });
+    try {
+      const response = await fetch("https://labyrinth.technigo.io/action", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          type: "move",
+          direction: moveDirection,
+        }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to move");
+      }
+      const data = await response.json();
+      set({ apiData: data });
+    } catch (error) {
+      console.error("Error when trying to move", error);
+    } finally {
+      set({ loading: false });
+    }
+  },
 }));
