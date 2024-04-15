@@ -10,12 +10,33 @@ export const Menu = () => {
   const onClick = () => {
     start(username);
   };
+  // to click button with press enter
+  const onSubmit = (event) => {
+    event.preventDefault();
+    start(username);
+  };
   return (
     <div className="Menu">
       <h1 className="Menu-title">Labyrinth Project</h1>
-      <p className="Menu-name">Start your adventure by entering your name below:</p>
-      <input className="Menu-input"onChange={onChange} type="text" placeholder="Enter your name" />
-      <button className="Menu-button"onClick={onClick}>Start</button>
+      <p className="Menu-name">
+        Start your adventure by entering your name below:
+      </p>
+      {/* htmlFor is so that when clicking the label, the cursor activates (its for accessibility)  */}
+
+      <form className="Menu-form" onSubmit={onSubmit}>
+        <label className="Menu-label" htmlFor="input">
+          Enter your username:
+        </label>
+        <input
+          className="Menu-input"
+          onChange={onChange}
+          type="text"
+          id="input"
+        />
+        <button className="Menu-button" onClick={onClick}>
+          Start
+        </button>
+      </form>
     </div>
   );
 };

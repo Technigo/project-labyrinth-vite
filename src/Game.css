@@ -1,0 +1,25 @@
+.Game {
+
+}
+
+.Game-description {
+
+}
+
+.Game-actions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;  
+} 
+
+.Game-navigate {
+  color: white;
+  background-color: black ;
+
+  &:disabled {
+    background-color: grey;
+  }
+}
