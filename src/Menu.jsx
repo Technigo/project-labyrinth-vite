@@ -11,11 +11,11 @@ export const Menu = () => {
     start(username);
   };
   return (
-    <div>
-      <h1>Labyrinth Project</h1>
-      <p>Start your adventure by entering your name below:</p>
-      <input onChange={onChange} type="text" placeholder="Enter your name" />
-      <button onClick={onClick}>Start</button>
+    <div className="Menu">
+      <h1 className="Menu-title">Labyrinth Project</h1>
+      <p className="Menu-name">Start your adventure by entering your name below:</p>
+      <input className="Menu-input"onChange={onChange} type="text" placeholder="Enter your name" />
+      <button className="Menu-button"onClick={onClick}>Start</button>
     </div>
   );
 };
