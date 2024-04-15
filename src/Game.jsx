@@ -13,7 +13,8 @@ export function Game() {
           <li key={index}>
             {/* here i made it so that the buttons are not clickble when loading */}
             <button
-              className="Game-navigate"
+        
+              className={`Game-navigate ${action.direction}`}
               disabled={loading}
               onClick={() => move(action.direction)}
             >
