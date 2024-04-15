@@ -14,6 +14,7 @@ export function Game() {
             {/* here i made it so that the buttons are not clickble when loading */}
             <button
         
+        // ${action.direction} is a template literal, it will be replaced with the value of action.direction
               className={`Game-navigate ${action.direction}`}
               disabled={loading}
               onClick={() => move(action.direction)}

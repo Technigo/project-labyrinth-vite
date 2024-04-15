@@ -2,6 +2,14 @@
 }
 
 .Game-description {
+  position: absolute;
+  top: 60px;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  bottom: calc(50% + 20px);
+  display: grid;
+  place-content: center;
 }
 
 .Game-actions {
@@ -28,4 +36,25 @@
   left: 50%;
   /* translateX(-50%) moves the element 50 % of its own width */
   transform: translateX(-50%);
+}
+
+.West {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+}
+
+.South {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.East {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
 }
