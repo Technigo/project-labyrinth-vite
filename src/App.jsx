@@ -1,8 +1,17 @@
+// import { CounterComponent } from "./components/CounterComponent";
+import { NewCounter } from "./components/NewCounter";
+import { UsernameInput } from "./components/UsernameInput";
+import { GameButton } from "./components/GameButton";
 
 export const App = () => {
   return (
-  <div>
-    Labyrinth Project 
-  </div>
+    <div>
+      <NewCounter />
+      <UsernameInput />
+      <p> Labyrinth Project </p>
+
+      <GameButton buttonName="East" />
+      <GameButton buttonName="South" />
+    </div>
   );
 };
