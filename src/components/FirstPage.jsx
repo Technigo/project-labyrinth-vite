@@ -4,19 +4,11 @@ import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { ActionPage } from "./ActionPage";
 
 export const FirstPage = () => {
-  const {
-    userName,
-    loading,
-    coordinates,
-    description,
-    actions,
-    error,
-    loggedIn,
-    startGame,
-  } = useLabyrinthStore();
+  const { loggedIn, startGame } = useLabyrinthStore();
   const [userInput, setUserInput] = useState("");
   const handleSubmit = e => {
     e.preventDefault();
+    setUserInput("");
     startGame(userInput);
   };
 
@@ -34,7 +26,9 @@ export const FirstPage = () => {
               onChange={e => setUserInput(e.target.value)}
             />
           </label>
-          <button type="submit">Submit</button>
+          <button disabled={userInput ? false : true} type="submit">
+            Submit
+          </button>
         </form>
       )}
     </div>
