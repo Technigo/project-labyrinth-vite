@@ -1,8 +1,14 @@
+import { Start } from './Start'
+import { Location } from './Location'
 
 export const App = () => {
-  return (
-  <div>
-    Labyrinth Project 
-  </div>
-  );
+  const data = useLabyrinthStore()
+
+  if (!data.username) {
+    return <Start />
+  }
+
+  return <Location  />
 };
+
+
