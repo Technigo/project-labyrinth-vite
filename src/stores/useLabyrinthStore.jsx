@@ -7,13 +7,17 @@ export const useLabyrinthStore = create(set => ({
   description: null,
   actions: null,
   error: null,
-  addUserName: name => {
-    set({ userName: name });
-  },
-  startGame: async () => {
-    set({ loading: true, error: null });
+  // addUserName: name => {
+  //   set({ userName: name });
+  // },
+  startGame: async name => {
+    set({ loading: true, error: null, userName: name });
     try {
-      const response = await fetch("https://labyrinth.technigo.io/start");
+      const response = await fetch("https://labyrinth.technigo.io/start", {
+        method: "POST",
+        body: JSON.stringify({ username: name }),
+        headers: { "Content-Type": "application/json" },
+      });
       if (!response.ok) {
         throw new Error("Fetching error");
       }
