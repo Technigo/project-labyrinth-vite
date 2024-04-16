@@ -16,28 +16,36 @@ export const useStore = create(
       fetch: () =>
         set(async state => {
           console.log("fetch");
-          const res = await fetch("https://labyrinth.technigo.io/start", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              username: state.userName,
-            }),
-          });
-          const apiData = await res.json();
-          set(state => ({
-            data: apiData,
-            loading: false,
-            gameHistory: [
-              ...state.gameHistory,
-              {
-                _id: state.gameHistory.length,
-                scene: apiData.description,
-                coord: apiData.coordinates,
+          try {
+            const res = await fetch("https://labyrinth.technigo.io/start", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
               },
-            ],
-          }));
+              body: JSON.stringify({
+                username: state.userName,
+              }),
+            });
+            console.log(res);
+            if (!res.ok) {
+              throw new Error("Failed to fetch posts", res);
+            }
+            const apiData = await res.json();
+            set(state => ({
+              data: apiData,
+              loading: false,
+              gameHistory: [
+                ...state.gameHistory,
+                {
+                  _id: state.gameHistory.length,
+                  scene: apiData.description,
+                  coord: apiData.coordinates,
+                },
+              ],
+            }));
+          } catch (error) {
+            console.log("Error fetching data: ", error);
+          }
         }),
 
       // Fetch next action
