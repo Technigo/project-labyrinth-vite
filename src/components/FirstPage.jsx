@@ -17,8 +17,8 @@ export const FirstPage = () => {
   const [userInput, setUserInput] = useState("");
   const handleSubmit = e => {
     e.preventDefault();
-    startGame(userInput);
     setUserInput("");
+    startGame(userInput);
   };
 
   return (
@@ -35,7 +35,9 @@ export const FirstPage = () => {
               onChange={e => setUserInput(e.target.value)}
             />
           </label>
-          <button type="submit">Submit</button>
+          <button disabled={userInput ? false : true} type="submit">
+            Submit
+          </button>
         </form>
       )}
     </div>
