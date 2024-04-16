@@ -7,6 +7,7 @@ export const useLabyrinthStore = create(set => ({
   description: null,
   actions: null,
   error: null,
+  loggedIn: false,
   // addUserName: name => {
   //   set({ userName: name });
   // },
@@ -27,6 +28,7 @@ export const useLabyrinthStore = create(set => ({
         coordinates: data.coordinates,
         description: data.description,
         actions: data.actions,
+        loggedIn: true,
       });
     } catch (error) {
       console.log("Error: ", error);
