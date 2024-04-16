@@ -1,21 +1,25 @@
 import { GameButton } from "./GameButton";
 import { TextBox } from "./TextBox";
 import { useGameStore } from "../stores/useGameStore";
+import "./PlayScreen.css"
 
 export const PlayScreen = () => {
     const { username } = useGameStore();
   return (
-      <div>
-          <p>{username}</p>
-      <p> Labyrinth Project </p>
+    <>
+                <p id="username">{username}</p>
+      <div className="text-area">
       <TextBox />
-
-      <GameButton buttonName="East" />
+      </div>
+<div className="button-cross">
+      <GameButton buttonName="East" id="east-button"/>
       <GameButton buttonName="South" />
       <GameButton buttonName="West" />
-          <GameButton buttonName="North" />
+      <GameButton buttonName="North" />
           
-          <GameButton buttonName="Restart" />
-    </div>
+
+      </div>
+         <GameButton buttonName="Restart" />
+      </>
   );
 };

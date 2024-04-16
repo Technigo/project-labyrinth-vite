@@ -55,8 +55,6 @@ export const GameButton = ({ buttonName }) => {
 
 
   return (
-    <div>
-      <button onClick={handleClick}>{buttonName}</button>
-    </div>
+      <button id={buttonName.toLowerCase()} className={`control-button ${buttonName}-button`} onClick={handleClick}>{buttonName}</button>
   );
 };

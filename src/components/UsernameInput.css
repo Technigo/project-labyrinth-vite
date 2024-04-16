@@ -1,0 +1,9 @@
+.name-box {
+  border-radius: 5px;
+  padding: 6px;
+}
+
+.name-label {
+  display: flex;
+  flex-direction: column;
+}

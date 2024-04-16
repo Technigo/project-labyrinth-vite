@@ -1,0 +1,21 @@
+.start-container {
+  background-color: rgba(203, 219, 169, 0.544);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  color: black;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+#start {
+  margin: 5px;
+}
+
+.start-user-info {
+  display: flex;
+  flex-direction: row;
+}

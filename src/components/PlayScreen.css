@@ -1,0 +1,66 @@
+.button-cross {
+  margin: auto;
+  width: 250px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    ". north ."
+    "west . east"
+    ". south .";
+}
+
+#username{
+    position: absolute;
+    top:0;
+    right:1rem;
+}
+
+.control-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: medium;
+}
+
+#east {
+  grid-area: east;
+}
+
+#south {
+  grid-area: south;
+}
+
+#west {
+  grid-area: west;
+}
+
+#north {
+  grid-area: north;
+}
+
+.text-area {
+border: 2px solid rgb(255, 255, 0, 0.3);
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.textbox p{
+    font-size: small;
+    padding: 1rem;
+}
+
+.textbox-direction {
+    border: 2px solid rgba(255, 255, 0, 1);
+    border-radius: 40px;
+    margin: 1rem;
+}
+
+
+
+#restart {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
