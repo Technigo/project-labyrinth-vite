@@ -2,16 +2,20 @@ import { create } from "zustand";
 
 export const useStartLabyrinthStore = create((set) => ({
   loading: false,
+  gameFlow: false,
   start: [],
+  userName: "",
   setUserName: (userInput) => set({ userName: userInput }),
-  fetchStart: async () => {
+  /* setGameFlow: (gameFlow) => set({ gameFlow: !gameFlow }), */
+  fetchStart: async (userName) => {
     set({ loading: true });
+    set({ gameFlow: false });
 
     try {
       const response = await fetch("https://labyrinth.technigo.io/start", {
         method: "POST",
         body: JSON.stringify({
-          username: "TestyTesty240416",
+          username: userName,
         }),
         headers: { "Content-Type": "application/json" },
       });
@@ -25,8 +29,9 @@ export const useStartLabyrinthStore = create((set) => ({
       const data = await response.json();
       console.log("Data from the fetch:", data);
       set({ start: data });
+      set({ gameFlow: true });
     } catch (error) {
-      console.Error("Error fetching data:", error);
+      console.error("Error fetching data:", error);
     } finally {
       set({ loading: false });
     }
