@@ -5,7 +5,8 @@ import { Input } from "./components/Input";
 import { Story } from "./components/Story";
 
 export const App = () => {
-  const { fetch, userName } = useStore();
+  const fetch = useStore(state => state.fetch);
+  const userName = useStore(state => state.userName);
 
   useEffect(() => {
     userName && fetch();
