@@ -1,8 +1,7 @@
 import { useGameStore } from "../stores/useGameStore";
-import { useEffect } from "react";
 
 export const GameButton = ({ buttonName }) => {
-  const { username, action, direction, setDirection, setIsStarted, isStarted, setLabData } =
+  const { username, action, direction, setDirection, setIsStarted, isStarted, setLabData, setIsLoading } =
     useGameStore();
 
   let url = "";
@@ -17,6 +16,7 @@ export const GameButton = ({ buttonName }) => {
 
 
   const postRequest = () => {
+    setIsLoading(true)
     fetch(url, {
       method: "POST", // or 'PUT'
       headers: { "Content-Type": "application/json" },
@@ -27,6 +27,7 @@ export const GameButton = ({ buttonName }) => {
       .then((data) => {
         console.log("Success:", data);
         setLabData(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);

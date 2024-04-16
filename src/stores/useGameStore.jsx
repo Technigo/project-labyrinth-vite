@@ -7,10 +7,12 @@ export const useGameStore = create((set) => ({
   count: 0,
   isStarted: false,
   labData: {},
+  isLoading: false,
 
   increment: () => set((state) => ({ count: state.count + 1 })),
   setDirection: (newDirection) => set({ direction: newDirection }),
   setUserName: (newUsername) => set({ username: newUsername }),
   setIsStarted: (isStarted) => set({ isStarted: !isStarted }),
   setLabData: (newLabData) => set({ labData: newLabData }),
+  setIsLoading: (isLoading) => set({ isLoading }),
 }));
