@@ -3,6 +3,7 @@ import { create } from "zustand";
 export const useStartLabyrinthStore = create((set) => ({
   loading: false,
   start: [],
+  setUserName: (userInput) => set({ userName: userInput }),
   fetchStart: async () => {
     set({ loading: true });
 
