@@ -6,6 +6,12 @@
   height: 100vh;
   row-gap: 1rem;
 }
+/* here we create the loading effect after typing in name and start the game  */
+.Menu-loading {
+  transition: opacity 0.5s;
+  opacity: 0;
+
+}
 
 .Menu-title {
   

@@ -1,3 +1,5 @@
+// use state is for local component and zuustand is for global component
+
 import { create } from "zustand";
 
 export const useGameStateStore = create((set) => ({
@@ -6,7 +8,9 @@ export const useGameStateStore = create((set) => ({
   loading: false,
   gameState: undefined,
 
-  updateGameState: (newGameState) => set({ gameState: newGameState }),
+  restart: () => {
+    set({ gameState: undefined });
+  },
 
   start: (username) => {
     set({ username });

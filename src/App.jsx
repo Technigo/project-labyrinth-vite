@@ -20,8 +20,7 @@ export const App = () => {
   return (
     <div className="App">
       {/* ! means not, show the menu when there is no username  */}
-      {!username && <Menu />}
-
+      {!gameState && <Menu />}
       {gameState && (
         <Game />
       )}
