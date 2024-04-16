@@ -21,20 +21,3 @@
   text-align: left;
 }
 
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 240px;
-  }
-}
-
-@keyframes blinkTextCursor {
-  from {
-    border-right: 2px solid white;
-  }
-  to {
-    border-right: 2px solid transparent;
-  }
-}

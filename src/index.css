@@ -60,52 +60,41 @@ h1 {
   font-family: "Rubik Scribble";
 }
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
 /* APP Component CSS */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  overflow-x: hidden;
 }
 
-@keyframes logo-spin {
+/* Animations */
+
+@keyframes typewriter {
   from {
-    transform: rotate(0deg);
+    width: 0;
   }
   to {
-    transform: rotate(360deg);
+    max-width: fit-content;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes blinkTextCursor {
+  from {
+    p::after {
+      border-right: 2px solid white;
+    }
+  }
+  to {
+    p::after{border-right: 2px solid transparent;}
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* Bio Comp */
-.bioComp {
-  border: 1px solid red;
-  margin-bottom: 1em;
-}
+/* @keyframes blinkTextCursor {
+  from {
+    border-right: 2px solid white;
+  }
+  to {
+    border-right: 2px solid transparent;
+  }
+} */

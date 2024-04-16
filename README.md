@@ -10,7 +10,12 @@
 
 This week we're practicing using Zustand by creating a classic text-based adventure game from the Technigo API. The storyline is done; all we have to do is create the logic and style.
 
-I found it pretty easy to get the basics down. The app is working now, from what I can tell. _I can't figure out how to get it to restart with the same username, though._
+I found it pretty easy to get the basics down. The app is working now, from what I can tell. I wish I could find a way to tell if the username is new or already in use, so that the user would know to find another...
+
+I'm having some issues with the fetch running twice intially, and some states updating when they shouldn't.
+I'm happy I found an easy way to put data in storage.
+
+There are some issues with how game history is set - there are way too many calls.
 
 #### Requirements
 
@@ -22,8 +27,11 @@ I found it pretty easy to get the basics down. The app is working now, from what
 
 #### Next
 
-- Basic styling
-- Display history
+- Installed a react typing animation which I might try to use instead of css.
+
+- If I can find pixel arrows, I will add those to indicate direction.
+
+- Trying to find a way to load the history separate, so it looks like only the newest is added. Don't know how...
 
 - I would like to do the classic look, with the game playing out in "the terminal". So it's going to take some styling, as well as some added functionality. For the real authentic feel, the user should have to type the commands aswell... don't really know how I would go about that. We'll see if I have time.
 

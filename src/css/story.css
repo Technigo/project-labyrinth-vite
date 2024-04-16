@@ -3,3 +3,10 @@
   padding-bottom: 4rem;
   border-bottom: white 2px dashed;
 }
+
+/* .game-history > div:last-of-type p:last-of-type {
+  animation: typewriter 6s 1s 1 normal both,
+  blinkTextCursor 0.5s infinite;
+  overflow: hidden;
+  white-space: nowrap;
+} */

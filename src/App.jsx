@@ -8,9 +8,9 @@ export const App = () => {
   const fetch = useStore(state => state.fetch);
   const userName = useStore(state => state.userName);
 
-  // useEffect(() => {
-  //   userName && setTimeout(fetch(), 5000);
-  // }, [userName]);
+  useEffect(() => {
+    userName && setTimeout(fetch(), 5000);
+  }, [userName]);
 
   return (
     <div>

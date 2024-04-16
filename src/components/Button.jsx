@@ -2,7 +2,9 @@ import { useStore } from "../stores/useStore";
 import "../css/button.css";
 
 export const Button = ({ direction, action }) => {
-  const { restart, fetchAction, setHistory, setLoading } = useStore();
+  const { fetchAction, setHistory } = useStore();
+  const restart = useStore(state => state.restart);
+  const setLoading = useStore(state => state.setLoading);
 
   const handleClick = event => {
     setLoading();
