@@ -18,7 +18,7 @@ Based on the choice (Go East or Go South), the state of the game (where the play
 In this project, you will start the game by doing a POST request to `https://labyrinth.technigo.io/start`.
 
 **Request**
-
+⭐⭐⭐⭐⭐⭐
 In the request **body,** you will need to include a username so the backend can track the state of your game. You are free to change this value to something specific/unique to your frontend.
 
 ```json

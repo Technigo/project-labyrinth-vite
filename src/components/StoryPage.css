@@ -1,0 +1,26 @@
+.story-page {
+    display: flex;
+}
+
+.story-book {
+    background-color: antiquewhite;
+    border: 1px solid gray;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-arrows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-container button {
+    background-color: none;
+    border: none;
+}
