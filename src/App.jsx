@@ -1,14 +1,11 @@
-import { Start } from './Start'
-import { Location } from './Location'
+import { Start } from "./components/Start";
+import { Location } from "./components/Location";
+import { useLabyrinthStore } from "./store/useLabyrinthStore";
 
 export const App = () => {
-  const data = useLabyrinthStore()
-
-  if (!data.username) {
-    return <Start />
+  const { username } = useLabyrinthStore();
+  if (!username) {
+    return <Start />;
   }
-
-  return <Location  />
+  return <Location />;
 };
-
-
