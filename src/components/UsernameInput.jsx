@@ -1,7 +1,7 @@
-import { useStore } from "../stores/useStore";
+import { useGameStore } from "../stores/useGameStore";
 
 export const UsernameInput = () => {
-  const { setUserName, username } = useStore();
+  const { setUserName, username } = useGameStore();
 
   return (
     <div>

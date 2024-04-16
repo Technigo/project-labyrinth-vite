@@ -1,19 +1,13 @@
-// import { CounterComponent } from "./components/CounterComponent";
-import { NewCounter } from "./components/NewCounter";
-import { UsernameInput } from "./components/UsernameInput";
-import { GameButton } from "./components/GameButton";
+import { useGameStore } from "./stores/useGameStore";
+import { WelcomeScreen } from "./components/WelcomeScreen";
+import { PlayScreen } from "./components/PlayScreen";
 
 export const App = () => {
+  const { isStarted } = useGameStore();
+
   return (
     <div>
-      <NewCounter />
-      <UsernameInput />
-      <p> Labyrinth Project </p>
-
-      <GameButton buttonName="East" />
-      <GameButton buttonName="South" />
-      <GameButton buttonName="West" />
-      <GameButton buttonName="North" />
-    </div>
+      {isStarted ? <PlayScreen /> : <WelcomeScreen />}
+      </div>
   );
 };

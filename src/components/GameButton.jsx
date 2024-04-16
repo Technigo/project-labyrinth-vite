@@ -1,9 +1,9 @@
-import { useStore } from "../stores/useStore";
+import { useGameStore } from "../stores/useGameStore";
 import { useEffect } from "react";
 
 export const GameButton = ({ buttonName }) => {
-  const { username, action, direction, setDirection, setIsStarted, isStarted } =
-    useStore();
+  const { username, action, direction, setDirection, setIsStarted, isStarted, setLabData } =
+    useGameStore();
 
   let url = "";
   const start_URL = "https://labyrinth.technigo.io/start";
@@ -14,7 +14,7 @@ export const GameButton = ({ buttonName }) => {
     type: action,
     direction: direction,
   };
-  console.log("This is our data", moveData);
+
 
   const postRequest = () => {
     fetch(url, {
@@ -26,6 +26,7 @@ export const GameButton = ({ buttonName }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
+        setLabData(data);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -34,7 +35,7 @@ export const GameButton = ({ buttonName }) => {
 
   const handleClick = () => {
     setDirection(buttonName);
-    console.log("Inside handleClick: ", url);
+    console.log("Inside handleClick: ", buttonName);
 
     if (isStarted) {
       url = action_URL;
@@ -42,8 +43,16 @@ export const GameButton = ({ buttonName }) => {
       url = start_URL;
       setIsStarted();
     }
-    postRequest();
+
+
+      if (buttonName === "Restart"){
+    setIsStarted();
+      }
+    
+        postRequest();
   };
+
+
 
   return (
     <div>

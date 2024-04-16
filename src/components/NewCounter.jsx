@@ -1,7 +1,7 @@
-import { useStore } from "../stores/useStore";
+import { useGameStore } from "../stores/useGameStore";
 
 export const NewCounter = () => {
-  const { count, increment } = useStore();
+  const { count, increment } = useGameStore();
 
   return (
     <div>
