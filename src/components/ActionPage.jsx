@@ -13,7 +13,11 @@ export const ActionPage = () => {
         <button
           value={action.direction}
           key={index}
-          onClick={e => makeMove(e.target.value)}
+          onClick={e => {
+            const direction = e.target.value;
+            console.log(direction);
+            makeMove(direction);
+          }}
         >
           {action.direction}
         </button>
