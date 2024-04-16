@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { ActionPage } from "./ActionPage";
 import "../style/FirstPage.css";
 
 export const FirstPage = () => {
+  // create ref for main container div
+  const bgImgRef = useRef();
+
   const { loggedIn, startGame } = useLabyrinthStore();
   const [userInput, setUserInput] = useState("");
   const handleSubmit = e => {
@@ -12,10 +15,18 @@ export const FirstPage = () => {
     startGame(userInput);
   };
 
+  // function that changes the background img
+  // maybe use Switch here to link url to relevant coordinate
+  const changeBgImg = () => {
+    // replace the url for each coordinate
+    bgImgRef.current.style.backgroundImage =
+      "url('src/assets/backgrounds/example.jpeg')";
+  };
+
   return (
-    <div className="main-container">
+    <div ref={bgImgRef} className="main-container">
       {loggedIn ? (
-        <ActionPage />
+        <ActionPage changeBgImg={changeBgImg} />
       ) : (
         <div className="start-container">
           <h1 className="heading">Labyrinth</h1>

@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 
-export const ActionPage = () => {
+export const ActionPage = ({ changeBgImg }) => {
   const { coordinates, description, actions, makeMove, restart } =
     useLabyrinthStore();
+
+  // useEffect that runs on mount of the component and changes the bg img
+  useEffect(() => {
+    changeBgImg();
+  }, [changeBgImg]);
 
   return (
     <div>
