@@ -1,7 +1,8 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 
 export const ActionPage = () => {
-  const { coordinates, description, actions, makeMove } = useLabyrinthStore();
+  const { coordinates, description, actions, makeMove, restart } =
+    useLabyrinthStore();
 
   return (
     <div>
@@ -17,6 +18,9 @@ export const ActionPage = () => {
           {action.direction}
         </button>
       ))}
+      <button type="button" onClick={restart}>
+        Restart
+      </button>
     </div>
   );
 };

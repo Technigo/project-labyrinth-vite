@@ -18,6 +18,7 @@ export const FirstPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     startGame(userInput);
+    setUserInput("");
   };
 
   return (

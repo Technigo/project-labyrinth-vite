@@ -8,9 +8,6 @@ export const useLabyrinthStore = create((set, get) => ({
   actions: null,
   error: null,
   loggedIn: false,
-  // addUserName: name => {
-  //   set({ userName: name });
-  // },
   startGame: async name => {
     set({ loading: true, error: null, userName: name });
     try {
@@ -65,5 +62,8 @@ export const useLabyrinthStore = create((set, get) => ({
     } finally {
       set({ loading: false });
     }
+  },
+  restart: () => {
+    set({ loggedIn: false });
   },
 }));
