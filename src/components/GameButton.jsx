@@ -1,47 +1,53 @@
 import { useStore } from "../stores/useStore";
+import { useEffect } from "react";
 
 export const GameButton = ({ buttonName }) => {
-  const { username, action, direction, setDirection } = useStore();
-  let toggleStart = false;
+  const { username, action, direction, setDirection, setIsStarted, isStarted } =
+    useStore();
+
   let url = "";
   const start_URL = "https://labyrinth.technigo.io/start";
   const action_URL = "https://labyrinth.technigo.io/action";
 
-  const move_Data = {
-    username: { username },
-    action: { action },
-    direction: { direction },
+  const moveData = {
+    username: username,
+    type: action,
+    direction: direction,
+  };
+  console.log("This is our data", moveData);
+
+  const postRequest = () => {
+    fetch(url, {
+      method: "POST", // or 'PUT'
+      headers: { "Content-Type": "application/json" },
+
+      body: JSON.stringify(moveData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
-  console.log("ButtonName: ", buttonName);
+  const handleClick = () => {
+    setDirection(buttonName);
+    console.log("Inside handleClick: ", url);
 
-  if (toggleStart) {
-    url = action_URL;
-  } else {
-    url = start_URL;
-    toggleStart = !toggleStart;
-  }
-  console.log("toggleStart: ", url);
-
-  console.log("This is our data", move_Data);
-
-  fetch(url, {
-    method: "POST", // or 'PUT'
-    headers: { "Content-Type": "application/json" },
-
-    body: JSON.stringify(move_Data),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    if (isStarted) {
+      url = action_URL;
+    } else if (isStarted === false) {
+      url = start_URL;
+      setIsStarted();
+    }
+    postRequest();
+  };
 
   return (
     <div>
-      <button>{buttonName}</button>
+      <button onClick={handleClick}>{buttonName}</button>
     </div>
   );
 };

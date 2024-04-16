@@ -12,6 +12,8 @@ export const App = () => {
 
       <GameButton buttonName="East" />
       <GameButton buttonName="South" />
+      <GameButton buttonName="West" />
+      <GameButton buttonName="North" />
     </div>
   );
 };
