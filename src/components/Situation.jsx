@@ -18,7 +18,7 @@ export const Situation = () => {
       ref={container}>
       {/* If status is loading, show message */}
       {loading ? (
-        <p>Adventure loading...</p>
+        <p className="loading">Adventure loading..........</p>
       ) : (
         // otherwise, show situation
         <>

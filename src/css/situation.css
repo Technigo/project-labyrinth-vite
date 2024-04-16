@@ -11,3 +11,30 @@
 .actions-container > * {
   margin: 2rem;
 }
+
+.loading {
+  width: fit-content;
+  animation: typewriter 6s 1s 1 normal both,
+  blinkTextCursor 0.5s infinite;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 240px;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right: 2px solid white;
+  }
+  to {
+    border-right: 2px solid transparent;
+  }
+}
