@@ -24,6 +24,7 @@ a:hover {
 }
 
 body {
+  position: relative;
   margin: 0;
   display: flex;
   place-items: center;
@@ -53,6 +54,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+#northBtn {
+  position: absolute;
+  top: 0;
 }
 
 @media (prefers-color-scheme: light) {

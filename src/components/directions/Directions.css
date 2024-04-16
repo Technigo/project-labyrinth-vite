@@ -1,0 +1,19 @@
+#northBtn {
+  position: absolute;
+  top: 0;
+}
+.directionContainer {
+  position: relative;
+}
+#southBtn {
+  position: absolute;
+  bottom: 0;
+}
+#eastBtn {
+  position: absolute;
+  right: 0;
+}
+#westBtn {
+  position: absolute;
+  left: 0;
+}
