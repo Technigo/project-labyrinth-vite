@@ -5,11 +5,11 @@ import "../styles/UserInput.css";
 export const UserInput = () => {
   const { userName, setUserName, fetchStart } = useStartLabyrinthStore();
 
-  const handleStartButtonClick = async () => {
-    try {
-      await fetchStart(userName); // Pass the userName to fetchStart
-    } catch (error) {
-      console.error("Error fetching data:", error);
+  const handleStartButtonClick = () => {
+    if (userName === "") {
+      alert("Please set a username. Thx!");
+    } else {
+      fetchStart(userName);
     }
   };
 
@@ -23,11 +23,7 @@ export const UserInput = () => {
         placeholder="drummrollonthestreet"
         value={userName}
         onChange={(event) => {
-          if (event.target.value.length === 0) {
-            alert("Please set the userName");
-          } else {
-            setUserName(event.target.value);
-          }
+          setUserName(event.target.value);
         }}
       />
       <button onClick={handleStartButtonClick}>Start Adventure</button>
