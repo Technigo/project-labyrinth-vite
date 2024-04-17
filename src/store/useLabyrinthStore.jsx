@@ -25,6 +25,9 @@ export const useLabyrinthStore = create((set) => ({
   updateActions: (newActions) => {
     set({ actions: newActions });
   },
+  updateLoggedIn: (newStatus) => {
+    set({ loggedIn: newStatus });
+  },
 
 
   startGame: async (nameInput) => {

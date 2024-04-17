@@ -3,9 +3,11 @@
 // action onclick that calls the API  https://labyrinth.technigo.io/action
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
 import '../styles/Action.css'
+import { useNavigate } from 'react-router-dom'
 
 export const Action = () => {
-  const { actions, updateActions } = useLabyrinthStore()
+  const { actions, updateActions, updateLoggedIn } = useLabyrinthStore()
+  const navigate = useNavigate();
 
   return (
     <>
@@ -24,6 +26,9 @@ export const Action = () => {
           <p>{action.description}</p>
         </div>
       ))}
+      <button type="submit" onClick={() => {
+        navigate("/") 
+        updateLoggedIn(false)}}>Restart</button>
     </>
   )
 }
