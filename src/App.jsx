@@ -1,8 +1,9 @@
+import GameComponent from "./components/GameComponent";
 
 export const App = () => {
   return (
-  <div>
-    Labyrinth Project 
-  </div>
+    <div>
+      <GameComponent />
+    </div>
   );
 };
