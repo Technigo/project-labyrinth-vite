@@ -17,8 +17,10 @@ export const UserInput = () => {
     <div className="input-page">
       <label htmlFor="user-input"> Choose a very unique Username :)</label>
       <input
+        className="input-field"
         id="user-input"
         type="text"
+        placeholder="drummrollonthestreet"
         value={userName}
         onChange={(event) => {
           if (event.target.value.length === 0) {
