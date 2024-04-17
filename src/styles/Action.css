@@ -5,8 +5,14 @@
     background-color: rgba(255, 193, 193, 0.466);
 }
 
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+}
+
 .eye {
     width: 50px;
+    animation: fadeIn 2.2s infinite alternate;
+    filter: drop-shadow(0 0 0.75rem rgb(220, 20, 20));
 }
 
 #toggleCheckbox {
@@ -18,13 +24,20 @@
     cursor: pointer;
 }
 
+
 .direction-info {
     display: none;
+    background-color: rgba(255, 193, 193, 0.466);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: justify;
+    box-shadow: 4px 4px 5px rgb(230, 173, 173);
 }
+  
 
 #toggleCheckbox:checked ~ .direction-info {
     display: flex;
