@@ -15,7 +15,7 @@ export const UserInfo = () => {
       <p>UserName: {userName} </p>
       <form onSubmit={handleSubmit}>
         <label>
-          New UserName:
+          Enter your username:
           <input
             type="text"
             value={userName}
@@ -23,6 +23,7 @@ export const UserInfo = () => {
             onChange={handleUserNameChange}
           />
         </label>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

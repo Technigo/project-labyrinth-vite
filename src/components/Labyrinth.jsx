@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { useUserStore } from "../stores/useUserStore";
 
@@ -23,7 +24,10 @@ export const Labyrinth = () => {
     <div>
       <h2>User</h2>
       <p>Name: {userName}</p>
-      <p>Startdata: {startData.coordinates}</p>
+      <p>Coordinates: {startData.coordinates}</p>
+      <p>Description: {startData.description}</p>
+      <button>Actions: {startData.actions[0].direction}</button>
+
     </div>
   ) : null;
 };

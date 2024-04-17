@@ -5,9 +5,6 @@ export const useLabyrinthStore = create((set) => ({
   loading: false,
   error: null,
   startData: null,
-  coordinates: null,
-  description: null,
-  actions: [],
 
   fetchStartData: async (userName) => {
     //Check if userName is empty
@@ -35,7 +32,8 @@ export const useLabyrinthStore = create((set) => ({
       }
 
       const data = await response.json();
-      console.log(data);
+      console.log(data.actions[0].direction);
+      set({ startData: data.actions[0] });
     } catch (error) {
       console.log("Error", error);
       set({ error: error });
