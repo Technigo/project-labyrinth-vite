@@ -1,5 +1,6 @@
 .start-container {
   background-color: rgba(203, 219, 169, 0.544);
+
   border-radius: 50px;
   display: flex;
   flex-direction: column;

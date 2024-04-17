@@ -1,12 +1,24 @@
 import { useGameStore } from "../stores/useGameStore";
 
 export const GameButton = ({ buttonName }) => {
-  const { username, action, direction, setDirection, setIsStarted, isStarted, setLabData, setIsLoading } =
-    useGameStore();
+  const {
+    username,
+    action,
+    direction,
+    setDirection,
+    setIsStarted,
+    isStarted,
+    setLabData,
+    setIsLoading,
+  } = useGameStore();
 
   let url = "";
   const start_URL = "https://labyrinth.technigo.io/start";
   const action_URL = "https://labyrinth.technigo.io/action";
+
+  /*const userData = {
+    username: username
+  };*/
 
   const moveData = {
     username: username,
@@ -14,9 +26,8 @@ export const GameButton = ({ buttonName }) => {
     direction: direction,
   };
 
-
   const postRequest = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(url, {
       method: "POST", // or 'PUT'
       headers: { "Content-Type": "application/json" },
@@ -45,17 +56,20 @@ export const GameButton = ({ buttonName }) => {
       setIsStarted();
     }
 
+    if (buttonName === "Restart") {
+      setIsStarted();
+    }
 
-      if (buttonName === "Restart"){
-    setIsStarted();
-      }
-    
-        postRequest();
+    postRequest();
   };
 
-
-
   return (
-      <button id={buttonName.toLowerCase()} className={`control-button ${buttonName}-button`} onClick={handleClick}>{buttonName}</button>
+    <button
+      id={buttonName.toLowerCase()}
+      className={`control-button ${buttonName}-button`}
+      onClick={handleClick}
+    >
+      {buttonName}
+    </button>
   );
 };
