@@ -1,11 +1,13 @@
-import create from "zustand";
+import { create } from "zustand";
 
 export const useGameStore = create((set) => ({
-  setUsername: (username) => set({ username }), 
+  gameStarted: false,
   description: "",
   actions: [],
-  loading: false,
+  setLoading: (loading) => set({ loading }),
   setDescription: (description) => set({ description }),
   setActions: (actions) => set({ actions }),
-  setLoading: (loading) => set({ loading }),
+  setGameStarted: (gameStarted) => set({ gameStarted }),
+  updateGame: (data) =>
+    set({ description: data.description, actions: data.actions }),
 }));

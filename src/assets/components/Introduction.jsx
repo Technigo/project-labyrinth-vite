@@ -1,4 +1,7 @@
-export const Introduction = ({ onStartGame }) => {
+
+export const Introduction = ({ onStartGame, onTurnBack }) => {
+  // onStartGame and onTurnBack are passed as props from the parent component (GameContainer)
+
   return (
     <div>
       <h2>The Lost City of Azura</h2>
@@ -10,7 +13,6 @@ export const Introduction = ({ onStartGame }) => {
         you unravel the secrets of Azura, or will you become another lost soul
         swallowed by the jungle?
       </p>
-      <h3>Introduction:</h3>
       <p>
         As you push through the thick foliage, you stumble upon an ancient stone
         doorway half-buried in the overgrowth. A sense of excitement pulses
@@ -24,7 +26,7 @@ export const Introduction = ({ onStartGame }) => {
           </button>
         </li>
         <li>
-          <button onClick={() => console.log("Player chose to turn back.")}>
+          <button onClick={onTurnBack}>
             Turn back and reconsider your options.
           </button>
         </li>
