@@ -1,12 +1,15 @@
-import Lottie from "lottie-react";
-import compassAnimation from "./lf20_exfgqmmf.json"; // Importera din Lottie-fil
+import { Player } from "@lottiefiles/react-lottie-player"
 
-const CompassAnimation = () => {
+export const CompassAnimation = () => {
   return (
-    <div>
-      <Lottie animationData={compassAnimation} />
+    <div className="Animation-container">
+      <Player
+        loop
+        autoplay
+        src="https://assets7.lottiefiles.com/packages/lf20_exfgqmmf.json"
+        className="lottie"
+        speed={1}
+      />
     </div>
-  );
-};
-
-export default CompassAnimation;
+  )
+}
