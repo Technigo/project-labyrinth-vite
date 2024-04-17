@@ -1,14 +1,21 @@
-// action description
-// action button
-// action onclick that calls the API  https://labyrinth.technigo.io/action
+
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
 import '../styles/Action.css'
 import { useNavigate } from 'react-router-dom'
 
 export const Action = () => {
-  const { actions, updateActions, updateLoggedIn, changeLocation } = useLabyrinthStore()
+  const { actions, updateActions, updateLoggedIn, changeLocation, username } =
+    useLabyrinthStore();
   const navigate = useNavigate();
 
+  const handleAction = async (direction) => {
+      try {
+        await changeLocation(username, direction, "move");
+      } catch (error) {
+        console.log("error:", error);
+      }
+    };
+  
   return (
     <>
       {actions.map((action, index) => (
@@ -20,7 +27,7 @@ export const Action = () => {
             onClick={e => {
                 const directionChoice = e.target.value
                 updateActions(directionChoice)
-                changeLocation()
+                handleAction(directionChoice);
             }}> 
             {action.direction}
           </button>
