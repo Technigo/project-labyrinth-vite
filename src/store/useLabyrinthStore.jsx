@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand'
 
 export const useLabyrinthStore = create((set) => ({
   username: null,
@@ -9,27 +9,26 @@ export const useLabyrinthStore = create((set) => ({
   actions: [],
   loading: false,
   error: null,
-  move: "move",
+  move: 'move',
 
   updateUsername: (newUsername) => {
-    set({ username: newUsername });
+    set({ username: newUsername })
   },
   updateId: (newId) => {
-    set({ username: newId });
+    set({ username: newId })
   },
   updateCoordinates: (newCoordinates) => {
-    set({ coordinates: newCoordinates });
+    set({ coordinates: newCoordinates })
   },
   updateDescription: (newDescription) => {
-    set({ description: newDescription });
+    set({ description: newDescription })
   },
   updateActions: (newActions) => {
-    set({ actions: newActions });
+    set({ actions: newActions })
   },
   updateLoggedIn: (newStatus) => {
-    set({ loggedIn: newStatus });
+    set({ loggedIn: newStatus })
   },
-
 
   startGame: async (nameInput) => {
     set({ loading: true, error: null })
@@ -59,12 +58,12 @@ export const useLabyrinthStore = create((set) => ({
     }
   },
 
-  changeLocation: async (id, actions, move ) => {
+  changeLocation: async (id, actions, move) => {
     set({ loading: true, error: null })
     try {
       const response = await fetch('https://labyrinth.technigo.io/action', {
         method: 'POST',
-        body: JSON.stringify({ username: id, type: move, direction: actions}),
+        body: JSON.stringify({ username: id, type: move, direction: actions }),
         headers: { 'Content-Type': 'application/json' },
       })
       if (!response.ok) {
@@ -77,7 +76,7 @@ export const useLabyrinthStore = create((set) => ({
         description: newData.description,
         actions: newData.actions,
       })
-      console.log(newData.actions)
+      console.log('newData:', newData.actions)
     } catch (error) {
       console.log('error:', error)
       set({ error: error })
@@ -85,5 +84,7 @@ export const useLabyrinthStore = create((set) => ({
       set({ loading: false })
     }
   },
-
+  restart: () => {
+    set({ loggedIn: false });
+  },
 }))

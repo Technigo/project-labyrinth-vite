@@ -12,7 +12,7 @@ export const Location = () => {
     const { description, loading } = useLabyrinthStore()
 
     return(
-        <main className="location">
+        <section className="location">
         {loading && (
         <p>loading</p> 
         )}
@@ -23,6 +23,6 @@ export const Location = () => {
         <Action />
         </>
         )}
-        </main>
+        </section>
     )
  };

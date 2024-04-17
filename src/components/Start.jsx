@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLabyrinthStore } from "../store/useLabyrinthStore";
-import { useNavigate } from 'react-router-dom'
+import { Location } from '../components/Location'
 import '../styles/Start.css'
 import uniqid from 'uniqid';
 
@@ -8,7 +8,6 @@ export const Start = () => {
   //state variables
   const [ inputUsername, setInputUsername ] = useState("");
   const [ uniqueId, setUniqueId ] = useState("")
-  const navigate = useNavigate();
   //Store
   const { updateUsername, updateId, loggedIn, startGame } = useLabyrinthStore();
 
@@ -23,7 +22,7 @@ export const Start = () => {
     startGame(uniqueId);
     updateUsername(inputUsername);
     updateId(uniqueId)
-
+    setInputUsername("")
   };
 
   // render an input, value = inputUsername, onChange =
@@ -32,9 +31,9 @@ export const Start = () => {
   // put return data into the store
 
   return (
-    <main className="start">
+    <main className="main-container">
       {loggedIn ? (
-      navigate("/labyrinth")
+      <Location />
       ) : (
     <form onSubmit={onSubmit}>
       <input
