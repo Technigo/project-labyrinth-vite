@@ -5,13 +5,22 @@ import '../styles/Action.css'
 import eye from '../assets/eye.svg'
 
 export const Action = ({changeBackground}) => {
-  const { actions, updateActions, updateLoggedIn, changeLocation, username, updateCoordinates } =
-    useLabyrinthStore();
+  const {
+    actions,
+    updateActions,
+    updateLoggedIn,
+    changeLocation,
+    username,
+    updateCoordinates,
+    updateHistory,
+  } = useLabyrinthStore();
     const directionInfo = useRef()
 
   const handleAction = async (direction) => {
       try {
         await changeLocation(username, direction, "move");
+        updateHistory(direction);
+
       } catch (error) {
         console.log("error:", error);
       }

@@ -21,3 +21,12 @@
     width: 500px;
     box-shadow: 0 4px 8px 0 rgb(216, 114, 114), 0 6px 20px 0 rgb(209, 81, 81);
 }
+
+.history {
+  background-color: rgba(231, 177, 177, 0.493);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 4rem;
+    width: 500px;
+    box-shadow: 0 4px 8px 0 rgb(216, 114, 114), 0 6px 20px 0 rgb(209, 81, 81);
+}
