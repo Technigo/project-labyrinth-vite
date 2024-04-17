@@ -1,10 +1,9 @@
 import { appContentStore } from "../stores/appContentStore"
 import { Options } from "./Options"
-import temple from "../assets/pexels-julia-volk-5769409.jpg"
 import "./StoryPage.css"
 
 export const StoryPage = () => {
-  const { loading, userName, gameData, directions, toggleLoading, setGameData, setDirections } = appContentStore()
+  const { loading, userName, gameData, directions, imageLink, toggleLoading, setGameData, setDirections, setImageLink } = appContentStore()
 
   const continueStory = (direction) => {
     toggleLoading();
@@ -24,7 +23,9 @@ export const StoryPage = () => {
         setDirections([json.actions[0].direction])
       } else if (json.actions.length === 2) {
         setDirections([json.actions[0].direction, json.actions[1].direction])
-      }})
+      }
+      setImageLink(json.coordinates)
+    })
     .catch((error) => {
       console.log("error:", error);
     })
@@ -42,15 +43,15 @@ export const StoryPage = () => {
     return (
       <div className="story-page">
         <div className="story-book">
-          <img src={temple} alt="Temple in the djungle." />
+          <img src={imageLink} alt={gameData.description} />
           <p>{gameData.description}</p>
           <Options />
-          <p>Where do you go?</p>
+          <p>{gameData.actions.length > 0 ? "Where do you go?" : ""}</p>
         </div>
         <div className="arrow-container">
           <button
             onClick={() => continueStory("North")}
-            disabled={directions.length !== 0 && !directions.includes("North")}
+            disabled={directions.length === 0 || !directions.includes("North")}
           >
             <p>Go North</p>
             <img src="/arrow-up.png" alt="up-arrow" />
@@ -58,14 +59,14 @@ export const StoryPage = () => {
           <div className="side-arrows">
             <button
               onClick={() => continueStory("West")}
-              disabled={directions.length !== 0 && !directions.includes("West")}
+              disabled={directions.length === 0 || !directions.includes("West")}
             >
               <p>Go West</p>
               <img src="/arrow-left.png" alt="left-arrow" />
             </button>
             <button
               onClick={() => continueStory("East")}
-              disabled={directions.length !== 0 && !directions.includes("East")}
+              disabled={directions.length === 0 || !directions.includes("East")}
             >
               <p>Go East</p>
               <img src="/arrow-right.png" alt="right-arrow" />
@@ -73,12 +74,11 @@ export const StoryPage = () => {
           </div>
           <button
             onClick={() => continueStory("South")}
-            disabled={directions.length !== 0 && !directions.includes("South")}
+            disabled={directions.length < 1 || !directions.includes("South")}
           >
             <p>Go South</p>
             <img src="/arrow-down.png" alt="down-arrow" />
           </button>
-          <p>Coordinates: {gameData.coordinates}</p>
         </div>
       </div>
     );}

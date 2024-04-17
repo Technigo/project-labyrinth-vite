@@ -48,7 +48,6 @@ The response you receive will contain:
 ```
 
 ## Continue the game
-⭐⭐⭐⭐⭐⭐
 When the user clicks/chooses any action, you should send a POST request to
 
 `https://labyrinth.technigo.io/action`
@@ -74,7 +73,7 @@ You will receive a response with a new description and the next set of actions t
 How you present the description and the actions are completely up to you. Maybe you want to sort the directions (East, North, West, South) or put them in some graphical order. Perhaps you would like to add an interactable compass.
 
 ### Request response time
-
+⭐⭐⭐⭐⭐⭐
 This project's backend is designed so that there is some delay until the request returns from the server. If you notice that your request takes some time, this is intentional, think about a way of making this waiting time okay for your users. Add a loading state of some sort.
 
 ## Planning
