@@ -10,7 +10,7 @@
 
 This week we're practicing using Zustand by creating a classic text-based adventure game from the Technigo API. The storyline is done; all we have to do is create the logic and style.
 
-I found it pretty easy to get the basics down. The app is working now, from what I can tell. I wish I could find a way to tell if the username is new or already in use, so that the user would know to find another...
+I found it pretty easy to get the basics down. The app is working now, from what I can tell. I wish I could find a way to tell if the username is new or already in use, so that the user would know to find another... After some input fom coaches, I instead added a random userId to ensure the username is always unique.
 
 I'm having some issues with the fetch running twice intially, and some states updating when they shouldn't.
 I'm happy I found an easy way to put data in storage.

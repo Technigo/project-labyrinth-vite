@@ -7,8 +7,8 @@ export const useStore = create(
       data: {}, // Data from API
       loading: true,
       coord: "",
-      // userName: "sofias-labyrinth-adventure",  // fixed username
-      userName: "", // If username in storage, else empty
+      userName: "",
+      userId: 123456789,
       gameHistory: [],
 
       // Functions
@@ -23,10 +23,9 @@ export const useStore = create(
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                username: state.userName,
+                username: `${state.userName}_${state.userId}`,
               }),
             });
-            console.log(res);
             if (!res.ok) {
               throw new Error("Failed to fetch posts", res);
             }
@@ -51,26 +50,33 @@ export const useStore = create(
       // Fetch next action
       fetchAction: direction =>
         set(async state => {
-          const res = await fetch("https://labyrinth.technigo.io/action", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              username: state.userName,
-              type: "move",
-              direction: direction,
-            }),
-          });
-          const apiData = await res.json();
-          set({
-            data: apiData,
-            loading: false,
-            gameHistory: [
-              ...state.gameHistory,
-              { _id: state.gameHistory.length, coord: apiData.coordinates },
-            ],
-          });
+          try {
+            const res = await fetch("https://labyrinth.technigo.io/action", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                username: `${state.userName}_${state.userId}`,
+                type: "move",
+                direction: direction,
+              }),
+            });
+            if (!res.ok) {
+              throw new Error("Failed to fetch posts", res);
+            }
+            const apiData = await res.json();
+            set({
+              data: apiData,
+              loading: false,
+              gameHistory: [
+                ...state.gameHistory,
+                { _id: state.gameHistory.length, coord: apiData.coordinates },
+              ],
+            });
+          } catch (error) {
+            console.log("Error fetching data: ", error);
+          }
         }),
 
       // Set loading to true
@@ -79,6 +85,12 @@ export const useStore = create(
       // Set username from user input, and save to local
       setUserName: userInput => {
         set({ userName: userInput });
+      },
+
+      setUserId: () => {
+        const min = 100000000; // Minimum 9-digit number
+        const max = 999999999; // Maximum 9-digit number
+        set({ userId: Math.floor(Math.random() * (max - min + 1)) + min });
       },
 
       // Restart adventure and clear storage
@@ -106,6 +118,7 @@ export const useStore = create(
       partialize: state => ({
         userName: state.userName,
         gameHistory: state.gameHistory,
+        userId: state.userId,
       }),
     }
   )

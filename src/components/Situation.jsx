@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 
 export const Situation = () => {
   const { data, loading } = useStore();
+  const userName = useStore(state => state.userName);
   const container = useRef();
 
   useEffect(() => {
@@ -22,6 +23,9 @@ export const Situation = () => {
       ) : (
         // otherwise, show situation
         <>
+          {data.coordinates === "0,0" && (
+            <p>Hello {userName}! Let&apos;s start from the beginning!</p>
+          )}
           <p className="situation-desc">{data.description}</p>
           <p className="prompt">Where do you want to go next?</p>
           <div className="actions-container">
