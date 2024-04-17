@@ -1,34 +1,32 @@
-// StartGame.jsx
 import { useEffect } from "react";
-import { useGameState } from "../gameStore";
+import { useGameStore } from "../stores/useGameStore";
 
 export const StartGame = () => {
-  const { updateGame } = useGameState();
-
-  const startGame = async () => {
-    try {
-      const response = await fetch("https://labyrinth.technigo.io/start", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username: "The Lost City of Azura" }),
-      });
-      const data = await response.json();
-      updateGame({
-        loading: false,
-        description: data.description,
-        actions: data.actions,
-      });
-    } catch (error) {
-      console.error("Error starting the game:", error);
-    }
-  };
+  const { setUsername, setDescription, setActions, setLoading } =
+    useGameStore();
 
   useEffect(() => {
+    const startGame = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("https://labyrinth.technigo.io/start", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: "TechnigoPlayer" }),
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setDescription(data.description);
+        setActions(data.actions);
+      } catch (error) {
+        console.error("Failed to start game:", error);
+      }
+      setLoading(false);
+    };
+
     startGame();
-  }, []); 
-
-  return null; 
+  }, [setUsername, setDescription, setActions, setLoading]);
+  return null;
 };
-
