@@ -9,6 +9,7 @@ export const useLabyrinthStore = create((set) => ({
   actions: [],
   loading: false,
   error: null,
+  move: "move",
 
   updateUsername: (newUsername) => {
     set({ username: newUsername });
@@ -31,7 +32,7 @@ export const useLabyrinthStore = create((set) => ({
 
 
   startGame: async (nameInput) => {
-    set({ loading: true, error: null, userName: nameInput })
+    set({ loading: true, error: null })
     try {
       const response = await fetch('https://labyrinth.technigo.io/start', {
         method: 'POST',
@@ -43,7 +44,6 @@ export const useLabyrinthStore = create((set) => ({
       }
       const data = await response.json()
       console.log(data)
-      console.log(nameInput)
       set({
         coordinates: data.coordinates,
         description: data.description,
@@ -58,4 +58,32 @@ export const useLabyrinthStore = create((set) => ({
       set({ loading: false })
     }
   },
+
+  changeLocation: async (id, actions, move ) => {
+    set({ loading: true, error: null })
+    try {
+      const response = await fetch('https://labyrinth.technigo.io/action', {
+        method: 'POST',
+        body: JSON.stringify({ username: id, type: move, direction: actions}),
+        headers: { 'Content-Type': 'application/json' },
+      })
+      if (!response.ok) {
+        throw new Error('Could not fetch')
+      }
+      const newData = await response.json()
+      console.log(newData)
+      set({
+        coordinates: newData.coordinates,
+        description: newData.description,
+        actions: newData.actions,
+      })
+      console.log(newData.actions)
+    } catch (error) {
+      console.log('error:', error)
+      set({ error: error })
+    } finally {
+      set({ loading: false })
+    }
+  },
+
 }))

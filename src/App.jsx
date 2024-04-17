@@ -7,7 +7,7 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Start />} />
-        <Route path="/location" element={<Location />} />
+        <Route path="/labyrinth" element={<Location />} />
       </Routes>
     </BrowserRouter>
   )

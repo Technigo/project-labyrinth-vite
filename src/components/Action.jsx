@@ -6,7 +6,7 @@ import '../styles/Action.css'
 import { useNavigate } from 'react-router-dom'
 
 export const Action = () => {
-  const { actions, updateActions, updateLoggedIn } = useLabyrinthStore()
+  const { actions, updateActions, updateLoggedIn, changeLocation } = useLabyrinthStore()
   const navigate = useNavigate();
 
   return (
@@ -18,8 +18,9 @@ export const Action = () => {
             type="submit"
             value={action.direction}
             onClick={e => {
-                const direction = e.target.value
-                updateActions(direction)
+                const directionChoice = e.target.value
+                updateActions(directionChoice)
+                changeLocation()
             }}> 
             {action.direction}
           </button>

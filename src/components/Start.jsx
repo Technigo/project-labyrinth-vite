@@ -34,7 +34,7 @@ export const Start = () => {
   return (
     <main className="start">
       {loggedIn ? (
-      navigate("/location")
+      navigate("/labyrinth")
       ) : (
     <form onSubmit={onSubmit}>
       <input
