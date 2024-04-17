@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import { appContentStore } from "../stores/appContentStore"
 
 export const StartPage = () => {
-    const { userName, toggleLoading, setGameData, setUserName } = appContentStore()
+    const { userName, toggleLoading, setGameData, setUserName, setDirections } = appContentStore()
     const focusRef = useRef()
 
     useEffect(() => {
@@ -20,9 +20,12 @@ export const StartPage = () => {
         })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
         setGameData(json)
-      })
+        if (json.actions.length === 1) {
+        setDirections([json.actions[0].direction])
+      } else if (json.actions.length === 2) {
+        setDirections([json.actions[0].direction, json.actions[1].direction])
+      }})
       .catch((error) => {
         console.log("error:", error)
       })
