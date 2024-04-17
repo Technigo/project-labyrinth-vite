@@ -1,40 +1,42 @@
-import { useState } from "react";
-import { useLabyrinthStore } from "../store/useLabyrinthStore";
-import { useNavigate } from 'react-router-dom'
+import { useState, useRef } from "react"
+import { useLabyrinthStore } from "../store/useLabyrinthStore"
+import { Location } from '../components/Location'
 import '../styles/Start.css'
-import uniqid from 'uniqid';
+import uniqid from 'uniqid'
 
 export const Start = () => {
   //state variables
-  const [ inputUsername, setInputUsername ] = useState("");
+  const [ inputUsername, setInputUsername ] = useState("")
   const [ uniqueId, setUniqueId ] = useState("")
-  const navigate = useNavigate();
+  //useRef
+  const backgroundRef = useRef()
   //Store
-  const { updateUsername, updateId, loggedIn, startGame } = useLabyrinthStore();
+  const { updateUsername, updateId, loggedIn, startGame, coordinates } = useLabyrinthStore()
+
 
   const onUsernameChange = (e) => {
-    const username = e.target.value;
-    setInputUsername(username);
+    const username = e.target.value
+    setInputUsername(username)
     setUniqueId(username + uniqid())
-  };
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
     startGame(uniqueId);
     updateUsername(inputUsername);
     updateId(uniqueId)
+    setInputUsername("")
+  }
 
-  };
-
-  // render an input, value = inputUsername, onChange =
-  // render submit button
-  // when clicking submit, post to the API to start the game
-  // put return data into the store
+  const changeBackground = (image) => {
+    console.log(image)
+    backgroundRef.current.style.backgroundImage = `url('public/${image}.jpg')`
+  }
 
   return (
-    <main className="start">
+    <main className="main-container" ref={backgroundRef}>
       {loggedIn ? (
-      navigate("/labyrinth")
+      <Location changeBackground={changeBackground}/>
       ) : (
     <form onSubmit={onSubmit}>
       <input
@@ -49,5 +51,5 @@ export const Start = () => {
     </form>
       )}
     </main>
-  );
-};
+  )
+}

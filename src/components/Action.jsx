@@ -1,12 +1,10 @@
 
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
 import '../styles/Action.css'
-import { useNavigate } from 'react-router-dom'
 
-export const Action = () => {
-  const { actions, updateActions, updateLoggedIn, changeLocation, username } =
+export const Action = ({changeBackground}) => {
+  const { actions, updateActions, updateLoggedIn, changeLocation, username, updateCoordinates } =
     useLabyrinthStore();
-  const navigate = useNavigate();
 
   const handleAction = async (direction) => {
       try {
@@ -35,8 +33,9 @@ export const Action = () => {
         </div>
       ))}
       <button type="submit" onClick={() => {
-        navigate("/") 
-        updateLoggedIn(false)}}>Restart</button>
+        updateLoggedIn(false)
+        updateCoordinates("start")
+        changeBackground("start")}}>Restart</button>
     </>
   )
 }

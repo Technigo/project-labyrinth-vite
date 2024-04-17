@@ -1,13 +1,19 @@
+import { useEffect } from 'react';
 import { Action } from './Action'
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
 import '../styles/Location.css'
 
-export const Location = () => {
+export const Location = ({changeBackground}) => {
 
-    const { description, loading } = useLabyrinthStore()
+    const { description, loading, coordinates } = useLabyrinthStore()
+
+    useEffect(() => {
+        changeBackground(coordinates)
+        console.log(coordinates)
+     }, [changeBackground, coordinates] )
 
     return(
-        <main className="location">
+        <section className="location">
         {loading && (
         <p>loading</p> 
         )}
@@ -15,9 +21,9 @@ export const Location = () => {
         <>
         <h2>Description:</h2>
         <p>{description}</p>
-        <Action />
+        <Action changeBackground={changeBackground} />
         </>
         )}
-        </main>
+        </section>
     )
  };

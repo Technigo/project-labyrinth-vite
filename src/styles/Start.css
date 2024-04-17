@@ -1,7 +1,7 @@
-.start{
+.main-container{
     width: 100vw;
     height: 100vh;
-    background-image: url('/mountain.png');
+    background-image: url('/start.jpg');
     background-repeat: no-repeat;
     background-position: center; 
     background-size: cover;
