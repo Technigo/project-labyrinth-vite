@@ -2,8 +2,8 @@
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
 import '../styles/Action.css'
 
-export const Action = () => {
-  const { actions, updateActions, updateLoggedIn, changeLocation, username } =
+export const Action = ({changeBackground}) => {
+  const { actions, updateActions, updateLoggedIn, changeLocation, username, updateCoordinates } =
     useLabyrinthStore();
 
   const handleAction = async (direction) => {
@@ -33,7 +33,9 @@ export const Action = () => {
         </div>
       ))}
       <button type="submit" onClick={() => {
-        updateLoggedIn(false)}}>Restart</button>
+        updateLoggedIn(false)
+        updateCoordinates("start")
+        changeBackground("start")}}>Restart</button>
     </>
   )
 }
