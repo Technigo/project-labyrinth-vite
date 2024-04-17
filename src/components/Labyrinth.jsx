@@ -26,8 +26,14 @@ export const Labyrinth = () => {
       <p>Name: {userName}</p>
       <p>Coordinates: {startData.coordinates}</p>
       <p>Description: {startData.description}</p>
-      <button>Actions: {startData.actions[0].direction}</button>
-
+      <ul>
+        {startData.actions.map((action, index) => (
+          <li key={index}>
+            Type: {action.type}, Direction: {action.direction}, Description:{" "}
+            {action.description}
+          </li>
+        ))}
+      </ul>
     </div>
   ) : null;
 };

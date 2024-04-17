@@ -32,11 +32,11 @@ export const useLabyrinthStore = create((set) => ({
       }
 
       const data = await response.json();
-      console.log(data.actions[0].direction);
-      set({ startData: data.actions[0] });
+      console.log(data);
+      set({ startData: data });
     } catch (error) {
       console.log("Error", error);
-      set({ error: error });
+      set({ error });
     } finally {
       set({ loading: false });
     }
