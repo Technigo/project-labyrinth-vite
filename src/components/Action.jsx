@@ -1,10 +1,13 @@
 
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
+import { useRef } from "react"
 import '../styles/Action.css'
+import eye from '../assets/eye.svg'
 
 export const Action = ({changeBackground}) => {
   const { actions, updateActions, updateLoggedIn, changeLocation, username, updateCoordinates } =
     useLabyrinthStore();
+    const directionInfo = useRef()
 
   const handleAction = async (direction) => {
       try {
@@ -18,6 +21,11 @@ export const Action = ({changeBackground}) => {
     <>
       {actions.map((action, index) => (
         <div key={index} className={action.direction}>
+          <input type="checkbox" id="toggleCheckbox"/>
+          <label htmlFor="toggleCheckbox">
+          <img src={eye} className="eye" alt="see more"/></label>
+          <div ref={directionInfo} className="direction-info">
+          <p ref={directionInfo}>{action.description}</p>
           <button
             id={action.direction}
             type="submit"
@@ -29,10 +37,10 @@ export const Action = ({changeBackground}) => {
             }}> 
             {action.direction}
           </button>
-          <p>{action.description}</p>
+          </div>
         </div>
       ))}
-      <button type="submit" onClick={() => {
+      <button className="restart" onClick={() => {
         updateLoggedIn(false)
         updateCoordinates("start")
         changeBackground("start")}}>Restart</button>

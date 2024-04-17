@@ -1,5 +1,70 @@
-.East{
-    display: flex;
-    flex-direction: column; 
+.restart {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: rgba(255, 193, 193, 0.466);
+}
+
+.eye {
+    width: 50px;
+}
+
+#toggleCheckbox {
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.direction-info {
+    display: none;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+#toggleCheckbox:checked ~ .direction-info {
+    display: flex;
+  }
+
+
+.North {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 4rem;
+    left: 45%;
+}
+
+.South {
+    width: 300px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: absolute;
+    bottom: 4rem;
+    left: 45%;
+}
+
+.East {
+    width: 500px;
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    right: 4rem;
+    top: 45%;
+    word-wrap: wrap;
+}
+
+.West {
+    width: 400px;
+    display: flex;
+    position: absolute;
+    left: 4rem;
+    top: 45%;
 }

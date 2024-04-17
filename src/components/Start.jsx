@@ -11,7 +11,7 @@ export const Start = () => {
   //useRef
   const backgroundRef = useRef()
   //Store
-  const { updateUsername, updateId, loggedIn, startGame, coordinates } = useLabyrinthStore()
+  const { updateUsername, updateId, loggedIn, startGame } = useLabyrinthStore()
 
 
   const onUsernameChange = (e) => {
