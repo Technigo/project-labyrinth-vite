@@ -17,6 +17,7 @@ export const UserInput = () => {
         {" "}
         Choose a very unique Username :)
         <input
+          type="text"
           value={userName}
           onChange={(event) => setUserName(event.target.value)}
         />

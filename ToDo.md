@@ -4,7 +4,7 @@
 
 3. Display the description and actions from the response DONE
 
-4. Get the Username from the User and implement it into the fetch
+4. Get the Username from the User and implement it into the fetch DONE
 
 5. Allow the user/player to select an action
 

@@ -3,10 +3,10 @@ import { create } from "zustand";
 export const useStartLabyrinthStore = create((set) => ({
   loading: false,
   gameFlow: false,
-  start: [],
+  start: {},
   userName: "",
   setUserName: (userInput) => set({ userName: userInput }),
-  /* setGameFlow: (gameFlow) => set({ gameFlow: !gameFlow }), */
+
   fetchStart: async (userName) => {
     set({ loading: true });
     set({ gameFlow: false });
@@ -14,10 +14,10 @@ export const useStartLabyrinthStore = create((set) => ({
     try {
       const response = await fetch("https://labyrinth.technigo.io/start", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: userName,
         }),
-        headers: { "Content-Type": "application/json" },
       });
 
       if (!response.ok) {
