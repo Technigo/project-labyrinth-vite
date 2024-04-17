@@ -1,35 +1,28 @@
 import { useEffect } from "react";
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+import { useUserStore } from "../stores/useUserStore";
 
 export const Labyrinth = () => {
   //Destructure the data
-  const {
-    userName,
-    startData,
-    loading,
-    error,
-    fetchStartData,
-    coordinates,
-    description,
-    actions,
-  } = useLabyrinthStore();
+  const { userName } = useUserStore();
+  const { startData, loading, error, fetchStartData } = useLabyrinthStore();
 
   useEffect(() => {
-    fetchStartData();
-  }, [fetchStartData]);
+    fetchStartData(userName);
+  }, [fetchStartData, userName]);
 
   if (loading) {
     return <div>Loading...</div>;
   }
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>{error.message}</div>;
   }
 
   //Not finished, need to get some form of state?
   return startData ? (
     <div>
       <h2>User</h2>
-      <p>Name: {userName.username}</p>
+      <p>Name: {userName}</p>
       <p>Startdata: {startData.coordinates}</p>
     </div>
   ) : null;

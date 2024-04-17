@@ -2,7 +2,6 @@ import { create } from "zustand";
 
 export const useLabyrinthStore = create((set) => ({
   // Defining the initial states
-  userName: null,
   loading: false,
   error: null,
   startData: null,
@@ -10,7 +9,16 @@ export const useLabyrinthStore = create((set) => ({
   description: null,
   actions: [],
 
-  fetchStartData: async () => {
+  fetchStartData: async (userName) => {
+    //Check if userName is empty
+    if (!userName.length > 0) {
+      set((prevState) => ({
+        ...prevState,
+        error: new Error("You must enter a username to start"),
+      }));
+      return;
+    }
+
     //optimistic coding, set error to null, because not expecting error
     set({ loading: true, error: null });
     try {
@@ -18,7 +26,7 @@ export const useLabyrinthStore = create((set) => ({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: "hejohå",
+          username: userName,
         }),
       });
 
