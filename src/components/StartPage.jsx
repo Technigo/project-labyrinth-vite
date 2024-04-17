@@ -39,7 +39,7 @@ export const StartPage = () => {
 
   return (
     <div>
-      <p>Hello {userName}</p>
+      <h1>Welcome!</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Tell us your name:

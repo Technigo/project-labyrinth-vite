@@ -5,7 +5,6 @@ import "./StoryPage.css"
 
 export const StoryPage = () => {
   const { loading, userName, gameData, directions, toggleLoading, setGameData, setDirections } = appContentStore()
-  //const disableButton = directions.length !== 0 && !directions.includes("West")
 
   const continueStory = (direction) => {
     toggleLoading();
@@ -80,7 +79,6 @@ export const StoryPage = () => {
             <img src="/arrow-down.png" alt="down-arrow" />
           </button>
           <p>Coordinates: {gameData.coordinates}</p>
-          <p>Directions: {directions}</p>
         </div>
       </div>
     );}
