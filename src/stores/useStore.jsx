@@ -29,16 +29,16 @@ export const useStore = create(
             if (!res.ok) {
               throw new Error("Failed to fetch posts", res);
             }
-            const apiData = await res.json();
+            const startData = await res.json();
             set(state => ({
-              data: apiData,
+              data: startData,
               loading: false,
               gameHistory: [
                 ...state.gameHistory,
                 {
                   _id: state.gameHistory.length,
-                  scene: apiData.description,
-                  coord: apiData.coordinates,
+                  scene: startData.description,
+                  coord: startData.coordinates,
                 },
               ],
             }));
@@ -65,13 +65,17 @@ export const useStore = create(
             if (!res.ok) {
               throw new Error("Failed to fetch posts", res);
             }
-            const apiData = await res.json();
+            const actionData = await res.json();
             set({
-              data: apiData,
+              data: actionData,
               loading: false,
               gameHistory: [
                 ...state.gameHistory,
-                { _id: state.gameHistory.length, coord: apiData.coordinates },
+                {
+                  _id: state.gameHistory.length,
+                  scene: actionData.description,
+                  coord: actionData.coordinates,
+                },
               ],
             });
           } catch (error) {
@@ -87,6 +91,7 @@ export const useStore = create(
         set({ userName: userInput });
       },
 
+      // Set random 9 digit Id to ensure unique user
       setUserId: () => {
         const min = 100000000; // Minimum 9-digit number
         const max = 999999999; // Maximum 9-digit number
