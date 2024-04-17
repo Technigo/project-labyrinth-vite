@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400..700&family=Luckiest+Guy&display=swap");
+
+/*general styling*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+p {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+h1 {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5em;
+  color: black;
+}
+
+h2 {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5em;
+  color: black;
+}
+
+.paragraph {
+  padding: 20px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.75em;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.content-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+  padding: 20px 0;
+  background: white;
+  border-radius: 20px;
+}
+
+.para-bold {
+  font-weight: 700;
+}

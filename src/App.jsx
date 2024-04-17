@@ -1,6 +1,8 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Home } from './components/Home'
-import { Game } from './components/Game'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home } from "./components/Home";
+import { Game } from "./components/Game";
+
+import "./App.css";
 
 export const App = () => {
   return (
@@ -11,5 +13,5 @@ export const App = () => {
         <Route path="/game" element={<Game />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
