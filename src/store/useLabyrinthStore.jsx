@@ -6,7 +6,7 @@ export const useLabyrinthStore = create((set) => ({
   loggedIn: false,
   coordinates: null,
   description: null,
-  actions: null,
+  actions: [],
   loading: false,
   error: null,
 
