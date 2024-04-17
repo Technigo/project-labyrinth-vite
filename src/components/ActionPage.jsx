@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 
 export const ActionPage = ({ changeBgImg }) => {
@@ -7,8 +8,8 @@ export const ActionPage = ({ changeBgImg }) => {
 
   // useEffect that runs on mount of the component and changes the bg img
   useEffect(() => {
-    changeBgImg();
-  }, [changeBgImg]);
+    changeBgImg(coordinates);
+  }, [changeBgImg, coordinates]);
 
   return (
     <div>
@@ -28,7 +29,14 @@ export const ActionPage = ({ changeBgImg }) => {
           {action.direction}
         </button>
       ))}
-      <button type="button" onClick={restart}>
+      <button
+        type="button"
+        onClick={() => {
+          restart();
+          // change background back to start page
+          changeBgImg("start");
+        }}
+      >
         Restart
       </button>
     </div>
