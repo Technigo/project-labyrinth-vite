@@ -9,7 +9,7 @@ const useGameStore = create((set) => ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: "UniqueUsername",
+        username: "TechnigoPlayer123",
       }),
     });
     const data = await response.json();
