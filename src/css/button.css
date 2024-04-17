@@ -8,6 +8,7 @@
   background-color: #888;
   cursor: pointer;
   transition: border-color 0.25s ease-in-out;
+  color: black;
 }
 
 .move {
@@ -15,8 +16,9 @@
 }
 
 .btn:hover {
-  border-color: var(--primary-color);
-  box-shadow: drop-shadow(0 0 2em #61dafbaa);
+  border-color: white;
+  color: white;
+  background-color: var(--primary-color);
 }
 
 .btn:focus,

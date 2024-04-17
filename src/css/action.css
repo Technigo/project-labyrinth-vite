@@ -4,6 +4,7 @@
 
 .situation-details > summary {
   font-family: "Silkscreen bold";
+  cursor: pointer;
 }
 
 .situation-details > summary:focus {
