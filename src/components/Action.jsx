@@ -2,6 +2,7 @@
 // action button
 // action onclick that calls the API  https://labyrinth.technigo.io/action
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
+import '../styles/Action.css'
 
 export const Action = () => {
   const { actions, updateActions } = useLabyrinthStore()
@@ -11,7 +12,7 @@ export const Action = () => {
       {actions.map((action, index) => (
         <div key={index} className={action.direction}>
           <button
-            className={action.direction}
+            id={action.direction}
             type="submit"
             value={action.direction}
             onClick={e => {

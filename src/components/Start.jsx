@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLabyrinthStore } from "../store/useLabyrinthStore";
 import { Location } from './Location'
+import '../styles/Start.css'
 import uniqid from 'uniqid';
 
 export const Start = () => {
@@ -30,7 +31,7 @@ export const Start = () => {
   // put return data into the store
 
   return (
-    <div>
+    <main className="start">
       {loggedIn ? (
         <Location />
       ) : (
@@ -46,6 +47,6 @@ export const Start = () => {
           </button>
     </form>
       )}
-    </div>
+    </main>
   );
 };
