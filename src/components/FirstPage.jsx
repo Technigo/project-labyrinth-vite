@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
+
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { ActionPage } from "./ActionPage";
+
 import "../style/FirstPage.css";
 
 export const FirstPage = () => {
@@ -16,11 +18,9 @@ export const FirstPage = () => {
   };
 
   // function that changes the background img
-  // maybe use Switch here to link url to relevant coordinate
-  const changeBgImg = () => {
+  const changeBgImg = coordinates => {
     // replace the url for each coordinate
-    bgImgRef.current.style.backgroundImage =
-      "url('src/assets/backgrounds/example.jpeg')";
+    bgImgRef.current.style.backgroundImage = `url('src/assets/backgrounds/${coordinates}.jpeg')`;
   };
 
   return (

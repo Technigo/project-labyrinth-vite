@@ -14,6 +14,7 @@ export const useLabyrinthStore = create((set, get) => ({
     try {
       const response = await fetch("https://labyrinth.technigo.io/start", {
         method: "POST",
+        // mode: "no-cors",
         body: JSON.stringify({ username: encryptedName }),
         headers: { "Content-Type": "application/json" },
       });
