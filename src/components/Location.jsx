@@ -1,8 +1,3 @@
-// Location which renders
-/**
- * location description
- * location actions
- */ 
 import { Action } from './Action'
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
 import '../styles/Location.css'
