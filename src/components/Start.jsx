@@ -1,22 +1,27 @@
 import { useState } from "react";
 import { useLabyrinthStore } from "../store/useLabyrinthStore";
+import { Location } from './Location'
+import uniqid from 'uniqid';
 
 export const Start = () => {
-  const [inputUsername, setInputUsername] = useState("");
-  const { updateUsername, updateCoordinates } = useLabyrinthStore();
+  //state variables
+  const [ inputUsername, setInputUsername ] = useState("");
+  const [ uniqueId, setUniqueId ] = useState("")
+  //Store
+  const { updateUsername, updateId, loggedIn, startGame } = useLabyrinthStore();
 
   const onUsernameChange = (e) => {
     const username = e.target.value;
     setInputUsername(username);
+    setUniqueId(username + uniqid())
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const result = await startGame(inputUsername);
+    startGame(uniqueId);
     updateUsername(inputUsername);
-    updateCoordinates({ x: result.coordinates[0], y: result.coordinates[1] });
-    // updateDescription()
-    console.log(result);
+    updateId(uniqueId)
+
   };
 
   // render an input, value = inputUsername, onChange =
@@ -25,6 +30,10 @@ export const Start = () => {
   // put return data into the store
 
   return (
+    <div>
+      {loggedIn ? (
+        <Location />
+      ) : (
     <form onSubmit={onSubmit}>
       <input
         placeholder="Username"
@@ -32,20 +41,11 @@ export const Start = () => {
         value={inputUsername}
         onChange={onUsernameChange}
       />
-      <button type="submit">Submit</button>
+      <button disabled={inputUsername ? false : true} type="submit">
+            Submit
+          </button>
     </form>
+      )}
+    </div>
   );
 };
-
-async function startGame(username) {
-  const result = await fetch("https://labyrinth.technigo.io/start", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json", // Correct way to set Content-Type
-    },
-    body: JSON.stringify({ username: username }),
-  });
-  const resultJson = await result.json();
-
-  return resultJson;
-}
