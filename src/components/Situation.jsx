@@ -3,6 +3,7 @@ import { Action } from "./Action";
 import "../css/situation.css";
 import { Button } from "./Button";
 import { useEffect, useRef } from "react";
+import { TypeAnimation } from "react-type-animation";
 
 export const Situation = () => {
   const { data, loading } = useStore();
@@ -27,7 +28,13 @@ export const Situation = () => {
             <p>Hello {userName}! Let&apos;s start from the beginning!</p>
           )}
           <p className="situation-desc">{data.description}</p>
-          <p className="prompt">Where do you want to go next?</p>
+          <TypeAnimation
+            sequence={[`Where do you want to go next ${userName}?`]}
+            wrapper="span"
+            className="prompt"
+            speed={30}
+            repeat={1}
+          />
           <div className="actions-container">
             {data.actions.length > 0 ? (
               data.actions.map(opt => {

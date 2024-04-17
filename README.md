@@ -17,6 +17,8 @@ I'm happy I found an easy way to put data in storage.
 
 There are some issues with how game history is set - there are way too many calls.
 
+Found a fun typing animation package!
+
 #### Requirements
 
 - Your Labyrinth game should guide the user with instructions about the game and moves to make
@@ -27,13 +29,11 @@ There are some issues with how game history is set - there are way too many call
 
 #### Next
 
-- Installed a react typing animation which I might try to use instead of css.
-
 - If I can find pixel arrows, I will add those to indicate direction.
 
 - Trying to find a way to load the history separate, so it looks like only the newest is added. Don't know how...
 
-- I would like to do the classic look, with the game playing out in "the terminal". So it's going to take some styling, as well as some added functionality. For the real authentic feel, the user should have to type the commands aswell... don't really know how I would go about that. We'll see if I have time.
+- I would like to do the classic look, with the game playing out in "the terminal". So it's going to take some styling, as well as some added functionality. For the real authentic feel, the user should have to type the commands aswell... We'll see if I have time.
 
 ### View it live
 
