@@ -1,29 +1,43 @@
-import { useEffect } from 'react';
+// Location which renders
+/**
+ * location description
+ * location actions
+ */ 
+import { useEffect } from 'react'
 import { Action } from './Action'
 import { useLabyrinthStore } from '../store/useLabyrinthStore'
+import animation from '../assets/Animation.json'
+import Lottie from 'lottie-react'
 import '../styles/Location.css'
 
-export const Location = ({changeBackground}) => {
+export const Location = ({ changeBackground }) => {
+  const { description, loading, coordinates } = useLabyrinthStore()
 
-    const { description, loading, coordinates } = useLabyrinthStore()
+  useEffect(() => {
+    changeBackground(coordinates)
+    console.log(coordinates)
+  }, [changeBackground, coordinates])
 
-    useEffect(() => {
-        changeBackground(coordinates)
-        console.log(coordinates)
-     }, [changeBackground, coordinates] )
-
-    return(
-        <section className="location">
-        {loading && (
-        <p>loading</p> 
-        )}
-        {!loading && (
+  return (
+    <section className="location">
+      {loading && (
+        <div id="lottie">
+          <Lottie
+            animationData={animation}
+            loop
+            autoPlay
+            style={{ width: 200, height: 200 }}
+          />
+        </div>
+      )}
+      {!loading && (
         <>
-        <h2>Description:</h2>
-        <p>{description}</p>
-        <Action changeBackground={changeBackground} />
+          <div className="current-description">
+            <h3>{description}</h3>
+          </div>
+          <Action changeBackground={changeBackground} />
         </>
-        )}
-        </section>
-    )
- };
+      )}
+    </section>
+  )
+}
