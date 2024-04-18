@@ -4,7 +4,7 @@ export const useGameStore = create((set, get) => ({
   description: "",
   actions: [],
   coordinates: "",
-  loading: false, 
+  loading: false,
   gameStarted: false,
 
   // Setter functions
@@ -16,7 +16,8 @@ export const useGameStore = create((set, get) => ({
 
   // Async action to perform game moves
   performAction: async (type, direction) => {
-    get().setLoading(true); 
+    const { setLoading, set } = get();
+    setLoading(true);
     try {
       const response = await fetch("https://labyrinth.technigo.io/action", {
         method: "POST",
@@ -33,23 +34,17 @@ export const useGameStore = create((set, get) => ({
       }
 
       const data = await response.json();
-      get().setDescription(data.description);
-      get().setActions(data.actions);
-      get().setCoordinates(data.coordinates); 
+      console.log("Updating state with:", data);
+
+      set({
+        description: data.description,
+        actions: data.actions,
+        coordinates: data.coordinates,
+        loading: false,
+      });
     } catch (error) {
       console.error("Error handling action:", error);
-    } finally {
-      get().setLoading(false); 
+      setLoading(false); // Use setLoading for consistency
     }
-  },
-
-  // Reset game to initial state
-  resetGame: () => {
-    set({
-      coordinates: "",
-      actions: [],
-      description: "", 
-      loading: false, 
-    });
   },
 }));
