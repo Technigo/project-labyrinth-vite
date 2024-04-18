@@ -1,5 +1,6 @@
 import { useAudio } from "./UseAudio" 
 import { useState } from "react"
+import "../css/login.css";
 
 const LoginComponent = ({ onLogin }) => {
   const [username, setUsername] = useState("")
@@ -15,8 +16,9 @@ const LoginComponent = ({ onLogin }) => {
   }
 
   return (
-    <div>
-      <h2>Logga in</h2>
+<div className="login-container">   
+<h1>My Labyrinth Game</h1>
+
       <button className="audio-button" onClick={toggleAudio}>
         {isPlaying ? "Pause" : "Play"} Audio
       </button>

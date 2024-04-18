@@ -87,7 +87,7 @@ const GameComponent = ({ username }) => {
       {isLoading ? (
         <CompassAnimation />
       ) : (
-        <>
+        <div className="game-container">
           <p>{gameState?.description}</p>
           <button className="audio-button" onClick={toggleAudio}>
             {isPlaying ? "Pause" : "Play"} Audio
@@ -111,7 +111,7 @@ const GameComponent = ({ username }) => {
                 </li>
               ))}
           </ul>
-        </>
+          </div>
       )}
     </div>
   )

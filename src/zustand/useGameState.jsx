@@ -12,6 +12,27 @@ const useGameState = create((set) => ({
   volume: 1,
   toggleMusic: () => set((state) => ({ musicPlaying: !state.musicPlaying })),
   setVolume: (volume) => set({ volume }),
+
+  getBackgroundImage: (coordinates) => {
+    switch (coordinates) {
+      case "0,0":
+        return "./assets/start.jpg";
+      case "1,0":
+        return "./assets/one.jpg";
+      case "1,1":
+        return "./assets/two.jpg";
+      case "0,1":
+        return "./assets/three.jpg";
+      case "0,2":
+        return "./assets/four.jpg";
+      case "0,3":
+        return "./assets/five.jpg";
+      case "1,3":
+        return "./assets/last.jpg";
+      default:
+        return "./assets/zero.jpg";
+    }
+  },
 }))
 
 export default useGameState
