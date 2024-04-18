@@ -35,15 +35,26 @@ export const Location = ({ changeBackground }) => {
           <div className='current-description'>
             <h3>{description}</h3>
           </div>
-          {history.length > 0 && (
-            <div className='history'>
-              <ul>
-                {history.map((direction, index) => (
-                  <li key={index}>{direction}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div className='history-container'>
+            <h2 className='history-header'>Your path</h2>
+            {history.length > 0 && (
+              <div className='history'>
+                <ul>
+                  {history.map((direction, index) => (
+                    <li key={index}>
+                      {direction}
+                      {index < history.length - 1 && (
+                        <>
+                          <br />
+                          <span>↓</span>
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
           <Action changeBackground={changeBackground} />
         </>
       )}

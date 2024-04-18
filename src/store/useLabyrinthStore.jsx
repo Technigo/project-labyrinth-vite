@@ -36,7 +36,7 @@ export const useLabyrinthStore = create(
       set((state) => ({ history: [...state.history, direction] }));
     },
     startGame: async (nameInput) => {
-      set({ loading: true, error: null });
+      set({ loading: true, error: null, history: [] });
       try {
         const response = await fetch('https://labyrinth.technigo.io/start', {
           method: 'POST',
