@@ -1,6 +1,6 @@
-/* .home-container {
-  display: flex;
-} */
+.home-container {
+  background-image: url(/public/labyrinth.jpg);
+}
 
 .home-img {
   width: 100%;
@@ -27,6 +27,6 @@
 }
 
 input {
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   color: white;
 }
