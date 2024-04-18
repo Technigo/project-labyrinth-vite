@@ -38,7 +38,7 @@ export const useLabyrinthStore = create((set) => ({
   },
 
   fetchMove: async (userName, direction) => {
-    set({ loading: true, gameMode: true });
+    set({ loading: true });
 
     try {
       const response = await fetch("https://labyrinth.technigo.io/action", {
@@ -53,19 +53,52 @@ export const useLabyrinthStore = create((set) => ({
 
       if (!response.ok) {
         throw new Error(
-          "Failed to step in to the labyrinth. Please reload the page and try again."
+          "Failed to step into the labyrinth. Please reload the page and try again."
         );
       }
 
       const data = await response.json();
       console.log("Data from the second fetch:", data);
+
+      // Update the start object in the store with the new data
+      set({ start: data, loading: false });
     } catch (error) {
       console.error("Error fetching data:", error);
-    } finally {
       set({ loading: false });
     }
   },
 }));
+
+// fetchMove: async (userName, direction) => {
+//   set({ loading: true, gameMode: true });
+
+//   try {
+//     const response = await fetch("https://labyrinth.technigo.io/action", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({
+//         username: userName,
+//         type: "move",
+//         direction: direction,
+//       }),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error(
+//         "Failed to step in to the labyrinth. Please reload the page and try again."
+//       );
+//     }
+
+//     const data = await response.json();
+//     console.log("Data from the second fetch:", data);
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//   } finally {
+//     set({ loading: false });
+//   }
+// },
+
+/*-------------------------------
 
 /* import { create } from "zustand";
 
