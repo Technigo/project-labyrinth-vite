@@ -5,6 +5,10 @@ export const useLabyrinthStore = create((set) => ({
   loading: false,
   error: null,
   startData: null,
+  gameData: null,
+  direction: null,
+  setDirection: (userDirection) => set({direction: userDirection}),
+  setGameData: (data) => set({gameData: data}),
 
   fetchStartData: async (userName) => {
     //Check if userName is empty
@@ -41,4 +45,8 @@ export const useLabyrinthStore = create((set) => ({
       set({ loading: false });
     }
   },
+
+/*   fetchGameData: async(userName) => {
+    set({loading: true, error: null})
+  } */
 }));
