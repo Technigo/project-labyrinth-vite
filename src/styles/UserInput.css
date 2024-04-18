@@ -21,7 +21,7 @@
   align-items: center;
   margin: 10%;
   gap: 10px;
-  border:5px solid black;
+  border: 5px solid black;
   /* border-radius: 10px; */
   padding: 50px;
   font-size: 20px;
@@ -48,9 +48,7 @@
 }
 
 .start-button:hover {
-    background: linear-gradient(to bottom, #c9362b #f45536, #ffd34f);
-    text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
-    border: 2px solid black;
+  background: linear-gradient(to bottom, #c9362b #f45536, #ffd34f);
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+  border: 2px solid black;
 }
-
-
