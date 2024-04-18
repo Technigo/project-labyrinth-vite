@@ -5,6 +5,14 @@ import "./UsernameInput.css";
 export const UsernameInput = () => {
   const { setUserName, username } = useGameStore();
 
+  const onSubmit = () => {
+    if (!username) {
+      alert("Please enter an user name");
+    } else {
+      setUserName(username);
+    }
+  };
+
   return (
     <div>
       <p>{username} </p> New Username:
@@ -12,16 +20,7 @@ export const UsernameInput = () => {
         <label className="name-label">
           <input type="text" className="name-box" value={username} />
         </label>
-        <GameButton
-          buttonName="Start"
-          onClick={() => {
-            if (username.length === 0) {
-              alert("Please write a user name");
-            } else {
-              setUserName(username);
-            }
-          }}
-        />
+        <GameButton buttonName="Start" onClick={onSubmit} />
       </div>
     </div>
   );
