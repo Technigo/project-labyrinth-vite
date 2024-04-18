@@ -5,7 +5,7 @@ export const useStartLabyrinthStore = create((set) => ({
   gameFlow: false,
   start: {},
   userName: "",
-  direction: {},
+  direction: "",
   setUserName: (userInput) => set({ userName: userInput }),
 
   fetchStart: async (userName) => {
@@ -46,7 +46,7 @@ export const useStartLabyrinthStore = create((set) => ({
       const response = await fetch("https://labyrinth.technigo.io/action", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        body: JSON.stringify({ 
           username: userName,
           type: "move",
           direction: direction,
