@@ -1,14 +1,9 @@
-import { Labyrinth } from "./components/Labyrinth";
-import { UserInfo } from "./components/UserInfo";
+import { Home } from "./components/Home";
 
 export const App = () => {
   return (
-    <>
-      <div>
-        Labyrinth Project
-        <UserInfo />
-      </div>
-      <Labyrinth />
-    </>
+    <div>
+      <Home />
+    </div>
   );
 };

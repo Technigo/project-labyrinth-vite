@@ -20,11 +20,8 @@ export const Labyrinth = () => {
   }
 
   //Not finished, need to get some form of state?
-  return startData ? (
+  return userName && startData? (
     <div>
-      <h2>User</h2>
-      <p>Name: {userName}</p>
-      <p>Coordinates: {startData.coordinates}</p>
       <p>Description: {startData.description}</p>
       <ul>
         {startData.actions.map((action, index) => (
