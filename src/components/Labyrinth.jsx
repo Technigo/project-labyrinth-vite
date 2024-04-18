@@ -1,53 +1,52 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+import "./Labyrinth.css";
 
 export const Labyrinth = () => {
-	const {
-		loading,
-		start,
-		fetchMove,
-		userName,
-    setDirection, //Check this to see if it really works. 
-		/* set, */
-	} = useLabyrinthStore()
+  const {
+    loading,
+    start,
+    fetchMove,
+    userName,
+    setDirection, //Check this to see if it really works.
+    /* set, */
+  } = useLabyrinthStore();
 
-	const handleDirectionClick = (action) => {
-		/* console.log('Button clicked:', action.direction) */
-    setDirection(action.direction)
-		/* const direction = action.direction */
-		/* set({ direction }) */
-		fetchMove(userName, action.direction)
-		/* console.log(userName, direction) */
-	}
+  const handleDirectionClick = (action) => {
+    /* console.log('Button clicked:', action.direction) */
+    setDirection(action.direction);
+    /* const direction = action.direction */
+    /* set({ direction }) */
+    fetchMove(userName, action.direction);
+    /* console.log(userName, direction) */
+  };
 
-	if (loading) {
-		return <div>Loading ...</div>
-	}
+  if (loading) {
+    return <div>Loading ...</div>;
+  }
 
-	//Added this part to check if the data is already available for the map function otherwise the code would break.
-	if (!start || !start.actions) {
-		return <div>No data available.</div>
-	}
+  //Added this part to check if the data is already available for the map function otherwise the code would break.
+  if (!start || !start.actions) {
+    return <div>No data available.</div>;
+  }
 
-/* 	console.log(start)
+  /* 	console.log(start)
 	console.log(start.actions) */
-	return (
-		<div className="labyrinth-start">
-			<p>{start.description}</p>
+  return (
+    <div className="labyrinth-start">
+      <p>{start.description}</p>
 
-			{start.actions.map((action) => (
-				<button
-					key={action.description}
-					onClick={() => handleDirectionClick(action)}>
-					{action.direction}
-				</button>
-			))}
-		</div>
-	)
-}
-
-
-
-
+      {start.actions.map((action) => (
+        <button
+          key={action.description}
+          className={`button-${action.direction}`} // Apply the direction-specific class
+          onClick={() => handleDirectionClick(action)}
+        >
+          {action.direction}
+        </button>
+      ))}
+    </div>
+  );
+};
 
 /* import { useEffect } from "react";
 

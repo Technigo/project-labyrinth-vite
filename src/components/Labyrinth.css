@@ -1,0 +1,27 @@
+.labyrinth-start button {
+  position: absolute;
+}
+
+.button-North {
+  top: 30px; /* Adjust the top position as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+}
+
+.button-East {
+  top: 50%; /* Center vertically */
+  right: 30px; /* Adjust the right position as needed */
+  transform: translateY(-50%);
+}
+
+.button-South {
+  bottom: 30px; /* Adjust the bottom position as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+}
+
+.button-West {
+  top: 50%; /* Center vertically */
+  left: 30px; /* Adjust the left position as needed */
+  transform: translateY(-50%);
+}
