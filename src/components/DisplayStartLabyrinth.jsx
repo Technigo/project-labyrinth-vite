@@ -6,15 +6,17 @@ export const DisplayStartLabyrinth = () => {
 	const {
 		loading,
 		start,
-		direction, 
+		direction,
 		fetchMove,
 		userName,
+    setDirection, //Check this to see if it really works. 
 		/* set, */
 	} = useStartLabyrinthStore()
 
-	const handleMoveButtonClick = (action, userName, direction) => {
+	const handleMoveButtonClick = (action, userName, setDirection) => {
 		console.log('Button clicked:', action.direction)
-		const direction = action.direction
+    setDirection(action.direction)
+		/* const direction = action.direction */
 		/* set({ direction }) */
 		fetchMove(userName, direction)
 		console.log(userName, direction)
@@ -38,7 +40,7 @@ export const DisplayStartLabyrinth = () => {
 			{start.actions.map((action) => (
 				<button
 					key={action.description}
-					/* value={action.direction} */
+					value={direction}
 					onClick={() => handleMoveButtonClick(action, userName)}>
 					{action.direction}
 				</button>
