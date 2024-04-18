@@ -4,11 +4,8 @@
 .popup {
   padding: 20px;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +16,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
 }
 
 .popup-close {
@@ -27,21 +25,32 @@
   right: 10px;
   cursor: pointer;
   font-size: 24px;
-  color: #aaa;
+  color: white;
 }
 #plusButton {
   position: fixed;
-  font-size: 25px;
-
+  font-size: 2em;
   border: none;
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  border: 2px solid black;
   margin: 2%;
   cursor: pointer;
-  background-color: black;
-  color: white;
+  background-color: white;
+  opacity: 0.8;
+  color: black;
   bottom: 20px;
   right: 20px;
   z-index: 1000;
+}
+
+.map-btn {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.end-title {
+  padding: 0 20px;
 }
