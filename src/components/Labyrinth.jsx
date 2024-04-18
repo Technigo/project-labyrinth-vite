@@ -1,4 +1,55 @@
-import { useEffect } from "react";
+import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+
+export const Labyrinth = () => {
+	const {
+		loading,
+		start,
+		fetchMove,
+		userName,
+    setDirection, //Check this to see if it really works. 
+		/* set, */
+	} = useLabyrinthStore()
+
+	const handleDirectionClick = (action) => {
+		/* console.log('Button clicked:', action.direction) */
+    setDirection(action.direction)
+		/* const direction = action.direction */
+		/* set({ direction }) */
+		fetchMove(userName, action.direction)
+		/* console.log(userName, direction) */
+	}
+
+	if (loading) {
+		return <div>Loading ...</div>
+	}
+
+	//Added this part to check if the data is already available for the map function otherwise the code would break.
+	if (!start || !start.actions) {
+		return <div>No data available.</div>
+	}
+
+/* 	console.log(start)
+	console.log(start.actions) */
+	return (
+		<div className="labyrinth-start">
+			<p>{start.description}</p>
+
+			{start.actions.map((action) => (
+				<button
+					key={action.description}
+					onClick={() => handleDirectionClick(action)}>
+					{action.direction}
+				</button>
+			))}
+		</div>
+	)
+}
+
+
+
+
+
+/* import { useEffect } from "react";
 
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { useUserStore } from "../stores/useUserStore";
@@ -6,7 +57,7 @@ import { useUserStore } from "../stores/useUserStore";
 export const Labyrinth = () => {
   //Destructure the data
   const { userName } = useUserStore();
-  const { startData, loading, error, fetchStartData } = useLabyrinthStore();
+  const { startData, loading, error, fetchStartData, fetchGameData } = useLabyrinthStore();
 
   useEffect(() => {
     fetchStartData(userName);
@@ -26,11 +77,12 @@ export const Labyrinth = () => {
       <ul>
         {startData.actions.map((action, index) => (
           <li key={index}>
-            Type: {action.type}, Direction: {action.direction}, Description:{" "}
-            {action.description}
+            <button onClick={() => fetchGameData(userName, action.direction)}>{action.direction}</button> 
           </li>
         ))}
       </ul>
     </div>
-  ) : null;
+  ) : null
+
 };
+ */
