@@ -1,0 +1,32 @@
+/* .home-container {
+  display: flex;
+} */
+
+.home-img {
+  width: 100%;
+}
+
+.home-title {
+  padding: 20px 20px 0 20px;
+}
+
+.userdetails-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+
+.home-input {
+  background: black;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+input {
+  font-family: "Lora", serif;
+  color: white;
+}
