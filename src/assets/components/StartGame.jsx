@@ -18,6 +18,7 @@ export const StartGame = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        console.log(data);
         setDescription(data.description);
         setActions(data.actions);
       } catch (error) {

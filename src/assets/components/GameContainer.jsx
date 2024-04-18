@@ -1,6 +1,8 @@
 import { useGameStore } from "../stores/useGameStore";
 import { Introduction } from "./Introduction";
 import { StartGame } from "./StartGame";
+import { Directions } from "./Directions";
+
 
 export const GameContainer = () => {
   const {
@@ -11,6 +13,9 @@ export const GameContainer = () => {
     setDescription,
     setActions,
     setLoading,
+    performAction,
+    resetGame,
+    coordinates,
   } = useGameStore();
 
   // Function to handle starting the game directly from Introduction component
@@ -30,7 +35,7 @@ export const GameContainer = () => {
       const data = await response.json();
       setDescription(data.description);
       setActions(data.actions);
-      setGameStarted(true); // This will trigger the StartGame component to render
+      setGameStarted(true); 
     } catch (error) {
       console.error("Error starting the game:", error);
     } finally {
@@ -38,56 +43,21 @@ export const GameContainer = () => {
     }
   };
 
-  // Passed to Introduction to trigger game start
-  const handleGameStartFromIntro = () => {
-    handleStartGame(); 
-  };
-
-  // Function to handle game actions like moving
-  const handleAction = async (action) => {
-    setLoading(true);
-    try {
-      const response = await fetch("https://labyrinth.technigo.io/action", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: "TheLastJedi", // Assumed constant; adjust if dynamic
-          type: action.type,
-          direction: action.direction,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setDescription(data.description);
-      setActions(data.actions);
-    } catch (error) {
-      console.error("Error handling action:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="App">
       {!gameStarted ? (
-        <Introduction onStartGame={handleGameStartFromIntro} />
+        <Introduction onStartGame={() => handleStartGame()} />
       ) : (
         <>
           <StartGame />
           <p>{description}</p>
-          <ul>
-            {actions.map((action, index) => (
-              <li key={index}>
-                <button onClick={() => handleAction(action)}>
-                  {action.description}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <Directions
+            actions={actions}
+            performAction={performAction}
+            resetGame={resetGame}
+            coordinates={coordinates}
+          />
         </>
       )}
     </div>

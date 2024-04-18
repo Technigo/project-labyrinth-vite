@@ -1,6 +1,5 @@
 
 export const Introduction = ({ onStartGame, onTurnBack }) => {
-  // onStartGame and onTurnBack are passed as props from the parent component (GameContainer)
 
   return (
     <div>
