@@ -49,18 +49,26 @@ export const GameButton = ({ buttonName }) => {
     setDirection(buttonName);
     console.log("Inside handleClick: ", buttonName);
 
-    if (isStarted) {
-      url = action_URL;
-    } else if (isStarted === false) {
-      url = start_URL;
-      setIsStarted();
-    }
-
     if (buttonName === "Restart") {
       setIsStarted();
     }
 
-    postRequest();
+    if (buttonName === "Start") {
+      console.log("onSubmit check: ", username);
+      if (username === "") {
+        alert("Please enter an user name");
+        return null;
+      }
+    }
+
+    if (isStarted) {
+      url = action_URL;
+      postRequest();
+    } else if (isStarted === false) {
+      url = start_URL;
+      setIsStarted();
+      postRequest();
+    }
   };
 
   return (

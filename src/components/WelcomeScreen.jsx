@@ -1,12 +1,12 @@
 import { UsernameInput } from "./UsernameInput";
 import { GameButton } from "./GameButton";
 import "./WelcomeScreen.css";
-/*import img from "../../public/maze1.png";
-import { useRef } from "react";*/
+import backgroundImg from "../../public/maze1.png";
+import { useRef } from "react";
 
 export const WelcomeScreen = () => {
-  /*const image = useRef();
-  image.current.style.backgroundImage = "url('../../public/maze1.png')";*/
+  // const ref = useRef();
+  // ref.current.style.backgroundImage = backgroundImg;
 
   return (
     <>
