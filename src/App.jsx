@@ -5,5 +5,10 @@ import { useStartLabyrinthStore } from "./stores/useStartLabyrinthStore";
 export const App = () => {
   const { gameFlow } = useStartLabyrinthStore();
 
-  return <> {gameFlow ? <DisplayStartLabyrinth /> : <UserInput />}</>;
+  return (
+  <> 
+  {gameFlow ? <DisplayStartLabyrinth /> : <UserInput />}
+  </>
+  )
 };
+
