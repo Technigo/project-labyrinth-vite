@@ -1,4 +1,5 @@
 import { useGameStore } from "../stores/useGameStore";
+import "./GameButton.css"
 
 export const GameButton = ({ buttonName }) => {
   const {
@@ -20,10 +21,23 @@ export const GameButton = ({ buttonName }) => {
     username: username
   };*/
 
+  let possibleDirection = [];
+
   const moveData = {
     username: username,
     type: action,
     direction: direction,
+  };
+
+  const checkAndDisableButton = (data) => {
+    possibleDirection = ["Start", "Reset"];
+    console.log("Inside Checkand Disable: ", data);
+    data.actions.map((action) => possibleDirection.push(action.direction));
+    console.log(possibleDirection);
+
+    let button = document.getElementById(possibleDirection[2].toLowerCase());
+    console.log("Check and Disable button: ", possibleDirection[2].toLowerCase())
+    button.classList.add("test");
   };
 
   const postRequest = () => {
@@ -39,6 +53,7 @@ export const GameButton = ({ buttonName }) => {
         console.log("Success:", data);
         setLabData(data);
         setIsLoading(false);
+        checkAndDisableButton(data);
       })
       .catch((error) => {
         console.error("Error:", error);
