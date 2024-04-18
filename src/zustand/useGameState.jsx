@@ -1,6 +1,6 @@
 import { create } from "zustand"
 
-const useGameState = create((set) => ({
+export const useGameState = create((set) => ({
   gameState: null,
   started: false,
   loading: false,
@@ -35,4 +35,4 @@ const useGameState = create((set) => ({
   },
 }))
 
-export default useGameState
+

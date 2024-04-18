@@ -1,14 +1,13 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  /* border: solid green; */
-  
 }
 
 .login-container h1 {
   font-size: 2.2em;
   line-height: 1.1;
   margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .login-container h2 {
@@ -22,7 +21,6 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
-  /* border: solid orange; */
 }
 
 .login-container input {
@@ -32,12 +30,10 @@
 }
 
 .login-container button {
-  /* border: solid green; */
   padding: 5px 10px;
   color: white;
   border-radius: 8px;
   border: 1px solid transparent;
-  /* padding: 0.6em 1.2em; */
   font-size: 1em;
   font-family: inherit;
   background-color: var(--button-bg);

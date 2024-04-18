@@ -1,15 +1,17 @@
 import { useState, useEffect, useCallback } from "react"
-import useGameState from "../zustand/useGameState"
+import { useGameState } from "../zustand/useGameState"
 import { CompassAnimation } from "./CompassAnimation"
 import { useAudio } from "./UseAudio"
 import "/src/css/gameComponent.css"
 
-const GameComponent = ({ username }) => {
+export const GameComponent = ({ username }) => {
   const { gameState, setGameState } = useGameState()
   const [showInfo, setShowInfo] = useState({})
   const [showOptions, setShowOptions] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   const { isPlaying, toggleAudio } = useAudio()
+  const [history, setHistory] = useState([])
+  const [showHistory, setShowHistory] = useState(false)
 
   const startGame = useCallback(() => {
     setIsLoading(true)
@@ -43,7 +45,7 @@ const GameComponent = ({ username }) => {
   }, [startGame])
 
   const handleAction = (action) => {
-    setIsLoading(true);
+    setIsLoading(true)
     fetch("https://labyrinth.technigo.io/action", {
       method: "POST",
       headers: {
@@ -57,29 +59,38 @@ const GameComponent = ({ username }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setGameState(data);
-        setShowInfo({});
+        setGameState(data)
+        setShowInfo({})
         setShowOptions((prevOptions) => {
-          return prevOptions.filter((option, index) => index !== action.index);
-        });
+          return prevOptions.filter((option, index) => index !== action.index)
+        })
+
+        setHistory((prevHistory) => [...prevHistory, action])
       })
       .catch((error) => {
-        console.error("Error navigating to next question:", error);
+        console.error("Error navigating to next question:", error)
       })
       .finally(() => {
         setTimeout(() => {
-          setIsLoading(false);
-        }, 2000);
-      });
-  };
+          setIsLoading(false)
+        }, 2000)
+      })
+  }
 
-  const handleShowInfo = (index) => {
-    setShowInfo({ [index]: true })
-    setShowOptions((prevOptions) => {
-      const newOptions = [...prevOptions]
-      newOptions[index] = false
-      return newOptions
-    })
+  const handleToggleInfo = (index) => {
+    setShowInfo((prevShowInfo) => ({
+      ...prevShowInfo,
+      [index]: !prevShowInfo[index],
+    }))
+  }
+
+  const handlePlayAgain = () => {
+    startGame()
+    window.location.href = "/LoginComponent"
+  }
+
+  const handleToggleHistory = () => {
+    setShowHistory((prevShowHistory) => !prevShowHistory)
   }
 
   return (
@@ -88,33 +99,50 @@ const GameComponent = ({ username }) => {
         <CompassAnimation />
       ) : (
         <div className="game-container">
-          <p>{gameState?.description}</p>
+          <p className="showinfo">{gameState?.description}</p>
           <button className="audio-button" onClick={toggleAudio}>
-            {isPlaying ? "Pause" : "Play"} Audio
+            {isPlaying ? "Pause" : "Play"}
           </button>
           <ul>
             {gameState?.actions &&
               gameState.actions.map((action, index) => (
                 <li key={index}>
-                  {showInfo[index] ? (
-                    <p>{action.description}</p>
-                  ) : (
-                    <button onClick={() => handleShowInfo(index)}>
-                      More Info
+                  <div>
+                    <button
+                      onClick={() => handleToggleInfo(index)}
+                      className="info-button"
+                    >
+                      {showInfo[index] ? "Hide Info" : "More Info"}
                     </button>
-                  )}
+                    {showInfo[index] && <p>{action.description}</p>}
+                  </div>
                   {showOptions && (
-                    <button onClick={() => handleAction(action)}>
+                    <button
+                      className="direction-button"
+                      onClick={() => handleAction(action)}
+                    >
                       {action.direction}
                     </button>
                   )}
                 </li>
               ))}
           </ul>
-          </div>
+
+          {gameState?.actions?.length === 0 && (
+            <button onClick={handlePlayAgain}>Play Again</button>
+          )}
+          <button onClick={handleToggleHistory}>
+            {showHistory ? "Hide History" : "Show History"}
+          </button>
+          {showHistory && (
+            <ul className="history-container">
+              {history.map((action, index) => (
+                <li key={index}>{action.direction}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       )}
     </div>
   )
 }
-
-export default GameComponent
