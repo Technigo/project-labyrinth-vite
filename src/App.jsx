@@ -6,8 +6,8 @@ export const App = () => {
   const { isStarted } = useGameStore();
 
   return (
-    <div>
+    <>
       {isStarted ? <PlayScreen /> : <WelcomeScreen />}
-      </div>
+      </>
   );
 };
