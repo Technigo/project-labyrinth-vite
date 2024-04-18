@@ -1,5 +1,6 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: "Delius Unicase", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  overflow: hidden;
 }
