@@ -8,5 +8,5 @@ The game starts with a POST request to an API endpoint, followed by subsequent r
 A problem encountered was where to start the project such as creating the store first or another componenents.
 
 ### View it live
-
+https://sunny-manatee-fe1a44.netlify.app
 
