@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import "./StartComponent.css"
 
 const StartComponent = ({ onStart }) => {
 	const [username, setUsername] = useState("");

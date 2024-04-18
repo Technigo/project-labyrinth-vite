@@ -1,7 +1,10 @@
 import { useState } from "react";
-import StartComponent from "./StartComponent";
+
 import useGameStore from "../store/gameStore";
-/* import "./GameComponent.css" */
+import StartComponent from "./StartComponent";
+
+import "./GameComponent.css"
+import { Directions } from "./Directions";
 
 const GameComponent = () => {
 	const { data, fetchData } = useGameStore();
@@ -34,6 +37,17 @@ const GameComponent = () => {
 		}
 	};
 
+	const moveEast = () => {
+		const eastAction = data.actions.find(action => action.direction === "East")
+		if (eastAction) {
+			handleAction(eastAction)
+		} else {
+			console.error("No action available to move East.")
+		}
+	}
+
+	console.log("Current data:", data);
+
 	return (
 		<div className="game-container">
 			{!isStarted ? (
@@ -42,17 +56,16 @@ const GameComponent = () => {
 				<div>
 					{data ? (
 						<div>
-							<h2>{data.coordinates}</h2>
+							<Directions coordinates={data.coordinates} />
 							<p>{data.description}</p>
 							<ul>
 								{data.actions.map((action, index) => (
 									<li key={index}>
-										<h3>{action.type} </h3>
 										<p>
 											<strong>Direction:</strong> {action.direction}
 										</p>
 										<p>{action.description}</p>
-										<button onClick={() => handleAction(action)} className="action-button">Choose Action</button>
+										<button onClick={moveEast}>Move East</button>
 									</li>
 								))}
 							</ul>
@@ -67,4 +80,3 @@ const GameComponent = () => {
 };
 
 export default GameComponent;
-
