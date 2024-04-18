@@ -44,7 +44,7 @@ export const Action = ({changeBackground}) => {
                 updateActions(directionChoice)
                 handleAction(directionChoice);
             }}> 
-            {action.direction}
+            Go {action.direction}
           </button>
           </div>
         </div>
