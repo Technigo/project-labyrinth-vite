@@ -2,13 +2,15 @@ import { appContentStore } from '../stores/appContentStore'
 import { Directions } from './directions/Directions'
 import { Loading } from './loading/Loading'
 import { useEffect, useState } from 'react'
-
+import { SVGMap } from './SVGmap'
 import './Game.css'
 
 export const Game = () => {
   const { gameData, loading, showDirections, toggleDirections } =
     appContentStore()
   const [backgroundStyle, setBackgroundStyle] = useState({})
+  const [showMap, setShowMap] = useState(false)
+  // added style based on coordinates
   useEffect(() => {
     console.log('Coordinates:', gameData.coordinates)
     const backgroundImg = (coordinates) => {
@@ -40,10 +42,14 @@ export const Game = () => {
       backgroundPosition: 'center',
     })
   }, [gameData.coordinates])
+  const toggleShowMap = () => {
+    setShowMap((prevShowMap) => !prevShowMap)
+  }
 
   if (loading) {
     return <Loading />
   }
+  const currentState = appContentStore.getState()
 
   return (
     <section className="content-wrapper" style={backgroundStyle}>
@@ -67,6 +73,20 @@ export const Game = () => {
 
         {showDirections && <Directions showDirections={showDirections} />}
       </div>
+      {showMap && (
+        <div className="popup">
+          <div className="popup-content">
+            <span className="popup-close" onClick={toggleShowMap}></span>
+            <SVGMap coordinates={currentState.gameData.coordinates} />
+          </div>
+        </div>
+      )}
+
+      {/* Button to toggle add task popup */}
+      <button id="plusButton" onClick={toggleShowMap}>
+        {/* switching sign to indicate that can be toggle to close again */}
+        {showMap ? '-' : '🗺️'}
+      </button>
     </section>
   )
 }
