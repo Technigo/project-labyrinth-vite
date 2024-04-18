@@ -1,10 +1,10 @@
-import { useStartLabyrinthStore } from '../stores/useStartLabyrinthStore'
+import { useLabyrinthStore } from '../stores/useLabyrinthStore'
 import { Header } from './Header'
 
 import '../styles/UserInput.css'
 
 export const UserInput = () => {
-	const { userName, setUserName, fetchStart } = useStartLabyrinthStore()
+	const { userName, setUserName, fetchStart } = useLabyrinthStore()
 
 	const handleStartButtonClick = () => {
 		if (userName === '') {

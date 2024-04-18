@@ -1,13 +1,13 @@
-import { DisplayStartLabyrinth } from "./components/DisplayStartLabyrinth";
+import { DisplayLabyrinth } from "./components/DisplayLabyrinth";
 import { UserInput } from "./components/UserInput";
-import { useStartLabyrinthStore } from "./stores/useStartLabyrinthStore";
+import { useLabyrinthStore } from "./stores/useLabyrinthStore";
 
 export const App = () => {
-  const { gameFlow } = useStartLabyrinthStore();
+  const { gameFlow } = useLabyrinthStore();
 
   return (
   <> 
-  {gameFlow ? <DisplayStartLabyrinth /> : <UserInput />}
+  {gameFlow ? <DisplayLabyrinth /> : <UserInput />}
   </>
   )
 };
