@@ -1,5 +1,7 @@
+import Lottie from "lottie-react"
 import { appContentStore } from "../stores/appContentStore"
 import { Options } from "./Options"
+import cogWheels from "../assets/cog-wheels.json"
 import "./StoryPage.css"
 
 export const StoryPage = () => {
@@ -27,17 +29,28 @@ export const StoryPage = () => {
       setImageLink(json.coordinates)
     })
     .catch((error) => {
-      console.log("error:", error);
+      console.log("error:", error)
     })
-    .finally(toggleLoading())
+    .finally(
+      setTimeout(() => {
+      toggleLoading()}, 2000)
+    )
   }
+
+  
 
   if (loading) {
     return (
       <>
         <p>Loading...</p>
+        <Lottie
+          animationData={cogWheels}
+          loop
+          autoplay
+          style={{ width: 400, height: 400 }}
+        />
       </>
-    )
+    );
   }
   if (gameData) {
     return (
