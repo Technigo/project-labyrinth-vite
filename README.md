@@ -11,4 +11,4 @@ The user walks through a path by clicking on buttons. The background pictures ar
 
 ### View it live
 
-https://sweet-starlight-c2dce9.netlify.app/
+https://forest-path-of-deployment-horror.netlify.app/
