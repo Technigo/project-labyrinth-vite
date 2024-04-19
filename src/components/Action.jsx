@@ -52,7 +52,7 @@ export const Action = ({changeBackground}) => {
       <button className="restart" onClick={() => {
         updateLoggedIn(false)
         updateCoordinates("start")
-        changeBackground("start")}}>Restart</button>
+        changeBackground("start")}}><h3>Restart</h3></button>
     </>
   )
 }

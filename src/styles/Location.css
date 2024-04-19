@@ -14,7 +14,7 @@
 }
 
 .current-description {
-  background-color: rgba(231, 177, 177, 0.493);
+  background-color: rgba(255, 193, 193, 0.568);
   border-radius: 0.5rem;
   padding: 2rem;
   margin: 4rem;
@@ -22,28 +22,18 @@
   box-shadow: 0 4px 8px 0 rgb(216, 114, 114), 0 6px 20px 0 rgb(209, 81, 81);
 }
 
-.history-container {
-  background-color: rgba(231, 177, 177, 0.493);
+.history {
+  background-color: rgba(255, 193, 193, 0.651);
   border-radius: 0.5rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
-  margin: 4rem;
-  width: auto;
-  max-width: 120px;
+  min-width: 400px;
+  min-height: 400px;
+  border-radius: 50%;
+  margin: 0 auto;
   box-shadow: 0 4px 8px 0 rgb(216, 114, 114), 0 6px 20px 0 rgb(209, 81, 81);
-}
-
-.history-header {
-  font-size: 20px;
-  text-align: center;
-}
-
-.history {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .history ul {
@@ -56,3 +46,24 @@
   padding: 0;
   text-align: center
 }
+
+.history-button{
+    position: absolute;
+    bottom: 2rem;
+    left: 4rem;
+}
+
+/*tablet*/
+@media (max-width: 768px) {
+  .current-description {
+  width: 200px;
+  
+}
+
+}
+
+/*mobile*/
+@media (max-width: 480px) {
+
+}
+

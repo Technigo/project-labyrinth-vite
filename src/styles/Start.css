@@ -6,6 +6,71 @@
     background-position: center; 
     background-size: cover;
     display: flex;
+    flex-direction: column;
     place-items: center;
     justify-content: center;
+    color: white;
 }
+
+.intro-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    gap: 2rem;
+    height: 30%;
+    margin-bottom: 4rem;
+
+    h2{
+        text-align: center;
+    }
+}
+
+.submit-button{
+    border-radius: 0 8px 8px 0;
+    height: 40px;
+    border: none;
+    font-family: Data-latin;
+    font-size: 20px;
+    padding: 0 1rem;
+}
+
+.submit-button:hover{
+    background-color: rgb(156, 89, 89);
+    color: white;
+}
+
+input[type=text]{
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 8px 0 0 8px;
+    text-indent: 0.5em;
+    font-family: Data-latin;
+    font-size: 20px;
+    border: none;
+}
+
+input[type="text"]:focus {
+    outline: none;
+  }
+
+.sound-button{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgb(240, 217, 217);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease-in-out; 
+
+    img{width: 20px}
+
+}
+
+.sound-button:hover { 
+    transform: scale(1.1); 
+    }

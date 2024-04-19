@@ -2,7 +2,7 @@
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-    background-color: rgba(255, 193, 193, 0.466);
+    background-color: rgba(253, 216, 216, 0.658);
 }
 
 @keyframes fadeIn { 
@@ -27,7 +27,7 @@
 
 .direction-info {
     display: none;
-    background-color: rgba(255, 193, 193, 0.466);
+    background-color: rgba(255, 193, 193, 0.568);
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
@@ -45,7 +45,6 @@
 
 
 .North {
-    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,7 +54,6 @@
 }
 
 .South {
-    width: 300px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -65,7 +63,6 @@
 }
 
 .East {
-    width: 500px;
     display: flex;
     flex-direction: row-reverse;
     position: absolute;
@@ -75,9 +72,22 @@
 }
 
 .West {
-    width: 400px;
     display: flex;
     position: absolute;
     left: 4rem;
     top: 45%;
 }
+
+/*tablet*/
+@media (max-width: 768px) {
+  .North {
+
+}
+
+}
+
+/*mobile*/
+@media (max-width: 480px) {
+
+}
+
