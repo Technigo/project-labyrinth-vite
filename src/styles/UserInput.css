@@ -3,7 +3,7 @@
 }
 
 .background-picture {
-  background-image: url(first-page-pic.jpg);
+  background-image: url(startPage.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -22,7 +22,6 @@
   margin: 10%;
   gap: 10px;
   border: 5px solid black;
-  /* border-radius: 10px; */
   padding: 50px;
   font-size: 20px;
   background: linear-gradient(to top, white, beige, gray);
