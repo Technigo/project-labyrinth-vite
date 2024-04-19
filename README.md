@@ -10,3 +10,5 @@ We were both traveling this week, so we mostly worked asynchronous. First we che
 The user walks through a path by clicking on buttons. The background pictures are connected to the apis coordinates and change using useRef. The page is responsive for mobile, tablet and desktop. The accessibility score in Lighthouse is 100.
 
 ### View it live
+
+https://sweet-starlight-c2dce9.netlify.app/
