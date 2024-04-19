@@ -28,7 +28,6 @@ export const ActionPage = ({ changeBgImg }) => {
             key={index}
             onClick={(e) => {
               const direction = e.target.value
-              console.log(direction)
               makeMove(direction)
             }}>
             {action.direction}
