@@ -13,6 +13,18 @@
   align-items: center;
 }
 
+.current-description {
+  background-color: rgba(255, 193, 193, 0.568);
+  display: flex;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin: 4rem;
+  width: 500px;
+  box-shadow: 0 4px 8px 0 rgb(216, 114, 114), 0 6px 20px 0 rgb(209, 81, 81);
+  text-align: justify;
+}
+
+
 .history {
   background-color: rgba(255, 193, 193, 0.651);
   border-radius: 0.5rem;
@@ -45,13 +57,23 @@
 }
 
 /*tablet*/
-@media (max-width: 768px) {
-
+@media (min-width: 481px) and (max-width: 768px) {
+  .current-description {
+    padding: 5%;
+    width: 40%;
+    margin: 40% 25%;
+  }
 
 }
 
 /*mobile*/
 @media (max-width: 480px) {
+  .current-description {
+    padding: 5%;
+    width: 45%;
+    margin: 50% 22.5%;
+    font-size: 0.8rem;
+  }
 
   .history-button{
     bottom: 1.5rem;

@@ -1,8 +1,3 @@
-// Location which renders
-/**
- * location description
- * location actions
- */
 import { useEffect, useRef } from 'react';
 import { Action } from './Action';
 import { useLabyrinthStore } from '../store/useLabyrinthStore';
@@ -11,7 +6,7 @@ import Lottie from 'lottie-react';
 import '../styles/Location.css';
 
 export const Location = ({ changeBackground }) => {
-  const { loading, coordinates, history } = useLabyrinthStore();
+  const { description, loading, coordinates, history } = useLabyrinthStore();
   const historyRef = useRef()
 
   useEffect(() => {
@@ -41,6 +36,9 @@ export const Location = ({ changeBackground }) => {
       )}
       {!loading && (
         <>
+          <div className='current-description'>
+            <h3>{description}</h3>
+          </div>
           <div className='history' ref={historyRef}>
             {history.length > 0 && (
                 <ul>

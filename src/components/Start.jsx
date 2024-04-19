@@ -48,7 +48,7 @@ export const Start = () => {
 
   const changeBackground = (image) => {
     console.log(image)
-    backgroundRef.current.style.backgroundImage = `url('public/${image}.jpg')`
+    backgroundRef.current.style.backgroundImage = `url('${image}.jpg')`
   }
 
   return (

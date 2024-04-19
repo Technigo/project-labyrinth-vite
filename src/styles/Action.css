@@ -3,17 +3,8 @@
     bottom: 2rem;
     right: 2rem;
     background-color: rgba(253, 216, 216, 0.658);
+    
 }
-
-.current-description {
-    background-color: rgba(255, 193, 193, 0.568);
-    display: flex;
-    border-radius: 0.5rem;
-    padding: 2rem;
-    margin: 4rem;
-    width: 500px;
-    box-shadow: 0 4px 8px 0 rgb(216, 114, 114), 0 6px 20px 0 rgb(209, 81, 81);
-  }
 
 @keyframes fadeIn { 
     from { opacity: 0; } 
@@ -37,7 +28,8 @@
 
 .direction-info {
     display: none;
-    background-color: rgba(253, 216, 216, 0.658);
+    background-color: rgba(253, 216, 216, 0.74);
+    color: black;
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
@@ -52,10 +44,6 @@
 #toggleCheckbox:checked ~ .direction-info {
     display: flex;
   }
-
-  #toggleCheckbox:checked ~ .current-description {
-    display: none;
-}
 
 .North {
     display: flex;
@@ -94,17 +82,40 @@
 }
 
 /*tablet*/
-@media (max-width: 768px) {
-    .current-description {
-        padding: 5%;
-        width: 40%;
-        margin: 50% 25%;
+@media (min-width: 481px) and (max-width: 1025px) {
+
+
+      .direction-info {
+        background-color: rgb(73, 29, 29);
+        box-shadow: 4px 4px 5px rgb(122, 42, 42);
+        color: white;
+    }
+
+    .East {
+        right: 3rem;
+        width: 50%;
+    }
+    
+    .West{
+        left: 3rem;
+    }
+    .North {
+        top: 3rem;
+    }
         
-      }
+    .South {
+        bottom: 3rem;
+    }
 }
 
 /*mobile*/
 @media (max-width: 480px) {
+
+      .direction-info {
+        background-color: rgb(73, 29, 29);
+        box-shadow: 4px 4px 5px rgb(122, 42, 42);
+        color: white;
+    }
 .North {
     width: 60%;
     margin: 0 20%;
@@ -129,8 +140,5 @@
     right: 1.5rem;
 }
 
-.direction-info {
-    background-color: rgb(73, 29, 29);
-    box-shadow: 4px 4px 5px rgb(122, 42, 42);
-}
+
 }
