@@ -1,35 +1,30 @@
-import { useEffect } from "react"
-import { useLabyrinthStore } from "../stores/useLabyrinthStore"
-import "../style/ActionPage.css"
-import { LoadingAnimation } from "./LoadingAnimation"
+import { useEffect } from "react";
+import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+import "../style/ActionPage.css";
 
 export const ActionPage = ({ changeBgImg }) => {
-  const { coordinates, description, actions, makeMove, restart, loading } =
-    useLabyrinthStore()
+  const { coordinates, description, actions, makeMove, restart } =
+    useLabyrinthStore();
 
   // useEffect that runs on mount of the component and changes the bg img
   useEffect(() => {
-    changeBgImg(coordinates)
-  }, [changeBgImg, coordinates])
-
-  if (loading) {
-    return <LoadingAnimation />
-  }
+    changeBgImg(coordinates);
+  }, [changeBgImg, coordinates]);
 
   return (
     <div className="action-container">
       <p>{description}</p>
       <div className="button-container">
-        {" "}
         {actions.map((action, index) => (
           <button
             className="action-button"
             value={action.direction}
             key={index}
-            onClick={(e) => {
-              const direction = e.target.value
-              makeMove(direction)
-            }}>
+            onClick={e => {
+              const direction = e.target.value;
+              makeMove(direction);
+            }}
+          >
             {action.direction}
           </button>
         ))}
@@ -38,12 +33,13 @@ export const ActionPage = ({ changeBgImg }) => {
         className="restart-button"
         type="button"
         onClick={() => {
-          restart()
+          restart();
           // change background back to start page
-          changeBgImg("start")
-        }}>
+          changeBgImg("start");
+        }}
+      >
         Restart
       </button>
     </div>
-  )
-}
+  );
+};
