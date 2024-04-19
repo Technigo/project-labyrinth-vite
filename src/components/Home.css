@@ -1,0 +1,36 @@
+.input-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  text-align: left;
+  color: white;
+}
+
+.input-field {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.input-field::placeholder {
+  color: black;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.entering,
+.error {
+  color: white;
+}

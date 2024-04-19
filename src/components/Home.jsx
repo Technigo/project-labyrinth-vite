@@ -1,8 +1,10 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
-import { Loading } from "./Loading";
+import startJpg from "/images/start.jpg";
+import "./Home.css";
 
 export const Home = () => {
-  const { userName, setUserName, fetchStart, loading } = useLabyrinthStore();
+  const { userName, setUserName, fetchStart, loading, error } =
+    useLabyrinthStore();
 
   const handleStartSubmit = (event) => {
     event.preventDefault();
@@ -14,15 +16,23 @@ export const Home = () => {
   };
 
   return (
-    <div className="input-page">
-      {!loading && (
+    <div
+      className="input-page"
+      style={{
+        backgroundImage: `url(${startJpg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+      }}
+    >
+      {!loading && !error && (
         <form onSubmit={handleStartSubmit}>
-          <label> Enter your username </label>
+          <label>Enter your username: </label>
           <input
             className="input-field"
             id="user-input"
             type="text"
-            placeholder="New username"
+            placeholder="New username..."
             value={userName}
             onChange={(event) => {
               setUserName(event.target.value);
@@ -32,7 +42,17 @@ export const Home = () => {
         </form>
       )}
 
-      {loading && <div>Entering...</div>}
+      {loading && (
+        <div className="entering">
+          <h2>Entering...</h2>
+        </div>
+      )}
+
+      {error && (
+        <div className="error">
+          <h2>{error.message}</h2>
+        </div>
+      )}
     </div>
   );
 };

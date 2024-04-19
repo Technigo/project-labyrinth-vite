@@ -1,19 +1,23 @@
 import { create } from "zustand";
 
 export const useLabyrinthStore = create((set) => ({
+  userName: "",
   loading: false,
+  error: null,
+  coordinates: null,
+  description: null,
+  actions: null,
   gameMode: false,
   start: {},
-  userName: "",
   direction: "",
   setUserName: (userInput) => set({ userName: userInput }),
   setDirection: (userDirection) => set({ direction: userDirection }),
 
   fetchStart: async (userName) => {
-    set({ loading: true, gameMode: false });
+    set({ loading: true, error: false, gameMode: false });
 
     try {
-      const response = await fetch("https://labyrinth.technigo.io/start", {
+      const response = await fetch("https://labyrinth.technigo.io/star", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -28,17 +32,17 @@ export const useLabyrinthStore = create((set) => ({
 
       const data = await response.json();
       console.log("Data from the fetch:", data);
-      set({ start: data });
-      set({ gameMode: true });
+      set({ start: data, gameMode: true });
     } catch (error) {
       console.error("Error fetching data:", error);
+      set({ error: error });
     } finally {
       set({ loading: false });
     }
   },
 
   fetchMove: async (userName, direction) => {
-    set({ loading: true });
+    set({ loading: true, error: false });
 
     try {
       const response = await fetch("https://labyrinth.technigo.io/action", {
@@ -61,12 +65,17 @@ export const useLabyrinthStore = create((set) => ({
       console.log("Data from the second fetch:", data);
 
       // Update the start object in the store with the new data
-      set({ start: data });
-      set({ loading: false });
+      set({ start: data, loading: false });
     } catch (error) {
       console.error("Error fetching data:", error);
+      set({ error: error });
+    } finally {
       set({ loading: false });
     }
+  },
+
+  restart: () => {
+    set({ gameMode: false });
   },
 }));
 
