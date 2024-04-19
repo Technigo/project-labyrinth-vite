@@ -17,11 +17,11 @@ export const UserInput = () => {
   return (
 		<>
 			<div className="background-picture">
-				{/* <img className="background-picture" src="first-page-pic.jpg" /> */}
+				<img className="background-picture" src="first-page-pic.jpg" />
 				<Header />
 				<div className="input-page">
 					<h1>
-						Search for the gold plated chest or take a stroll through the forest{' '}
+						Search for the gold plated chest or take a stoll through the forest{' '}
 						<br />- let's see where the path takes us!
 					</h1>
 					<label className="start-title" htmlFor="user-input">
