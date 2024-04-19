@@ -1,35 +1,13 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
-
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+In this pair project, we built a text based adventure using Zustand for state management and an API from Technigo to post data.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We approached the problem by laying out the components and stores we needed. We then ensured that the API calls worked as intended. We identified the states that should be defined globally with Zustand and used them in the components. As a next step, we made sure to implement a user-friendly design that would allow the user to quickly understand what to do.
+
+If we had more time we would look into more of the stretch goals.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-
+https://alma-wen-labyrinth.netlify.app/
