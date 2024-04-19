@@ -17,7 +17,7 @@ export const useLabyrinthStore = create((set) => ({
     set({ loading: true, error: false, gameMode: false });
 
     try {
-      const response = await fetch("https://labyrinth.technigo.io/star", {
+      const response = await fetch("https://labyrinth.technigo.io/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
