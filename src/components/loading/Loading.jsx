@@ -1,4 +1,4 @@
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
 
 export const Loading = () => {
   return (
@@ -7,5 +7,5 @@ export const Loading = () => {
         <h1 className="paragraph">Loading...</h1>
       </div>
     </section>
-  );
-};
+  )
+}

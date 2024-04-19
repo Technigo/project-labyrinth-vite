@@ -1,84 +1,80 @@
-import { appContentStore } from "../stores/appContentStore";
-import { Directions } from "./directions/Directions";
-import { Loading } from "./loading/Loading";
-import { useEffect, useState } from "react";
-import { SVGMap } from "./SVGmap";
-import { Link } from "react-router-dom";
-import map from "/map.png";
-import "./Game.css";
+import { useAppContentStore } from '../../stores/useAppContentStore'
+import { Directions } from '../directions/Directions'
+import { Loading } from '../loading/Loading'
+import { useEffect, useState } from 'react'
+import { SVGMap } from '../SVGmap'
+import { Link } from 'react-router-dom'
+import map from '/map.png'
+import './Game.css'
 
 export const Game = () => {
   const { gameData, loading, showDirections, toggleDirections } =
-    appContentStore();
-  const [backgroundStyle, setBackgroundStyle] = useState({});
-  const [showMap, setShowMap] = useState(false);
+    useAppContentStore()
+  const [backgroundStyle, setBackgroundStyle] = useState({})
+  const [showMap, setShowMap] = useState(false)
   // added style based on coordinates
   useEffect(() => {
-    console.log("Coordinates:", gameData.coordinates);
+    console.log('Coordinates:', gameData.coordinates)
     const backgroundImg = (coordinates) => {
       switch (coordinates) {
-        case "":
-          return "url(/temple.jpg)";
-        case "0,0":
-          return "url(/temple.jpg)";
-        case "1,0":
-          return "url(/forest.jpg)";
-        case "1,1":
-          return "url(/arch.jpg)";
-        case "0,1":
-          return "url(/machine.jpg)";
-        case "0,2":
-          return "url(/room.jpg)";
-        case "0,3":
-          return "url(/library.jpg)";
-        case "1,3":
-          return "url(/see.jpg)";
+        case '':
+          return 'url(/temple.jpg)'
+        case '0,0':
+          return 'url(/temple.jpg)'
+        case '1,0':
+          return 'url(/forest.jpg)'
+        case '1,1':
+          return 'url(/arch.jpg)'
+        case '0,1':
+          return 'url(/machine.jpg)'
+        case '0,2':
+          return 'url(/room.jpg)'
+        case '0,3':
+          return 'url(/library.jpg)'
+        case '1,3':
+          return 'url(/see.jpg)'
         default:
-          return "none";
+          return 'none'
       }
-    };
+    }
 
     setBackgroundStyle({
       backgroundImage: backgroundImg(gameData?.coordinates),
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    });
-  }, [gameData.coordinates]);
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    })
+  }, [gameData.coordinates])
 
   const toggleShowMap = () => {
-    setShowMap((prevShowMap) => !prevShowMap);
-  };
+    setShowMap((prevShowMap) => !prevShowMap)
+  }
 
   if (loading) {
-    return <Loading />;
+    return <Loading />
   }
-  const currentState = appContentStore.getState();
+  const currentState = useAppContentStore.getState()
 
   // check if the current coordinates indicate that the user has reached the final destination
-  const reachedDestination = gameData?.coordinates === "1,3";
+  const reachedDestination = gameData?.coordinates === '1,3'
 
   return (
     <section className="content-wrapper" style={backgroundStyle}>
       <div className="text-container">
         {/* render the "Show Directions" button only if showDirection is true and if destination is not reached */}
-        {/* {showDirections && !reachedDestination && (
-          <button className="btn" onClick={toggleDirections}>
-            Show Directions
-          </button>
-        )} */}
+
         <button className="btn" onClick={toggleDirections}>
-          {showDirections ? "Show Location" : "Show Directions"}
+          {showDirections ? 'Show Location' : 'Show Directions'}
         </button>
 
         {/* render different content based on whether showDirections is true and if destination is reached */}
         {!showDirections && !reachedDestination && (
           <>
             <p className="paragraph">
-              <span className="para-bold">Current Level:</span>{" "}
+              <span className="para-bold">Current Level:</span>{' '}
               {gameData?.coordinates}
             </p>
             <p className="paragraph">
-              {" "}
+              {' '}
               <span className="para-bold">Description:</span>
               {gameData?.description}
             </p>
@@ -94,12 +90,12 @@ export const Game = () => {
           <>
             <h2 className="end-title">Congratulations! You made it out.</h2>
             <p className="paragraph">
-              <span className="para-bold">Current Level:</span>{" "}
+              <span className="para-bold">Current Level:</span>{' '}
               {gameData?.coordinates}
             </p>
             <p className="paragraph">
-              {" "}
-              <span className="para-bold">Description:</span>{" "}
+              {' '}
+              <span className="para-bold">Description:</span>{' '}
               {gameData?.description}
             </p>
             <Link to="/" className="btn">
@@ -119,11 +115,11 @@ export const Game = () => {
         </div>
       )}
 
-      {/* Button to toggle add task popup */}
+      {/* Button to toggle to show map */}
       <button id="plusButton" onClick={toggleShowMap}>
         {/* switching sign to indicate that can be toggle to close again */}
-        {showMap ? "-" : <img className="map-btn" src={map} />}
+        {showMap ? '-' : <img className="map-btn" src={map} />}
       </button>
     </section>
-  );
-};
+  )
+}

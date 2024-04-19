@@ -1,63 +1,55 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 
 export const SVGMap = ({ coordinates }) => {
   // Define the initial position of the user based on coordinates
 
-  const [x, setX] = useState(coordinates["0"]);
-  const [y, setY] = useState(coordinates["0"]);
+  const [x, setX] = useState(coordinates['0'])
+  const [y, setY] = useState(coordinates['0'])
 
   // Update the position of the user based on new coordinates
   useEffect(() => {
-    const [newX, newY] = coordinates.split(",");
-    setX(newX);
-    setY(newY);
-    console.log("NEw info:", newX, newY);
-  }, [coordinates]);
-  let circleCx, circleCy;
+    const [newX, newY] = coordinates.split(',')
+    setX(newX)
+    setY(newY)
+    console.log('NEw info:', newX, newY)
+  }, [coordinates])
+  let circleCx, circleCy
 
-  if (x === "0" && y === "0") {
-    circleCx = 340;
-    circleCy = 10;
-  } else if (x === "1" && y === "0") {
-    circleCx = 425;
-    circleCy = 200;
-  } else if (x === "1" && y === "1") {
-    // Default values
-    circleCx = 240;
-    circleCy = 207;
-  } else if (x === "0" && y === "1") {
-    // Default values
-    circleCx = 350;
-    circleCy = 255;
-  } else if (x === "0" && y === "2") {
-    // Default values
-    circleCx = 240;
-    circleCy = 410;
-  } else if (x === "0" && y === "3") {
-    // Default values
-    circleCx = 140;
-    circleCy = 410;
-  } else if (x === "1" && y === "3") {
-    // Default values
-    circleCx = 140;
-    circleCy = 500;
+  if (x === '0' && y === '0') {
+    circleCx = 340
+    circleCy = 10
+  } else if (x === '1' && y === '0') {
+    circleCx = 425
+    circleCy = 200
+  } else if (x === '1' && y === '1') {
+    circleCx = 240
+    circleCy = 207
+  } else if (x === '0' && y === '1') {
+    circleCx = 350
+    circleCy = 255
+  } else if (x === '0' && y === '2') {
+    circleCx = 240
+    circleCy = 410
+  } else if (x === '0' && y === '3') {
+    circleCx = 140
+    circleCy = 410
+  } else if (x === '1' && y === '3') {
+    circleCx = 140
+    circleCy = 500
   }
 
   const circleStyle = {
     cx: circleCx,
     cy: circleCy,
     r: 10,
-    fill: "red",
-  };
+    fill: 'red',
+  }
 
   return (
     <svg fill="#000000" height="200px" width="200px" viewBox="0 0 512 512">
-      {/* Your existing SVG code for the map layout */}
       <g>
         <g>
           <g>
-            {/* Add your existing path elements here */}
-            {/* For example: */}
             <path
               d="M264.533,273.067c-4.71,0-8.533,3.823-8.533,8.533V384c0,4.71,3.823,8.533,8.533,8.533h85.333
 				c4.71,0,8.533-3.823,8.533-8.533s-3.823-8.533-8.533-8.533h-76.8V281.6C273.067,276.89,269.244,273.067,264.533,273.067z"
@@ -103,11 +95,10 @@ export const SVGMap = ({ coordinates }) => {
               d="M213.333,375.467h-51.2c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h51.2c4.71,0,8.533-3.823,8.533-8.533
 				S218.044,375.467,213.333,375.467z"
             />
-            {/* Add more path elements as needed */}
             <circle {...circleStyle} />
           </g>
         </g>
       </g>
     </svg>
-  );
-};
+  )
+}

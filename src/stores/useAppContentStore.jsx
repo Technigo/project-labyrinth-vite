@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-export const appContentStore = create((set, get) => ({
+export const useAppContentStore = create((set, get) => ({
   // username from input
   username: '',
   loading: false,
@@ -11,6 +11,7 @@ export const appContentStore = create((set, get) => ({
   setUsername: (username) => set({ username }),
   //   function to set gameData the value of data
   setGameData: (data) => set({ gameData: data }),
+  // function to to show/not show the directions
   toggleDirections: () =>
     set((state) => ({ showDirections: !state.showDirections })),
 
@@ -27,8 +28,6 @@ export const appContentStore = create((set, get) => ({
         body: JSON.stringify({ username }),
       })
       const data = await response.json()
-      // console log fetched data
-      console.log('Fetched data:', data)
       set({ username, gameData: data })
     } catch (error) {
       console.error('Error fetching game data:', error)
@@ -38,20 +37,15 @@ export const appContentStore = create((set, get) => ({
   },
 
   fetchDirection: async (type, direction) => {
-    const { username } = get()
     set({ loading: true })
-    console.log('Username:', username)
     try {
       const response = await fetch('https://labyrinth.technigo.io/action', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, type, direction }),
+        body: JSON.stringify({ username: get().username, type, direction }),
       })
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
       const newData = await response.json()
 
       set({
@@ -66,7 +60,5 @@ export const appContentStore = create((set, get) => ({
     } finally {
       set({ loading: false }) // Set loading state back to false after fetch completes
     }
-    const requestBody = JSON.stringify({ username, type, direction })
-    console.log('Sending request with body:', requestBody)
   },
 }))

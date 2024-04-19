@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { appContentStore } from '../stores/appContentStore'
+import { useAppContentStore } from '../../stores/useAppContentStore'
 import { useNavigate } from 'react-router-dom'
 
 import labyrinth from '/labyrinth.jpg'
@@ -7,7 +7,7 @@ import './Home.css'
 
 export const Home = () => {
   const [inputUsername, setInputUsername] = useState('')
-  const { setUsername, fetchGameData } = appContentStore()
+  const { setUsername, fetchGameData } = useAppContentStore()
   const navigate = useNavigate()
   // take the value of input
   const handleUsernameChange = (event) => {
@@ -28,7 +28,6 @@ export const Home = () => {
         <div className="text-container">
           <h1 className="home-title">The Maze</h1>
           <p className="paragraph">
-            {/* Maybe we will use this the local storage context to display the saved usernamed from localstorage  */}
             Hi {inputUsername || 'Guest'}! Enter the labyrinth at your own risk.
             Can you find a way out of the maze?
           </p>
