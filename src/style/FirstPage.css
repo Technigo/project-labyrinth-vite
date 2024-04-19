@@ -61,6 +61,10 @@ input[type="text"] {
   color: white;
 }
 
+.submit-btn:disabled {
+  background-color: gray;
+}
+
 @media only screen and (min-width: 768px) {
   .heading {
     font-size: 55px;
