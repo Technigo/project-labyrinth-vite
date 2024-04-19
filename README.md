@@ -32,14 +32,4 @@ Every project should be deployed somewhere. Be sure to include the link to the d
 
 ## Instructions
 
-<a href="instructions.md">
-   See instructions of this project
-  </a>
 
-##README: remaining work
-#FIXME: LOGIC of going to next step - Wen
-#FIXME: Styling the first page - Wen
-#FIXME: Styling the action page
-#FIXME: Implement restart button
-#FIXME: Implement the background music/sound effects
-#FIXME: try to use useRef somewhere

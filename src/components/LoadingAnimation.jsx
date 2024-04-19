@@ -21,7 +21,7 @@ export const LoadingAnimation = () => {
   }, [])
 
   return (
-    <div className="loading-container">
+    <div className="loading-container" style={{ backgroundColor: "gray" }}>
       <div className="loading-animation" ref={container}></div>
     </div>
   )

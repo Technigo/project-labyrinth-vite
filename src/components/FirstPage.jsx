@@ -1,14 +1,14 @@
 import { useRef, useState } from "react"
 import { useLabyrinthStore } from "../stores/useLabyrinthStore"
 import { ActionPage } from "./ActionPage"
-//import { LoadingAnimation } from "./LoadingAnimation"
+import { LoadingAnimation } from "./LoadingAnimation"
 import "../style/FirstPage.css"
 
 export const FirstPage = () => {
   // create ref for main container div
   const bgImgRef = useRef()
 
-  const { loggedIn, startGame } = useLabyrinthStore()
+  const { loggedIn, startGame, loading } = useLabyrinthStore()
   const [userInput, setUserInput] = useState("")
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -22,12 +22,15 @@ export const FirstPage = () => {
     bgImgRef.current.style.backgroundImage = `url('src/assets/backgrounds/${coordinates}.jpeg')`
   }
 
-  /* if (loading) {
+  if (loading) {
     return <LoadingAnimation />
-  }*/
+  }
 
   return (
-    <div ref={bgImgRef} className="main-container">
+    <div
+      ref={bgImgRef}
+      className="main-container"
+      style={{ backgroundColor: "gray" }}>
       {loggedIn ? (
         <ActionPage changeBgImg={changeBgImg} />
       ) : (
