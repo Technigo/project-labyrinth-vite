@@ -13,7 +13,7 @@ export const PlayScreen = () => {
   const changeBackgroundImage = () => {
     backgroundImage.current.style.backgroundImg = `url('src/public/maze1.png')`;
   };
-  const { username, isLoading } = useGameStore();
+  const { username, isLoading, labData } = useGameStore();
   return isLoading ? (
     <Lottie
       animationData={footstepsAnimation}
@@ -28,11 +28,12 @@ export const PlayScreen = () => {
         <div className="text-area">
           <TextBox />
         </div>
-        <div className="button-cross">
-          <GameButton buttonName="East" />
+          <div className="button-cross">
+            {labData.actions.map((action,index) => (<GameButton key={index } buttonName={action.direction} />))}
+          {/* <GameButton buttonName="East" />
           <GameButton buttonName="South" />
           <GameButton buttonName="West" />
-          <GameButton buttonName="North" />
+          <GameButton buttonName="North" /> */}
         </div>
         <GameButton buttonName="Restart" />
       </div>

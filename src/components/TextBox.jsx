@@ -2,8 +2,6 @@ import { useGameStore } from "../stores/useGameStore";
 export const TextBox = () => {
   const { labData } = useGameStore();
 
-  console.log("TextBox labData: ", labData);
-
   return (
     <>
       <div className="textbox textbox-main">
