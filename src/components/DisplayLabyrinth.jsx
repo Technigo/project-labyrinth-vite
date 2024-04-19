@@ -28,10 +28,6 @@ export const DisplayLabyrinth = () => {
     return <div>No data available.</div>;
   }
 
-  console.log(start);
-  console.log(start.actions);
-  console.log(actions);
-
   return (
     <div ref={backgroundImageRef} className="labyrinth-start">
       <div className="action-box">

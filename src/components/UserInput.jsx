@@ -20,7 +20,8 @@ export const UserInput = () => {
         <Header />
         <div className="input-page">
           <h1>
-            Search for the gold plated chest or take a stoll through the forest <br/>- it's up to you!
+            Search for the gold plated chest or take a stoll through the forest{" "}
+            <br />- its up to you!
           </h1>
           <label className="start-title" htmlFor="user-input">
             {" "}

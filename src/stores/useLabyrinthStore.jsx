@@ -31,7 +31,6 @@ export const useLabyrinthStore = create((set, get) => ({
       }
 
       const data = await response.json();
-      console.log("Data from the fetch:", data);
       set({ start: data });
       set({ gameFlow: true });
       set({ actions: data.actions });
@@ -66,7 +65,6 @@ export const useLabyrinthStore = create((set, get) => ({
       }
 
       const data = await response.json();
-      console.log("Data from the second fetch:", data);
       set({ actions: data.actions });
       set({ description: data.description });
       set({ coordinates: data.coordinates });
