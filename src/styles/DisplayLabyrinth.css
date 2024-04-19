@@ -1,6 +1,24 @@
 .labyrinth-start {
-  margin: 50px;
+	padding: 50px;
+	/* display: flex;
+	flex-direction: column;
+	gap: 20px; */
+	height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.action-box {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  margin: 10%;
+  gap: 10px;
+  border: 5px solid black;
+  /* border-radius: 10px; */
+  padding: 50px;
+  font-size: 20px;
+  background: linear-gradient(to top, white, beige, gray);
+
 }
