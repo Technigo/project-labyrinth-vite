@@ -4,9 +4,6 @@
 }
 
 .story-book {
-    background-color: antiquewhite;
-    border: 1px solid gray;
-    border-radius: 25px;
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -14,11 +11,33 @@
 }
 
 .story-book img {
-    height: 30vh;
+    height: 35vh;
+    width: 45vw;
+    object-fit: cover;
     margin: 15px;
 }
 
+.story-info {
+    background-color: rgb(247, 240, 230);
+    border: 3px dotted black;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.story-info p {
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
 .arrow-container {
+    background-color: rgb(247, 240, 230, 0.5);
+    border-radius: 150px;
+    padding: 20px;
     width: 25vw;
     display: flex;
     flex-direction: column;
@@ -31,7 +50,7 @@
 }
 
 .arrow-container button {
-    background-color: lightgreen;
+    background-color: rgb(161, 255, 133, 0.5);
     border: none;
     padding: 4px;
     margin: 10px;

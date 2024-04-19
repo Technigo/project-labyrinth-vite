@@ -1,9 +1,6 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -12,6 +9,8 @@
 }
 
 body {
+  background-image: url(./assets/maze.jpg);
+  background-size: cover;
   margin: 0;
   display: flex;
   place-items: center;
@@ -49,21 +48,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* APP Component CSS */
 #root {
+  /*background-color: rgba(237, 237, 227, 0.6);*/
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -71,4 +57,4 @@ button:focus-visible {
 }
 
 
-/* Fonts: "Whisper", cursive; "Caveat", cursive; "Quicksand", sans-serif; "Indie Flower", cursive */
+/* Fonts: "Whisper", cursive; "Caveat", cursive; "Indie Flower", cursive */

@@ -37,8 +37,6 @@ export const StoryPage = () => {
     )
   }
 
-  
-
   if (loading) {
     return (
       <>
@@ -57,9 +55,11 @@ export const StoryPage = () => {
       <div className="story-page">
         <div className="story-book">
           <img src={imageLink} alt={gameData.description} />
-          <p>{gameData.description}</p>
-          <Options />
-          <p>{gameData.actions.length > 0 ? "Where do you go?" : ""}</p>
+          <div className="story-info">
+            <p>{gameData.description}</p>
+            <Options />
+            <p>{gameData.actions.length > 0 ? "Where do you go?" : ""}</p>
+          </div>
         </div>
         <div className="arrow-container">
           <button
