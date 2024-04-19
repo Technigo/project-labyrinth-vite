@@ -5,15 +5,16 @@ import Lottie from "lottie-react";
 
 import footstepsAnimation from "../assets/animations/footsteps.json";
 import "./PlayScreen.css";
-import { useRef } from "react";
-import backgroundImg from "../../public/maze1.png";
+import { useRef, useEffect } from "react";
 
 export const PlayScreen = () => {
   const backgroundImage = useRef();
-  const changeBackgroundImage = () => {
-    backgroundImage.current.style.backgroundImg = `url('src/public/maze1.png')`;
-  };
-  const { username, isLoading, labData } = useGameStore();
+  const { username, isLoading, labData, coordinates } = useGameStore();
+
+  useEffect(() => {
+    backgroundImage.current.style.backgroundImage = `url('${coordinates}.jpg')`;
+  }, [coordinates]);
+
   return isLoading ? (
     <Lottie
       animationData={footstepsAnimation}
@@ -28,8 +29,10 @@ export const PlayScreen = () => {
         <div className="text-area">
           <TextBox />
         </div>
-          <div className="button-cross">
-            {labData.actions.map((action,index) => (<GameButton key={index } buttonName={action.direction} />))}
+        <div className="button-cross">
+          {labData.actions.map((action, index) => (
+            <GameButton key={index} buttonName={action.direction} />
+          ))}
           {/* <GameButton buttonName="East" />
           <GameButton buttonName="South" />
           <GameButton buttonName="West" />

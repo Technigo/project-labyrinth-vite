@@ -29,7 +29,7 @@ export const useGameStore = create((set) => ({
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        set({ labData: data });
+        set({ labData: data, coordinates: data.coordinates });
         set({ isLoading: false, isStarted: true });
       })
       .catch((error) => {
