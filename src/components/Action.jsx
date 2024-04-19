@@ -6,6 +6,7 @@ import eye from '../assets/eye.svg'
 
 export const Action = ({changeBackground}) => {
   const {
+    description,
     actions,
     updateActions,
     updateLoggedIn,
@@ -28,6 +29,9 @@ export const Action = ({changeBackground}) => {
   
   return (
     <>
+      <div className='current-description'>
+            <h3>{description}</h3>
+          </div>
       {actions.map((action, index) => (
         <div key={index} className={action.direction}>
           <input type="checkbox" id="toggleCheckbox"/>
