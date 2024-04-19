@@ -40,7 +40,6 @@ export const DisplayLabyrinth = () => {
             value={action.direction}
             onClick={(e) => {
               const direction = e.target.value;
-              console.log(direction);
               fetchMove(direction);
             }}
           >
