@@ -25,3 +25,11 @@
   left: 30px; /* Adjust the left position as needed */
   transform: translateY(-50%);
 }
+
+/* Centering loading spinner */
+.loading-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
