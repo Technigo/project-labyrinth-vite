@@ -74,3 +74,10 @@ input[type="text"]:focus {
 .sound-button:hover { 
     transform: scale(1.1); 
     }
+
+@media (max-width: 480px) {
+    .sound-button{
+        top: 1rem;
+        right: 1rem;
+    }
+}

@@ -27,7 +27,7 @@
 
 .direction-info {
     display: none;
-    background-color: rgba(255, 193, 193, 0.568);
+    background-color: rgba(253, 216, 216, 0.658);
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
@@ -43,6 +43,9 @@
     display: flex;
   }
 
+  #toggleCheckbox:checked ~ .current-description {
+    display: none;
+}
 
 .North {
     display: flex;
@@ -50,7 +53,8 @@
     align-items: center;
     position: absolute;
     top: 4rem;
-    left: 45%;
+    width: 30%;
+    margin: 0 35%;
 }
 
 .South {
@@ -59,7 +63,8 @@
     align-items: center;
     position: absolute;
     bottom: 4rem;
-    left: 45%;
+    width: 30%;
+    margin: 0 35%;
 }
 
 .East {
@@ -80,14 +85,37 @@
 
 /*tablet*/
 @media (max-width: 768px) {
-  .North {
-
-}
 
 }
 
 /*mobile*/
 @media (max-width: 480px) {
-
+.North {
+    width: 60%;
+    margin: 0 20%;
+    top: 1rem;
+}
+    
+.South {
+    width: 50%;
+    margin: 0 25%;
+    bottom: 1rem;
 }
 
+.East {
+    right: 1rem;
+}
+
+.West{
+    left: 1rem;
+}
+.restart {
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+
+.direction-info {
+    background-color: rgb(73, 29, 29);
+    box-shadow: 4px 4px 5px rgb(122, 42, 42);
+}
+}

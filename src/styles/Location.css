@@ -56,7 +56,9 @@
 /*tablet*/
 @media (max-width: 768px) {
   .current-description {
-  width: 200px;
+  padding: 5%;
+  width: 40%;
+  margin: 50% 25%;
   
 }
 
@@ -65,5 +67,10 @@
 /*mobile*/
 @media (max-width: 480px) {
 
+  .history-button{
+    bottom: 1.5rem;
+    left: 1.5rem;
+    font-size: 0.8rem;
+}
 }
 
