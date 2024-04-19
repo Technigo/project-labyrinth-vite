@@ -82,19 +82,9 @@ h1 {
 
 @keyframes blinkTextCursor {
   from {
-    p::after {
-      border-right: 2px solid white;
-    }
-  }
-  to {
-    p::after{border-right: 2px solid transparent;}
-  }
-}
-/* @keyframes blinkTextCursor {
-  from {
     border-right: 2px solid white;
   }
   to {
     border-right: 2px solid transparent;
   }
-} */
+}

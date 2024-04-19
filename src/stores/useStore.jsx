@@ -15,7 +15,6 @@ export const useStore = create(
       // Initial fetch
       fetch: () =>
         set(async state => {
-          console.log("fetch");
           try {
             const res = await fetch("https://labyrinth.technigo.io/start", {
               method: "POST",
@@ -43,7 +42,7 @@ export const useStore = create(
               ],
             }));
           } catch (error) {
-            console.log("Error fetching data: ", error);
+            throw new Error("Error fetching data: ", error);
           }
         }),
 
@@ -79,7 +78,7 @@ export const useStore = create(
               ],
             });
           } catch (error) {
-            console.log("Error fetching data: ", error);
+            throw new Error("Error fetching data: ", error);
           }
         }),
 
@@ -100,7 +99,6 @@ export const useStore = create(
 
       // Restart adventure and clear storage
       restart: () => {
-        console.log("Restart!");
         set({ userName: "", gameHistory: [] });
         localStorage.clear();
       },
