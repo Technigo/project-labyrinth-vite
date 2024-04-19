@@ -23,9 +23,36 @@ const useLabyrinthStore = create((set) => ({
         throw new Error("Failed to start game.");
       }
       const data = await response.json();
-      set({ currentRoom: data, isLoading: false });
+      set({ currentRoom: data, isLoading: false, username });
     } catch (error) {
       set({ error: error.message, isLoading: false });
+    }
+  },
+  performAction: async (username, action) => {
+    try {
+      set({ isLoading: true });
+      const response = await fetch("https://labyrinth.technigo.io/action", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          type: "move",
+          direction: action.direction,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to perform action.");
+      }
+
+      const newData = await response.json();
+      set({ currentRoom: newData });
+    } catch (error) {
+      set({ error: error.message });
+    } finally {
+      set({ isLoading: false });
     }
   },
 }));

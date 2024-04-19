@@ -1,17 +1,22 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import useLabyrinthStore from "../store/useLabyrinthStore";
 
 const Rooms = () => {
-  const { currentRoom, performAction, isLoading, error, setLoading, setError } =
-    useLabyrinthStore();
-  const navigate = useNavigate();
+  const {
+    currentRoom,
+    performAction,
+    isLoading,
+    error,
+    setLoading,
+    setError,
+    username,
+  } = useLabyrinthStore();
 
   useEffect(() => {
     const fetchRoomData = async () => {
       try {
         setLoading(true);
-        await performAction();
+        await performAction(username, { direction: "start" });
       } catch (error) {
         setError(error.message);
       } finally {
@@ -20,12 +25,12 @@ const Rooms = () => {
     };
 
     fetchRoomData();
-  }, [performAction, setLoading, setError]);
+  }, [performAction, setLoading, setError, username]);
 
   const handleAction = async (action) => {
     try {
       setLoading(true);
-      await performAction(action);
+      await performAction(username, action);
     } catch (error) {
       setError(error.message);
     } finally {
