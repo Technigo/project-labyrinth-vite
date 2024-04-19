@@ -1,5 +1,6 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import "./Labyrinth.css";
+import { Loading } from "./Loading";
 
 export const Labyrinth = () => {
   const {
@@ -20,30 +21,24 @@ export const Labyrinth = () => {
     /* console.log(userName, direction) */
   };
 
-  if (loading) {
-    return <div>Loading ...</div>;
-  }
-
-  //Added this part to check if the data is already available for the map function otherwise the code would break.
-  if (!start || !start.actions) {
-    return <div>No data available.</div>;
-  }
-
-  /* 	console.log(start)
-	console.log(start.actions) */
   return (
     <div className="labyrinth-start">
-      <p>{start.description}</p>
+      {loading && <Loading />}
+      {!loading && (
+        <div>
+          <p>{start.description}</p>
 
-      {start.actions.map((action) => (
-        <button
-          key={action.description}
-          className={`button-${action.direction}`} // Apply the direction-specific class
-          onClick={() => handleDirectionClick(action)}
-        >
-          {action.direction}
-        </button>
-      ))}
+          {start.actions.map((action) => (
+            <button
+              key={action.description}
+              className={`button-${action.direction}`}
+              onClick={() => handleDirectionClick(action)}
+            >
+              {action.direction}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
