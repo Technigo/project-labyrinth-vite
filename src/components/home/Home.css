@@ -1,5 +1,6 @@
-.home-container {
-  background-image: url(/public/labyrinth.jpg);
+.home-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .home-img {
