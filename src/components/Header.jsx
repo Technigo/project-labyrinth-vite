@@ -1,5 +1,4 @@
 import "../styles/Header.css"
-import "forest-title.png"
 
 
 export const Header = () => {
