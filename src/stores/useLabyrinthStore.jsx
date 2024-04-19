@@ -61,7 +61,8 @@ export const useLabyrinthStore = create((set) => ({
       console.log("Data from the second fetch:", data);
 
       // Update the start object in the store with the new data
-      set({ start: data, loading: false });
+      set({ start: data });
+      set({ loading: false });
     } catch (error) {
       console.error("Error fetching data:", error);
       set({ loading: false });

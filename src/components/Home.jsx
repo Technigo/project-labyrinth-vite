@@ -1,7 +1,8 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+import { Loading } from "./Loading";
 
 export const Home = () => {
-  const {userName, setUserName, fetchStart} = useLabyrinthStore();
+  const { userName, setUserName, fetchStart, loading } = useLabyrinthStore();
 
   const handleStartSubmit = () => {
     if (userName === "") {
@@ -10,24 +11,30 @@ export const Home = () => {
       fetchStart(userName);
     }
   };
+
   return (
     <div className="input-page">
-				<label> Enter your username </label>
-				<input
-					className="input-field"
-					id="user-input"
-					type="text"
-					placeholder="New username"
-					value={userName}
-					onChange={(event) => {
-						setUserName(event.target.value)
-					}}
-				/>
-				<button onClick={handleStartSubmit}>Start Labyrinth</button>
-			</div>
-  )
-}
+      {!loading && (
+        <div>
+          <label> Enter your username </label>
+          <input
+            className="input-field"
+            id="user-input"
+            type="text"
+            placeholder="New username"
+            value={userName}
+            onChange={(event) => {
+              setUserName(event.target.value);
+            }}
+          />
+          <button onClick={handleStartSubmit}>Start Labyrinth</button>
+        </div>
+      )}
 
+      {loading && <div>Entering...</div>}
+    </div>
+  );
+};
 
 /* import { useState, useEffect, useRef } from "react";
 import { useUserStore } from "../stores/useUserStore";
