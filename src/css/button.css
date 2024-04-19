@@ -1,0 +1,27 @@
+.btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #888;
+  cursor: pointer;
+  transition: border-color 0.25s ease-in-out;
+  color: black;
+}
+
+.move {
+  display: block;
+}
+
+.btn:hover {
+  border-color: white;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.btn:focus,
+.btn:focus-visible {
+  outline: 4px auto var(--primary-color);
+}

@@ -1,0 +1,12 @@
+.situation-details > * {
+  margin: 1rem auto;
+}
+
+.situation-details > summary {
+  font-family: "Silkscreen bold";
+  cursor: pointer;
+}
+
+.situation-details > summary:focus {
+  outline-color: var(--primary-color);
+}

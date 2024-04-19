@@ -6,29 +6,40 @@
 
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
-
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week we're practicing using Zustand by creating a classic text-based adventure game from the Technigo API. The storyline is done; all we have to do is create the logic and style.
+
+I found it pretty easy to get the basics down. The app is working now, from what I can tell. I wish I could find a way to tell if the username is new or already in use, so that the user would know to find another... After some input fom coaches, I instead added a random userId to ensure the username is always unique.
+
+I'm having some issues with the fetch running twice intially, and some states updating when they shouldn't.
+I'm happy I found an easy way to put data in storage.
+
+There are some issues with how game history is set - there are way too many calls.
+
+Found a fun typing animation package!
+
+#### Requirements
+
+- Your Labyrinth game should guide the user with instructions about the game and moves to make
+- Use Zustand to store the current state of the game
+- Perform asynchronous operations in the app store
+- Focus on making the UX of your app good. Handle the response delay
+- Don't forget CSS! Your Labyrinth should be well-styled
+
+#### Next
+
+- If I can find pixel arrows, I will add those to indicate direction.
+
+- Trying to find a way to load the history separate, so it looks like only the newest is added. Don't know how...
+
+- I would like to do the classic look, with the game playing out in "the terminal". So it's going to take some styling, as well as some added functionality. For the real authentic feel, the user should have to type the commands aswell... We'll see if I have time.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[https://sofias-labyrinth.netlify.app/]
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8bce6579-38bb-4437-a9f1-97e9cd1a8e1c/deploy-status)](https://app.netlify.com/sites/sofias-labyrinth/deploys)
 
 ## Instructions
 
