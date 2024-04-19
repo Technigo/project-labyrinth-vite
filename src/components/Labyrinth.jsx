@@ -1,5 +1,6 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import "./Labyrinth.css";
+import labyrinthImages from "../components/labyrinthImages.json";
 
 export const Labyrinth = () => {
   const {
@@ -44,6 +45,28 @@ export const Labyrinth = () => {
           {action.direction}
         </button>
       ))}
+
+      {/* Render images based on coordinates */}
+      <div className="image-container">
+        {labyrinthImages.map((image) => {
+          const { coordinates, imagePath } = image;
+          const matchingAction = start.actions.find(
+            (action) => action.coordinates === coordinates
+          );
+
+          if (matchingAction) {
+            return (
+              <img
+                key={coordinates}
+                src={imagePath}
+                alt={`Image at ${coordinates}`}
+              />
+            );
+          }
+
+          return null;
+        })}
+      </div>
     </div>
   );
 };
