@@ -1,8 +1,7 @@
 import { useGameStore } from "../stores/useGameStore";
 import { Introduction } from "./Introduction";
-import { StartGame } from "./StartGame";
 import { Directions } from "./Directions";
-
+import { LabyrinthCard } from "./LabyrinthCard";
 
 export const GameContainer = () => {
   const {
@@ -10,22 +9,19 @@ export const GameContainer = () => {
     setGameStarted,
     description,
     actions,
-    setDescription,
-    setActions,
     setLoading,
     performAction,
     resetGame,
     coordinates,
   } = useGameStore();
 
-  // Function to handle starting the game directly from Introduction component
-  const handleStartGame = async () => {
+  const handleStartGame = async (username) => {
     setLoading(true);
     try {
       const response = await fetch("https://labyrinth.technigo.io/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: "TheLastJedi" }), 
+        body: JSON.stringify({ username }),
       });
 
       if (!response.ok) {
@@ -33,9 +29,12 @@ export const GameContainer = () => {
       }
 
       const data = await response.json();
-      setDescription(data.description);
-      setActions(data.actions);
-      setGameStarted(true); 
+      setGameStarted({
+        gameStarted: true,
+        description: data.description,
+        actions: data.actions,
+        coordinates: data.coordinates,
+      });
     } catch (error) {
       console.error("Error starting the game:", error);
     } finally {
@@ -43,15 +42,16 @@ export const GameContainer = () => {
     }
   };
 
-
   return (
     <div className="App">
       {!gameStarted ? (
-        <Introduction onStartGame={() => handleStartGame()} />
+        <Introduction onStartGame={handleStartGame} />
       ) : (
         <>
-          <StartGame />
-          <p>{description}</p>
+          <LabyrinthCard
+            title="The Labyrinth of Azura"
+            description={description}
+          />
           <Directions
             actions={actions}
             performAction={performAction}

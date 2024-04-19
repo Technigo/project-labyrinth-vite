@@ -1,5 +1,15 @@
+import { useState } from "react";
 
-export const Introduction = ({ onStartGame, onTurnBack }) => {
+export const Introduction = ({ onStartGame }) => {
+  const [username, setUsername] = useState("");
+
+  const handleStartGame = () => {
+    if (username.trim()) {
+      onStartGame(username);
+    } else {
+      alert("Please enter a username.");
+    }
+  };
 
   return (
     <div>
@@ -18,15 +28,17 @@ export const Introduction = ({ onStartGame, onTurnBack }) => {
         through your veins as you realize you've discovered the entrance to the
         Lost City of Azura. You stand at the threshold, faced with a choice:
       </p>
+      <input
+        type="text"
+        placeholder="Enter your username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        style={{ marginBottom: "10px" }}
+      />
       <ul>
         <li>
-          <button onClick={onStartGame}>
+          <button onClick={handleStartGame}>
             Enter the doorway and delve into the unknown.
-          </button>
-        </li>
-        <li>
-          <button onClick={onTurnBack}>
-            Turn back and reconsider your options.
           </button>
         </li>
       </ul>

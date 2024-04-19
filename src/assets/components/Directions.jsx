@@ -14,7 +14,7 @@ export const Directions = () => {
 
   const onClickRestart = () => {
     console.log("User clicked restart");
-    resetGame();
+    resetGame(); 
   };
 
   const onClickGo = useCallback(
