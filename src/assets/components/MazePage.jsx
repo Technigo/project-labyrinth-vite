@@ -23,7 +23,7 @@ if (!gameStarted) {
               actions={actions}
               performAction={performAction}
             />
-            <Directions actions={actions} />
+            <Directions actions={actions} performAction={performAction} />
           </>
         )}
       </div>

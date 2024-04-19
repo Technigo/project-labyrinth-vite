@@ -7,9 +7,11 @@ import { MainButton } from "./buttons/MainButton";
 import { useCallback } from "react";
 
 export const Directions = ({ actions, performAction, resetGame, coordinates }) => {
+  console.log("performAction is", typeof performAction); // Should log 'function'
+
+
   const startPosition = coordinates === "0,0";
   const endPosition = coordinates === "1,3";
-
 
   const onClickRestart = () => {
     console.log("User clicked restart");
@@ -65,8 +67,8 @@ export const Directions = ({ actions, performAction, resetGame, coordinates }) =
       )}
       {!startPosition && (
         <MainButton
-          style={{ position: "absolute", bottom: "0", right: "0" }}
-          onClick={onClickRestart}
+          onClickRestart={onClickRestart}
+          style={{ position: "absolute", bottom: "20px", right: "20px" }}
         >
           Restart
         </MainButton>

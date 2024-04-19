@@ -1,5 +1,3 @@
-
-
 export const MainButton = ({ children, onClick, style }) => {
   return (
     <button onClick={onClick} style={style} className="main-button">
@@ -7,4 +5,3 @@ export const MainButton = ({ children, onClick, style }) => {
     </button>
   );
 };
-

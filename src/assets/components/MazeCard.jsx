@@ -77,14 +77,14 @@ export const MazeCard = ({
       {showDescription && <Description>{description}</Description>}
       {showDirections && (
         <div>
-          {actions.map((item) => (
-            <DirectionContainer key={item.description}>
-              <DirectionDescription>{item.description}</DirectionDescription>
+          {actions.map((action) => (
+            <DirectionContainer key={action.description}>
+              <DirectionDescription>{action.description}</DirectionDescription>
               <DirectionButton
                 type="button"
-                onClick={() => performAction(item.type, item.direction)}
+                onClick={() => performAction(action.type, action.direction)}
               >
-                Go {item.direction}
+                Go {action.direction}
               </DirectionButton>
             </DirectionContainer>
           ))}
