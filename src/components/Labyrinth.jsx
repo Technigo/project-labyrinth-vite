@@ -1,7 +1,8 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import "./Labyrinth.css";
-import labyrinthImages from "../components/labyrinthImages.json";
+import labyrinthImages from "./labyrinthImages.json";
 
+console.log(labyrinthImages);
 export const Labyrinth = () => {
   const {
     loading,
