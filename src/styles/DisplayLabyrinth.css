@@ -48,7 +48,7 @@
 }
 }
 
-@media (min-width: 1025px;) {
+@media (min-width: 1025px) {
 .action-box {
   display: flex;
   flex-direction: column;
