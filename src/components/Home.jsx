@@ -31,7 +31,7 @@ export const Home = () => {
         </div>
       )}
 
-      {loading && <div>Entering the Labyrinth...</div>}
+      {loading && <div>Entering...</div>}
     </div>
   );
 };
