@@ -1,25 +1,50 @@
+.direction-btn,
+#northBtn,
+#southBtn,
+#eastBtn,
+#westBtn {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+.direction-btn {
+  position: relative;
+}
+
+.center-btns {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 #northBtn {
   position: absolute;
   top: 0;
+  margin-top: 20px;
 }
-/* .directionContainer {
-  position: relative;
-} */
+
 #southBtn {
   position: absolute;
   bottom: 0;
+  margin-bottom: 20px;
 }
+
 #eastBtn {
   position: absolute;
   right: 0;
+  margin-right: 5px;
 }
+
 #westBtn {
   position: absolute;
   left: 0;
+  margin-left: 5px;
 }
 
 .direction-wrapper {
-  margin: 20px;
+  margin: 10px 5px;
   border-radius: 10px;
   background-color: black;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -28,4 +53,8 @@
 .direction-text {
   padding: 0 10px 10px 10px;
   color: white;
+}
+
+.directions-title {
+  padding: 20px 20px 0 20px;
 }
