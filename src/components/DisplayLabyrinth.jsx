@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import { useEffect, useRef } from "react";
 
-import Loading from "../assets/Loading.json";
+import Loading from "../assets/Loading2.json";
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 
 import "../styles/DisplayLabyrinth.css";
