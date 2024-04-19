@@ -3,7 +3,7 @@
 }
 
 .background-picture {
-  background-image: url(/startPage.jpg);
+  background-image: url("startPage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
