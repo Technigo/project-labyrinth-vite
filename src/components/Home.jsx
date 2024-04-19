@@ -4,7 +4,8 @@ import { Loading } from "./Loading";
 export const Home = () => {
   const { userName, setUserName, fetchStart, loading } = useLabyrinthStore();
 
-  const handleStartSubmit = () => {
+  const handleStartSubmit = (event) => {
+    event.preventDefault();
     if (userName === "") {
       alert("Please set a username.");
     } else {
@@ -15,7 +16,7 @@ export const Home = () => {
   return (
     <div className="input-page">
       {!loading && (
-        <div>
+        <form onSubmit={handleStartSubmit}>
           <label> Enter your username </label>
           <input
             className="input-field"
@@ -28,7 +29,7 @@ export const Home = () => {
             }}
           />
           <button onClick={handleStartSubmit}>Start Labyrinth</button>
-        </div>
+        </form>
       )}
 
       {loading && <div>Entering...</div>}
