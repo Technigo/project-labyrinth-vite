@@ -9,8 +9,7 @@
   align-items: center;
 }
 
-.start-container,
-.action-container {
+.start-container {
   background-color: rgba(56, 56, 56, 0.8);
   width: 100%;
   color: white;
