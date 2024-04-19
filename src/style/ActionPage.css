@@ -1,0 +1,31 @@
+.action-container {
+  position: relative;
+}
+
+.restart-button,
+.action-button {
+  cursor: pointer;
+  text-align: center;
+  height: 25px;
+  width: 60px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.restart-button {
+  background-color: rgba(255, 255, 255, 0.466);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.action-button {
+  background-color: rgb(100, 68, 23);
+  border-style: groove solid 2px;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+}
