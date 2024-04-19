@@ -8,7 +8,7 @@ export const UsernameInput = () => {
 
   return (
     <div>
-      <p>{username} </p> New Username:
+      New wanderer:
       <div className="start-user-info">
         <label className="name-label">
           <input type="text" className="name-box" value={username}

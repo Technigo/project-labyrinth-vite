@@ -1,71 +1,59 @@
 import { useGameStore } from "../stores/useGameStore";
-import "./GameButton.css"
+import { useRef, useState } from "react";
+import "./GameButton.css";
 
 export const GameButton = ({ buttonName }) => {
   const {
     username,
     action,
+    actions,
     direction,
+    coordinates,
     setDirection,
     setIsStarted,
     isStarted,
     setLabData,
     setIsLoading,
+    startGame,
+    makeMove
   } = useGameStore();
 
-  let url = "";
-  const start_URL = "https://labyrinth.technigo.io/start";
-  const action_URL = "https://labyrinth.technigo.io/action";
+
 
   /*const userData = {
     username: username
   };*/
+  const [possibleDirection, setPossibleDirection] = useState([
+    "Start",
+    "Reset",
+  ]);
 
-  let possibleDirection = [];
+  // let possibleDirection = [];
+  const buttonRef = useRef(null);
 
-  const moveData = {
-    username: username,
-    type: action,
-    direction: direction,
-  };
 
-  const checkAndDisableButton = (data) => {
-    possibleDirection = ["Start", "Reset"];
-    console.log("Inside Checkand Disable: ", data);
-    data.actions.map((action) => possibleDirection.push(action.direction));
-    console.log(possibleDirection);
 
-    let button = document.getElementById(possibleDirection[2].toLowerCase());
-    console.log("Check and Disable button: ", possibleDirection[2].toLowerCase())
-    button.classList.add("test");
-  };
+  // const checkAndDisableButton = (data) => {
+  //   setPossibleDirection(["Start", "Reset"]);
+  //   console.log("Inside Checkand Disable: ", data);
+  //   data.actions.map((action) => {
+  //     possibleDirection.push(action.direction);
+  //   });
+  //   console.log(" CheckandDiasble array: ", possibleDirection);
+  //   const newData = possibleDirection;
+  //   console.log("New Data: ", newData);
+  //   setPossibleDirection(newData);
+  // };
 
-  const postRequest = () => {
-    setIsLoading(true);
-    fetch(url, {
-      method: "POST", // or 'PUT'
-      headers: { "Content-Type": "application/json" },
 
-      body: JSON.stringify(moveData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-        setLabData(data);
-        setIsLoading(false);
-        checkAndDisableButton(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
 
-  const handleClick = () => {
-    setDirection(buttonName);
+  const handleClick = (e) => {
+    const direction = e.target.value;
     console.log("Inside handleClick: ", buttonName);
+    console.log("Coordinates: ", coordinates)
 
     if (buttonName === "Restart") {
-      setIsStarted();
+      setIsStarted(false);
     }
 
     if (buttonName === "Start") {
@@ -77,19 +65,20 @@ export const GameButton = ({ buttonName }) => {
     }
 
     if (isStarted) {
-      url = action_URL;
-      postRequest();
+      makeMove(username, action, direction);
     } else if (isStarted === false) {
-      url = start_URL;
-      setIsStarted();
-      postRequest();
+      startGame(username);
     }
   };
 
   return (
     <button
+      ref={buttonRef}
+      value={buttonName}
       id={buttonName.toLowerCase()}
-      className={`control-button ${buttonName}-button`}
+      className={`control-button ${buttonName.toLowerCase()}-button ${
+        possibleDirection[2] === buttonName.toLowerCase() ? "match" : "no-match"
+      }`}
       onClick={handleClick}
     >
       {buttonName}
