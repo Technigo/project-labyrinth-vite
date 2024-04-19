@@ -12,7 +12,7 @@
 
 7. Handle the response from the `POST /action` to update the game state DONE
 
-8. Style the different pages
+8. Style the different pages 7 pictures to find.
 
 9. Check Responsivness
 

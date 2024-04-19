@@ -1,10 +1,11 @@
-import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { useRef } from "react";
+
+import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 
 import "../styles/DisplayLabyrinth.css";
 
 export const DisplayLabyrinth = () => {
-  const { loading, start, fetchMove, actions, description } =
+  const { loading, start, fetchMove, actions, description, coordinates } =
     useLabyrinthStore();
 
   const backgroundImageRef = useRef();
@@ -23,6 +24,11 @@ export const DisplayLabyrinth = () => {
   console.log(start);
   console.log(start.actions);
   console.log(actions);
+
+  /* useEffect(() => { */
+  changeBackgroundImage(coordinates);
+  /* }, [changeBackgroundImage, coordinates]); */
+
   return (
     <div ref={backgroundImageRef} className="labyrinth-start">
       <p>{description}</p>

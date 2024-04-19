@@ -7,6 +7,7 @@ export const useLabyrinthStore = create((set, get) => ({
   userName: "",
   actions: [],
   description: "",
+  coordinates: "",
 
   setUserName: (userInput) => set({ userName: userInput }),
 
@@ -35,6 +36,7 @@ export const useLabyrinthStore = create((set, get) => ({
       set({ gameFlow: true });
       set({ actions: data.actions });
       set({ description: data.description });
+      set({ coordinates: data.coordinates });
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -67,6 +69,7 @@ export const useLabyrinthStore = create((set, get) => ({
       console.log("Data from the second fetch:", data);
       set({ actions: data.actions });
       set({ description: data.description });
+      set({ coordinates: data.coordinates });
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
