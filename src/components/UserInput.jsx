@@ -1,6 +1,6 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { Header } from "./Header";
-import "first-page-pic.jpg"
+
 import "../styles/UserInput.css";
 
 export const UserInput = () => {
