@@ -1,6 +1,7 @@
 import "../styles/Header.css"
 import "forest-title.png"
 
+
 export const Header = () => {
 return (
 	<div className="header-image">
