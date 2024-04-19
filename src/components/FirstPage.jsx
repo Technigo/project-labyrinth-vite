@@ -19,7 +19,7 @@ export const FirstPage = () => {
   // function that changes the background img
   const changeBgImg = (coordinates) => {
     // replace the url for each coordinate
-    bgImgRef.current.style.backgroundImage = `url('public/${coordinates}.jpeg')`
+    bgImgRef.current.style.backgroundImage = `url('../../public/${coordinates}.jpeg')`
   }
 
   if (loading) {
