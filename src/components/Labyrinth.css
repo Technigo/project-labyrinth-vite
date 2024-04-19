@@ -1,3 +1,10 @@
+.labyrinth-start {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .labyrinth-start button {
   position: absolute;
 }

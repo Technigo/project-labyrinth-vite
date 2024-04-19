@@ -7,6 +7,7 @@ console.log(labyrinthImages);
 export const Labyrinth = () => {
   const {
     loading,
+    error,
     start,
     fetchMove,
     userName,
@@ -26,8 +27,13 @@ export const Labyrinth = () => {
   return (
     <div className="labyrinth-start">
       {loading && <Loading />}
+      {error && (
+        <div className="error">
+          <h2>{error.message}</h2>
+        </div>
+      )}
 
-      {!loading && (
+      {!loading && !error && (
         <div>
           <p>{start.description}</p>
 
