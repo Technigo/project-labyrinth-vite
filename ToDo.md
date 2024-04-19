@@ -6,16 +6,16 @@
 
 4. Get the Username from the User and implement it into the fetch DONE
 
-5. Allow the user/player to select an action
+5. Allow the user/player to select an action DONE
 
-6. Perform a POST request based on the action selected
+6. Perform a POST request based on the action selected DONE
 
-7. Handle the response from the `POST /action` to update the game state
+7. Handle the response from the `POST /action` to update the game state DONE
 
 8. Style the different pages
 
 9. Check Responsivness
 
-10. Check Accessibility
+10. Check Accessibility DONE
 
 11. Style the Loading state

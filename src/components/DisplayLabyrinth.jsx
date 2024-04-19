@@ -1,10 +1,13 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+import { useRef } from "react";
 
 import "../styles/DisplayLabyrinth.css";
 
 export const DisplayLabyrinth = () => {
   const { loading, start, fetchMove, actions, description } =
     useLabyrinthStore();
+
+  const backgroundImageRef = useRef();
 
   if (loading) {
     return <div>Loading ...</div>;
@@ -14,12 +17,14 @@ export const DisplayLabyrinth = () => {
   if (!start || !start.actions) {
     return <div>No data available.</div>;
   }
-
+  const changeBackgroundImage = () => {
+    backgroundImageRef.current.style.backgroundImage = `url("/${coordinates}.jpeg")`;
+  };
   console.log(start);
   console.log(start.actions);
   console.log(actions);
   return (
-    <div className="labyrinth-start">
+    <div ref={backgroundImageRef} className="labyrinth-start">
       <p>{description}</p>
 
       {actions.map((action) => (
