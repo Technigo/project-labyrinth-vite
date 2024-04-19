@@ -1,14 +1,14 @@
 import { create } from "zustand";
 
-export const useLabyrinthStore = create((set) => ({
+export const useLabyrinthStore = create((set, get) => ({
   loading: false,
   gameFlow: false,
   start: {},
   userName: "",
   actions: [],
-  /* direction: "", */
+  description: "",
+
   setUserName: (userInput) => set({ userName: userInput }),
-  /* setDirection: (userDirection) => set({ direction: userDirection }), */
 
   fetchStart: async (userName) => {
     set({ loading: true });
@@ -33,6 +33,8 @@ export const useLabyrinthStore = create((set) => ({
       console.log("Data from the fetch:", data);
       set({ start: data });
       set({ gameFlow: true });
+      set({ actions: data.actions });
+      set({ description: data.description });
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -40,7 +42,7 @@ export const useLabyrinthStore = create((set) => ({
     }
   },
 
-  fetchMove: async (userName, direction) => {
+  fetchMove: async (/* userName, */ direction) => {
     set({ loading: true });
     set({ gameFlow: true });
 
@@ -49,7 +51,7 @@ export const useLabyrinthStore = create((set) => ({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: userName,
+          username: get().userName,
           type: "move",
           direction: direction,
         }),
@@ -64,6 +66,7 @@ export const useLabyrinthStore = create((set) => ({
       const data = await response.json();
       console.log("Data from the second fetch:", data);
       set({ actions: data.actions });
+      set({ description: data.description });
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {

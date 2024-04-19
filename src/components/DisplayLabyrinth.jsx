@@ -3,7 +3,8 @@ import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import "../styles/DisplayLabyrinth.css";
 
 export const DisplayLabyrinth = () => {
-  const { loading, start, fetchMove, actions } = useLabyrinthStore();
+  const { loading, start, fetchMove, actions, description } =
+    useLabyrinthStore();
 
   if (loading) {
     return <div>Loading ...</div>;
@@ -19,11 +20,11 @@ export const DisplayLabyrinth = () => {
   console.log(actions);
   return (
     <div className="labyrinth-start">
-      <p>{start.description}</p>
+      <p>{description}</p>
 
       {actions.map((action) => (
         <button
-          key={action.description}
+          key={description}
           value={action.direction}
           onClick={(e) => {
             const direction = e.target.value;
