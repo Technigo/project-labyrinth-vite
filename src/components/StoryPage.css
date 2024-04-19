@@ -1,3 +1,9 @@
+.loading-page {
+    background-color: rgb(247, 240, 230);
+    border-radius: 150px 80px 100px 50px;
+    padding: 20px;
+}
+
 .story-page {
     display: flex;
     gap: 50px;
@@ -8,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
 .story-book img {
@@ -15,6 +22,7 @@
     width: 45vw;
     object-fit: cover;
     margin: 15px;
+    box-shadow: 2px 2px 10px 15px rgba(247, 240, 230, 1);
 }
 
 .story-info {

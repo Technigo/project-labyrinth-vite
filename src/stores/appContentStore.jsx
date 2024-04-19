@@ -1,11 +1,11 @@
 import { create } from "zustand"
-import oneone from "../assets/oneone.jpg";
-import onethree from "../assets/onethree.jpg";
-import onezero from "../assets/onezero.jpg";
-import zeroone from "../assets/zeroone.jpg";
-import zerothree from "../assets/zerothree.jpg";
-import zerotwo from "../assets/zerotwo.jpg";
-import zerozero from "../assets/zerozero.jpg";
+import oneone from "../assets/oneone.jpg"
+import onethree from "../assets/onethree.jpg"
+import onezero from "../assets/onezero.jpg"
+import zeroone from "../assets/zeroone.jpg"
+import zerothree from "../assets/zerothree.jpg"
+import zerotwo from "../assets/zerotwo.jpg"
+import zerozero from "../assets/zerozero.jpg"
 
 export const appContentStore = create((set) => ({
   loading: false,

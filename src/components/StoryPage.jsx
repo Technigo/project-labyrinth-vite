@@ -39,7 +39,7 @@ export const StoryPage = () => {
 
   if (loading) {
     return (
-      <>
+      <div className="loading-page">
         <p>Loading...</p>
         <Lottie
           animationData={cogWheels}
@@ -47,8 +47,8 @@ export const StoryPage = () => {
           autoplay
           style={{ width: 400, height: 400 }}
         />
-      </>
-    );
+      </div>
+    )
   }
   if (gameData) {
     return (
@@ -94,5 +94,6 @@ export const StoryPage = () => {
           </button>
         </div>
       </div>
-    );}
+    )
+  }
 }
