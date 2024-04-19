@@ -86,7 +86,7 @@ export const GameComponent = ({ username }) => {
 
   const handlePlayAgain = () => {
     startGame()
-    window.location.href = "/LoginComponent"
+    window.location.href = "/"
   }
 
   const handleToggleHistory = () => {
