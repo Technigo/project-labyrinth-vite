@@ -1,8 +1,9 @@
+import { FirstPage } from "./components/FirstPage";
 
 export const App = () => {
   return (
-  <div>
-    Labyrinth Project 
-  </div>
+    <>
+      <FirstPage />
+    </>
   );
 };

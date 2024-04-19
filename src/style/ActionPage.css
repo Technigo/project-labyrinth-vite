@@ -1,0 +1,58 @@
+.action-container {
+  position: relative;
+  background-color: rgba(56, 56, 56, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 5%;
+  width: 100%;
+}
+
+.restart-button,
+.action-button {
+  cursor: pointer;
+  text-align: center;
+  height: 25px;
+  border-radius: 6px;
+}
+
+.restart-button {
+  background-color: rgba(255, 255, 255, 0.246);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+  font-size: 14px;
+  width: 50px;
+}
+
+.action-button {
+  background-color: rgb(100, 68, 23);
+  border-style: groove solid 2px;
+  color: white;
+  font-size: 16px;
+  width: 60px;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .action-container {
+    max-width: 768px;
+    padding: 50px;
+  }
+
+  .action-container p {
+    font-size: 22px;
+  }
+
+  .action-button {
+    font-size: 20px;
+    width: 70px;
+  }
+}
