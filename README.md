@@ -7,3 +7,4 @@ This project involves building a text-based adventure game using React and Zusta
 The challenge lay in grasping the game's logic, especially how player choices interact with API requests to influence game progression. Additionally, it was crucial to ensure the game was user-friendly and displayed effectively across both mobile and desktop platforms.
 
 ### View it live
+https://the-survivors.netlify.app/

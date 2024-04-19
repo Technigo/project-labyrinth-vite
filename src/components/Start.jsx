@@ -64,7 +64,7 @@ export const Start = () => {
         <h2>
         {' '}
             <ReactTyped
-              strings={['Your Planet is in ruins.<br> You have travelled the universe to find a new settlement for the survivers of your world - only to fail over and over. This planet seems promising.. <br><br>Enter your name and search for a new place to live.']}
+              strings={['Your Planet is in ruins.<br> You have travelled the universe to find a new settlement for the survivors of your world - only to fail over and over. This planet seems promising.. <br><br>Enter your name and search for a new place to live.']}
               typeSpeed={80}
   
             /></h2></div>
