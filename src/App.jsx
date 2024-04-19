@@ -1,8 +1,11 @@
+import AppRoutes from "./components/AppRoutes";
 
 export const App = () => {
   return (
-  <div>
-    Labyrinth Project 
-  </div>
+    <div>
+      <AppRoutes />
+    </div>
   );
 };
+
+export default App;
