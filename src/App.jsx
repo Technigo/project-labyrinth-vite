@@ -1,9 +1,9 @@
-import GameComponent from "./components/GameComponent";
+import { StartComponent } from "./components/StartComponent";
 
 export const App = () => {
   return (
     <div>
-      <GameComponent />
+      <StartComponent />
     </div>
   );
 };

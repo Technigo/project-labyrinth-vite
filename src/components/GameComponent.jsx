@@ -1,81 +1,61 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useGameStore from "../store/gameStore";
+import "../css/GameComponent.css";
 
-import "./GameComponent.css";
-/* import Directions from "./Directions"; */
+export const GameComponent = ({ changeImage, onRestart }) => {
+  const { coordinates, description, actions, performAction, restart } =
+    useGameStore();
+  const [showDetails, setShowDetails] = useState(false);
 
-const GameComponent = () => {
-  const { gameState, loading, error } = useGameStore();
-  const [showMore, setShowMore] = useState(false);
-
-  const handleShowMore = () => {
-    setShowMore(true);
+  const toggleDetails = () => {
+    setShowDetails((prevState) => !prevState);
   };
 
-  // No data fetching logic here, it's handled by the store
-  /* 
-  const moveEast = () => {
-    const eastAction = data?.actions?.find(
-      (action) => action.direction === "East"
-    );
-    if (eastAction) {
-      handleAction(eastAction);
-    } else {
-      console.error("No action available to move East.");
-    }
-  }; */
+  useEffect(() => {
+    console.log("Current coordinates:", coordinates);
+    changeImage(coordinates);
+  }, [changeImage, coordinates]);
+
   return (
     <div className="game-container">
-      {loading && <div>Loading...</div>}
-      {error && <div>Error: {error.message}</div>}
-      {gameState && (
+      <h2>{description}</h2>
+      {actions.length > 0 && (
         <div>
-          {/* <Directions coordinates={gameState.coordinates} /> */}
-          <p>{gameState.description}</p>
-          {showMore && (
-            <div>
-              {gameState.actions.map((action, index) => (
-                <div key={index}>
-                  <strong>Direction:</strong> {action.direction}
-                  <p>{action.description}</p>
-                </div>
-              ))}
+          {actions.map((action, index) => (
+            <div key={index}>
+              {showDetails && <p>{action.description}</p>}
+              <button
+                onClick={() => {
+                  console.log("Performing action:", action.direction);
+                  performAction(action.direction);
+                }}
+              >
+                Move {action.direction}
+              </button>
             </div>
-          )}
-          {!showMore && <button onClick={handleShowMore}>Show More</button>}
+          ))}
         </div>
       )}
+
+      {actions.length > 0 && (
+        <button onClick={toggleDetails}>
+          {showDetails ? "Hide Details" : "Show Me More"}
+        </button>
+      )}
+
+      <button
+        onClick={() => {
+          restart();
+          changeImage("start");
+          if (onRestart) {
+            onRestart();
+          }
+        }}
+      >
+        Restart
+      </button>
     </div>
   );
 };
 
-/* 
-  return (
-    <div className="game-container">
-      <StartComponent onStart={setUsername} />
-      {loading && <div>Loading...</div>}
-      {error && <div>Error: {error.message}</div>}
-      {data && (
-        <div>
-          <Directions coordinates={data.coordinates} />
-          <p>{data.description}</p>
-          <ul>
-            {data.actions.map((action, index) => (
-              <li key={index}>
-                <strong>Direction:</strong> {action.direction}
-                <p>{action.description}</p>
-                <button onClick={() => handleAction(action)}>
-                  Move {action.direction}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-};
- */
-export default GameComponent;
-
-//Instead, GameComponent should focus solely on rendering the game UI and handling actions.
+// GameComponent should focus solely on rendering the game UI and handling actions. */}

@@ -3,9 +3,9 @@ import { create } from "zustand";
 export const useGameStore = create((set, get) => ({
   username: null,
   loading: false,
-  coordinates: null,
+  coordinates: "start",
   description: null,
-  actions: null,
+  actions: [],
   error: null,
   isLoggedIn: false,
 
@@ -27,7 +27,7 @@ export const useGameStore = create((set, get) => ({
       }
 
       const data = await response.json();
-      console.log("Game started with data:", data);
+      console.log("API Response:", data);
 
       set({
         username: uniqueName,
@@ -71,11 +71,11 @@ export const useGameStore = create((set, get) => ({
       set({ error });
       console.error("Error performing action:", error);
     } finally {
-      set({ loading: false }); // Set loading state to false
+      set({ loading: false });
     }
   },
   restart: () => {
-    console.log("Restarting game"); // Debug log
+    /*   console.log("Restarting game"); // Debug log */
     set({
       isLoggedIn: false,
     });

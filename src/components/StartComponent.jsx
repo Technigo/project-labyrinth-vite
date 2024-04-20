@@ -15,20 +15,25 @@ export const StartComponent = () => {
       startGame(inputUsername.trim());
     }
   };
-  /*   const changeImg = (coordinates) => {
-    imageRef.current.style.backgroundImage = `url('${coordinates}.jpeg')`;
+
+  const changeImage = (coordinates) => {
+    imageRef.current.style.backgroundImage = `url('${coordinates}.png')`;
   };
- */
+
+  const handleRestart = () => {
+    setInputUsername(""); // Clear the input when restarting
+  };
+
   if (loading) {
     return <LoadingAnimation />;
   }
 
   return (
-    <div ref={imageRef} className="start-container">
+    <div ref={imageRef} className="wrapper">
       {isLoggedIn ? (
-        <GameComponent />
+        <GameComponent changeImage={changeImage} onRestart={handleRestart} />
       ) : (
-        <div>
+        <div className="start-container">
           <h2 className="start-title">
             Welcome to the Labyrinth! Please sacrifice your name at the altar of
             confusion and chaos. Or, you know, just type it in and let the fun
