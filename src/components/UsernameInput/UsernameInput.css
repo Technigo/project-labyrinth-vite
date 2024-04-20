@@ -23,3 +23,16 @@
   min-width: 18 0px;
   max-width: 300px;
 }
+
+.start-btn:hover {
+  background: #006800;
+}
+
+@media (min-width: 668px) {
+  .username-form {
+    padding: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+}

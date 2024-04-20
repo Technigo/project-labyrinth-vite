@@ -1,14 +1,9 @@
-import { useEffect } from "react";
 import { useLabyrinthStore } from "../../store/useLabyrinthStore";
 import "./SceneCard.css";
 
 export const SceneCard = () => {
   const { apiData, username, nextMove, actions, isHidden, toggleHidden } =
     useLabyrinthStore();
-
-  useEffect(() => {
-    console.log(apiData);
-  }, [apiData]);
 
   return (
     <>
@@ -19,9 +14,7 @@ export const SceneCard = () => {
           </button>
           {actions.map((action, index) => (
             <div key={index} className="actions-div">
-              <p
-                className={isHidden ? "hidden" : ""}
-              >{`${action.direction}: ${action.description}`}</p>
+              <p className={isHidden ? "hidden" : ""}>{action.description}</p>
               <button
                 className="move-btn"
                 onClick={() => nextMove(username, action.direction)}

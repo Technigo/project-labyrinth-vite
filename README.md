@@ -6,25 +6,13 @@
 
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+The assignment was to create a text-based adventure game using Zustand for state management. The user posts to an API in order to move forward in the game.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+After making a sketch of the project layout in Figma, the next step was to make sure that the POST requests worked and that the correct responses were received. The needed repsonses were stored in the store and divided amongst the different components. I was a bit worried about how to make the loading screen and animation work, but it worked out well in the end.
+
+If I had more time, I would have worked more on styling, as well as trying out more of the stretch goals.
 
 ### View it live
 

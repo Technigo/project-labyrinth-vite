@@ -5,7 +5,7 @@ import { SceneCard } from "../SceneCard/SceneCard";
 import "./Home.css";
 
 export const Home = () => {
-  const { apiData, username, loading } = useLabyrinthStore();
+  const { apiData, username } = useLabyrinthStore();
 
   return (
     <div className="container">

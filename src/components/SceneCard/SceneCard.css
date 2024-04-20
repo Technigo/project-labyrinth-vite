@@ -10,7 +10,7 @@
   align-items: center;
   text-align: center;
   border-top: solid 1px white;
-  }
+}
 
 .move-btn {
   font-size: 1.2rem;
@@ -22,6 +22,10 @@
   background: #881400;
 }
 
+.move-btn:hover {
+  background: #a81000;
+}
+
 .look-btn {
   background: #0000bc;
   min-width: 80px;
@@ -31,6 +35,23 @@
   margin: 1rem;
 }
 
+.look-btn:hover {
+  background: #0000fc;
+}
+
 .hidden {
   display: none;
+}
+
+@media (min-width: 1024px) {
+  .actions-container {
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 700px;
+  }
+  .actions-div {
+    flex-direction: row;
+    border-top: none;
+    text-align: left;
+  }
 }
