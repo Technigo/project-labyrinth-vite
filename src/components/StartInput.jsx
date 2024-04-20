@@ -5,14 +5,14 @@ export const StartInput = () => {
 
   const handleStartButtonClick = () => {
     if (userName === "") {
-      alert("Please set a username. Thx!");
+      alert("Please set a username.");
     } else {
       fetchStart(userName);
     }
   };
 
   return (
-    <>
+    <div className="start-input">
       <h1>The Maze</h1>
       <h2>Enter the labyrinth on your own risk.</h2>
       <h2>Can you find a way out of the maze?</h2>
@@ -31,6 +31,6 @@ export const StartInput = () => {
       <button className="start-button" onClick={handleStartButtonClick}>
         Start Adventure
       </button>
-    </>
+    </div>
   );
 };
