@@ -1,0 +1,98 @@
+.level-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
+  height: 100vh;
+
+  animation: appear linear 2s;
+}
+
+.level-title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 3rem;
+  margin-bottom: 1.5rem;
+  height: 350px;
+}
+
+.direction-description-container {
+  border: var(--main-border);
+  padding: 1.5rem 2.5rem;
+  width: 800px;
+  height: 300px;
+}
+
+.button-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.direction-info,
+.no-path-text {
+  font-size: 1rem;
+  line-height: 2.2rem;
+  letter-spacing: -2.2px;
+}
+
+.direction-button {
+  cursor: url("./heartCursor.png"), auto;
+  font-family: Pixelboy;
+  font-size: 3rem;
+
+  background-color: black;
+  color: white;
+  border: white 2px solid;
+
+  padding: 0 6px;
+  margin-top: 1rem;
+
+  animation: appear linear 5s;
+}
+
+.check-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 2rem;
+}
+
+.check-button-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.check-button {
+  cursor: url("./heartCursor.png"), auto;
+  font-family: Pixelboy;
+  font-size: 3rem;
+
+  background-color: black;
+  color: var(--button-text-color);
+  border: var(--button-border);
+
+  padding: 0 6px;
+  margin-top: 1.5rem;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -2,6 +2,8 @@
   --button-text-color: #ff7e26;
   --button-border: #ff7e26 solid 2px;
   --button-padding: 0 4px;
+
+  --main-border: white solid 3px;
 }
 
 @font-face {
@@ -29,4 +31,5 @@ body {
   background-color: #000000;
   color: #ffffff;
   font-family: Deluxfont;
+  cursor: url("./heartCursor.png"), auto;
 }

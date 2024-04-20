@@ -56,6 +56,11 @@ export const StartInput = () => {
         onChange={(event) => {
           setUserName(event.target.value);
         }}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            handleStartButtonClick();
+          }
+        }}
       />
       <button className="start-button" onClick={handleStartButtonClick}>
         Start
