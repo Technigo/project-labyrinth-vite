@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+}
+
+@media (min-width: 668px) {
+  .container {
+    margin: 20px 36px 20px 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin: 0 36px 0 36px;
+  }
+}

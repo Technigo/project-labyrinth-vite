@@ -1,0 +1,12 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+@media (min-width: 668px) {
+  .loader {
+    height: 60vh;
+  }
+}
