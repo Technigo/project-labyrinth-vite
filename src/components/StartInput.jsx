@@ -27,7 +27,7 @@ export const StartInput = () => {
   };
 
   return isLoading ? (
-    <p>loading...</p>
+    <p className="loading-text">loading...</p>
   ) : (
     <div className="start-input">
       <h1 className="app-title">

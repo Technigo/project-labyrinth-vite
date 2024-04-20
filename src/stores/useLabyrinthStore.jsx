@@ -8,6 +8,8 @@ export const useLabyrinthStore = create((set, get) => ({
   userName: "",
   levelDescription: "",
   actions: "",
+  coordinates: "",
+  isEnd: false,
 
   setUserName: (newUserName) => set({ userName: newUserName }),
 
@@ -58,7 +60,17 @@ export const useLabyrinthStore = create((set, get) => ({
       const levelData = await response.json();
       set({ levelDescription: levelData.description });
       set({ actions: levelData.actions });
+      set({ coordinates: levelData.coordinates });
+
+      const [x, y] = levelData.coordinates.split(",");
+      if (x === "1" && y === "3") {
+        set({ isEnd: true });
+      } else {
+        set({ isEnd: false });
+      }
+
       console.log(levelData);
+      console.log(levelData.coordinates);
     } catch (Error) {
       console.error("Failed to get next step.");
     }
