@@ -1,15 +1,30 @@
+import { useState } from "react";
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+import Lottie from "lottie-react";
+import animationData from "./traveling.json";
 
 export const DisplayLevel = () => {
-  const { levelDesciption, actions, fetchLevel } = useLabyrinthStore();
+  const { description, actions, fetchLevel } = useLabyrinthStore();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleAction = (event) => {
-    fetchLevel(event.target.value);
+  const handleAction = async (event) => {
+    setIsLoading(true);
+    try {
+      await fetchLevel(event.target.value);
+    } catch (error) {
+      console.error("Error getting the next step:", error);
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1350);
+    }
   };
 
-  return (
+  return isLoading ? (
+    <Lottie animationData={animationData} loop={true} />
+  ) : (
     <div className="level-display">
-      <h3>{levelDesciption}</h3>
+      <h3>{description}</h3>
       <div className="buttons">
         {actions
           .sort((a, b) => a.direction.localeCompare(b.direction))

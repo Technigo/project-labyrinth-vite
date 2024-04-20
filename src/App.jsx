@@ -5,5 +5,5 @@ import { useLabyrinthStore } from "./stores/useLabyrinthStore";
 export const App = () => {
   const { playerJoinIn } = useLabyrinthStore();
 
-  return <>{playerJoinIn ? <StartInput /> : <DisplayLevel />}</>;
+  return <>{playerJoinIn ? <DisplayLevel /> : <StartInput />}</>;
 };

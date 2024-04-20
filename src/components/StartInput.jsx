@@ -1,17 +1,34 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
+import { useState } from "react";
+import Lottie from "lottie-react";
+import animationData from "./traveling.json";
 
 export const StartInput = () => {
   const { userName, setUserName, fetchStart } = useLabyrinthStore();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleStartButtonClick = () => {
+  const handleStartButtonClick = async () => {
     if (userName === "") {
       alert("Please set a username.");
-    } else {
-      fetchStart(userName);
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await fetchStart(userName);
+    } catch (error) {
+      console.error("Error starting the game:", error);
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
     }
   };
 
-  return (
+  return isLoading ? (
+    <Lottie animationData={animationData} loop={true} />
+  ) : (
     <div className="start-input">
       <h1>The Maze</h1>
       <h2>Enter the labyrinth on your own risk.</h2>
