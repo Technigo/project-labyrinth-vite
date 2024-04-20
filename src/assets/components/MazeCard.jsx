@@ -1,8 +1,6 @@
 import { useState } from "react";
-
 import styled from "styled-components";
 
-// Styled components
 const Container = styled.div`
   background-color: #f0f0f0;
   border-radius: 8px;
@@ -33,63 +31,36 @@ const DirectionButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-
   &:hover {
     background-color: #45a049;
   }
 `;
 
-export const MazeCard = ({
-  description,
-  actions,
-  coordinates,
-  performAction,
-}) => {
+export const MazeCard = ({ description, actions, performAction }) => {
   const [showDirections, setShowDirections] = useState(false);
-  const [showDescription, setShowDescription] = useState(true);
-
-  const endPosition = coordinates === "1,3";
-
-  const toggleDirections = () => {
-    setShowDirections(!showDirections);
-    setShowDescription(!showDescription);
-  };
-    console.log("Description in MazeCard:", description);
-    console.log("Actions in MazeCard:", actions);
-
-  if (endPosition) {
-    return (
-      <Container>
-        <Description>{description}</Description>
-      </Container>
-    );
-  }
 
   return (
-    <>
+    <Container>
       <button
-        type="button"
-        onClick={toggleDirections}
+        onClick={() => setShowDirections(!showDirections)}
         className="toggle-button"
       >
         {showDirections ? "Show Location" : "Show Directions"}
       </button>
-      {showDescription && <Description>{description}</Description>}
-      {showDirections && (
-        <div>
-          {actions.map((action) => (
-            <DirectionContainer key={action.description}>
-              <DirectionDescription>{action.description}</DirectionDescription>
-              <DirectionButton
-                type="button"
-                onClick={() => performAction(action.type, action.direction)}
-              >
-                Go {action.direction}
-              </DirectionButton>
-            </DirectionContainer>
-          ))}
-        </div>
+      {!showDirections ? (
+        <Description>{description}</Description>
+      ) : (
+        actions.map((action) => (
+          <DirectionContainer key={action.description}>
+            <DirectionDescription>{action.description}</DirectionDescription>
+            <DirectionButton
+              onClick={() => performAction(action.type, action.direction)}
+            >
+              Go {action.direction}
+            </DirectionButton>
+          </DirectionContainer>
+        ))
       )}
-    </>
+    </Container>
   );
 };

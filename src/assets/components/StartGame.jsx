@@ -3,8 +3,14 @@ import { useGameStore } from "../stores/useGameStore";
 
 export const StartGame = () => {
   const [username, setUsername] = useState("");
-  const { setDescription, setActions, setLoading, setCoordinates, setGameStarted } =
-    useGameStore();
+  const {
+    setDescription,
+    setActions,
+    setLoading,
+    setCoordinates,
+    setGameStarted,
+    setUsername: setStoreUsername,
+  } = useGameStore();
 
   // Function to start the game
   const startGame = async () => {
@@ -23,10 +29,11 @@ export const StartGame = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+      setStoreUsername(username); 
       setGameStarted(true);
       setDescription(data.description);
       setActions(data.actions);
-      setCoordinates("0,0"); 
+      setCoordinates(data.coordinates);
     } catch (error) {
       console.error("Failed to start game:", error);
     } finally {

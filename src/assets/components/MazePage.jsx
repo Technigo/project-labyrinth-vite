@@ -9,7 +9,7 @@ export const MazePage = () => {
 
 if (!gameStarted) {
   console.log("Game has not started");
-  return null; // Or render something else to indicate the game hasn't started yet.
+  return null; 
 }
 
   return (

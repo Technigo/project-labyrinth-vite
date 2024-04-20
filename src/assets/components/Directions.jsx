@@ -1,4 +1,3 @@
-
 import { East } from "./buttons/East";
 import { North } from "./buttons/North";
 import { South } from "./buttons/South";
@@ -6,9 +5,13 @@ import { West } from "./buttons/West";
 import { MainButton } from "./buttons/MainButton";
 import { useCallback } from "react";
 
-export const Directions = ({ actions, performAction, resetGame, coordinates }) => {
-  console.log("performAction is", typeof performAction); // Should log 'function'
-
+export const Directions = ({
+  actions,
+  performAction,
+  resetGame,
+  coordinates,
+}) => {
+  console.log("performAction is", typeof performAction);
 
   const startPosition = coordinates === "0,0";
   const endPosition = coordinates === "1,3";
@@ -76,34 +79,33 @@ export const Directions = ({ actions, performAction, resetGame, coordinates }) =
     </>
   );
 };
-    // <>
-    //   {!endPosition &&
-    //     !startPosition &&
-    //     actions.map((action) => {
-    //       const ButtonComponent =
-    //         {
-    //           North: North,
-    //           South: South,
-    //           West: West,
-    //           East: East,
-    //         }[action.direction] || null;
+// <>
+//   {!endPosition &&
+//     !startPosition &&
+//     actions.map((action) => {
+//       const ButtonComponent =
+//         {
+//           North: North,
+//           South: South,
+//           West: West,
+//           East: East,
+//         }[action.direction] || null;
 
-    //       return (
-    //         ButtonComponent && (
-    //           <ButtonComponent
-    //             key={`${action.direction}-${action.type}`}
-    //             handleClick={() => onClickGo(action.type, action.direction)}
-    //           />
-    //         )
-    //       );
-    //     })}
-    //   {!startPosition && (
-    //     <MainButton
-    //       style={{ position: "absolute", bottom: 20, right: 20 }}
-    //       onClick={onClickRestart}
-    //     >
-    //       Restart
-    //     </MainButton>
-    //   )}
-    // </>
-
+//       return (
+//         ButtonComponent && (
+//           <ButtonComponent
+//             key={`${action.direction}-${action.type}`}
+//             handleClick={() => onClickGo(action.type, action.direction)}
+//           />
+//         )
+//       );
+//     })}
+//   {!startPosition && (
+//     <MainButton
+//       style={{ position: "absolute", bottom: 20, right: 20 }}
+//       onClick={onClickRestart}
+//     >
+//       Restart
+//     </MainButton>
+//   )}
+// </>
