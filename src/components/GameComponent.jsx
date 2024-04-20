@@ -1,82 +1,81 @@
 import { useState } from "react";
-
 import useGameStore from "../store/gameStore";
-import StartComponent from "./StartComponent";
 
-import "./GameComponent.css"
-import { Directions } from "./Directions";
+import "./GameComponent.css";
+/* import Directions from "./Directions"; */
 
 const GameComponent = () => {
-	const { data, fetchData } = useGameStore();
-	const [isStarted, setIsStarted] = useState(false);
+  const { gameState, loading, error } = useGameStore();
+  const [showMore, setShowMore] = useState(false);
 
-	const startGame = (username) => {
-		useGameStore.setState({ username })
-		fetchData()
-		setIsStarted(true)
-	}
+  const handleShowMore = () => {
+    setShowMore(true);
+  };
 
-	const handleAction = async (action) => {
-		try {
-			const response = await fetch("https://labyrinth.technigo.io/action", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					username: useGameStore.getState().username,
-					type: action.type,
-					direction: action.direction,
-				}),
-			});
-			const newData = await response.json();
-			//Update the game data with the response
-			useGameStore.setState({ data: newData });
-		} catch (error) {
-			console.error("Error occured while fetching data:", error)
-		}
-	};
-
-	const moveEast = () => {
-		const eastAction = data.actions.find(action => action.direction === "East")
-		if (eastAction) {
-			handleAction(eastAction)
-		} else {
-			console.error("No action available to move East.")
-		}
-	}
-
-	console.log("Current data:", data);
-
-	return (
-		<div className="game-container">
-			{!isStarted ? (
-				<StartComponent onStart={startGame} />
-			) : (
-				<div>
-					{data ? (
-						<div>
-							<Directions coordinates={data.coordinates} />
-							<p>{data.description}</p>
-							<ul>
-								{data.actions.map((action, index) => (
-									<li key={index}>
-										<p>
-											<strong>Direction:</strong> {action.direction}
-										</p>
-										<p>{action.description}</p>
-										<button onClick={moveEast}>Move East</button>
-									</li>
-								))}
-							</ul>
-						</div>
-					) : (
-						<div>Loading...</div>
-					)}
-				</div>
-			)}
-		</div>
-	)
+  // No data fetching logic here, it's handled by the store
+  /* 
+  const moveEast = () => {
+    const eastAction = data?.actions?.find(
+      (action) => action.direction === "East"
+    );
+    if (eastAction) {
+      handleAction(eastAction);
+    } else {
+      console.error("No action available to move East.");
+    }
+  }; */
+  return (
+    <div className="game-container">
+      {loading && <div>Loading...</div>}
+      {error && <div>Error: {error.message}</div>}
+      {gameState && (
+        <div>
+          {/* <Directions coordinates={gameState.coordinates} /> */}
+          <p>{gameState.description}</p>
+          {showMore && (
+            <div>
+              {gameState.actions.map((action, index) => (
+                <div key={index}>
+                  <strong>Direction:</strong> {action.direction}
+                  <p>{action.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {!showMore && <button onClick={handleShowMore}>Show More</button>}
+        </div>
+      )}
+    </div>
+  );
 };
 
+/* 
+  return (
+    <div className="game-container">
+      <StartComponent onStart={setUsername} />
+      {loading && <div>Loading...</div>}
+      {error && <div>Error: {error.message}</div>}
+      {data && (
+        <div>
+          <Directions coordinates={data.coordinates} />
+          <p>{data.description}</p>
+          <ul>
+            {data.actions.map((action, index) => (
+              <li key={index}>
+                <strong>Direction:</strong> {action.direction}
+                <p>{action.description}</p>
+                <button onClick={() => handleAction(action)}>
+                  Move {action.direction}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+ */
 export default GameComponent;
+
+//Instead, GameComponent should focus solely on rendering the game UI and handling actions.
