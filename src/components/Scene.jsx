@@ -1,3 +1,6 @@
+import { useLabyrinthStore } from "../store/useLabyrinthStore";
+
 export const Scene = () => {
-  return <div>Scene</div>;
+  const { locationDescription } = useLabyrinthStore();
+  return <div>{locationDescription}</div>;
 };
