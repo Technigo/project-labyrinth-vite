@@ -6,6 +6,10 @@ export const useLabyrinthStore = create((set) => ({
   loading: false,
   actions: [],
   locationDescription: "",
+  coordinates: "",
+  isHidden: true,
+
+  toggleHidden: () => set((state) => ({ isHidden: !state.isHidden })),
 
   startGame: async (userData) => {
     set({ loading: true });
@@ -19,7 +23,13 @@ export const useLabyrinthStore = create((set) => ({
         throw new Error("Failed to post username");
       }
       const data = await response.json();
-      set({ apiData: data, username: userData, actions: data.actions });
+      set({
+        apiData: data,
+        username: userData,
+        locationDescription: data.description,
+        actions: data.actions,
+        coordinates: data.coordinates,
+      });
     } catch (error) {
       console.error("Error adding new player", error);
     } finally {
@@ -47,6 +57,8 @@ export const useLabyrinthStore = create((set) => ({
         apiData: data,
         locationDescription: data.description,
         actions: data.actions,
+        coordinates: data.coordinates,
+        isHidden: true,
       });
     } catch (error) {
       console.error("Error when trying to move", error);
