@@ -1,0 +1,11 @@
+.title {
+  font-family: var(---title-font);
+}
+
+.introText {
+  font-family: var(---title-font);
+}
+
+.startGameContainer {
+  font-family: var(---main-font);
+}
