@@ -27,7 +27,11 @@ export const StartInput = () => {
   };
 
   return isLoading ? (
-    <p className="loading-text">loading...</p>
+    userName.toLowerCase() === "frisk" || userName.toLowerCase() === "clara" ? (
+      <p className="loading-text-bonus">I missed you...</p>
+    ) : (
+      <p className="loading-text">loading...</p>
+    )
   ) : (
     <div className="start-input">
       <h1 className="app-title">

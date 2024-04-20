@@ -33,3 +33,25 @@ body {
   font-family: Deluxfont;
   cursor: url("./heartCursor.png"), auto;
 }
+
+.loading-text,
+.loading-text-bonus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+  height: 100vh;
+
+  animation: appear linear 2s;
+  font-size: 1rem;
+  line-height: 2.2rem;
+  letter-spacing: -1px;
+}
+
+.loading-text-bonus {
+  color: #ff9b9d;
+}
