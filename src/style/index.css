@@ -31,7 +31,7 @@ body {
   background-color: #000000;
   color: #ffffff;
   font-family: Deluxfont;
-  cursor: url("./heartCursor.png"), auto;
+  cursor: url("/heartCursor.png"), auto;
 }
 
 .loading-text,
