@@ -34,13 +34,13 @@
 }
 
 .input-title {
-  cursor: url("./heartCursor.png"), auto;
+  cursor: url("../assets/heartCursor.png"), auto;
   font-size: 0.8rem;
   margin: 2rem 0 1rem 0;
 }
 
 .user-input {
-  cursor: url("./heartCursor.png"), auto;
+  cursor: url("../assets/heartCursor.png"), auto;
   background-color: black;
   color: white;
   outline: none;
@@ -55,7 +55,7 @@
 }
 
 .start-button {
-  cursor: url("./heartCursor.png"), auto;
+  cursor: url("../assets/heartCursor.png"), auto;
   font-family: Pixelboy;
   font-size: 1.8rem;
 

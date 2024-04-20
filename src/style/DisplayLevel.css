@@ -48,7 +48,7 @@
 }
 
 .direction-button {
-  cursor: url("./heartCursor.png"), auto;
+  cursor: url("../assets/heartCursor.png"), auto;
   font-family: Pixelboy;
   font-size: 3rem;
 
@@ -80,7 +80,7 @@
 }
 
 .check-button {
-  cursor: url("./heartCursor.png"), auto;
+  cursor: url("../assets/heartCursor.png"), auto;
   font-family: Pixelboy;
   font-size: 3rem;
 
