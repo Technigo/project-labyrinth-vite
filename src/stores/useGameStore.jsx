@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+const APP_CONSTANT = "etna-martin-app";
+
 export const useGameStore = create((set) => ({
   username: "JohnDoe",
   action: "move", // No other action allowed.
@@ -18,7 +20,7 @@ export const useGameStore = create((set) => ({
   setIsLoading: (newState) => set({ isLoading: newState }),
 
   startGame: (username) => {
-    const uniqueName = username + new Date();
+    const uniqueName = username + APP_CONSTANT;
     set({ isLoading: true });
     fetch("https://labyrinth.technigo.io/start", {
       method: "POST",
@@ -44,7 +46,7 @@ export const useGameStore = create((set) => ({
         headers: { "Content-Type": "application/json" },
 
         body: JSON.stringify({
-          username: username,
+          username: username + APP_CONSTANT,
           type: action,
           direction: direction,
         }),

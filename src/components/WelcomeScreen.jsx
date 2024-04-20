@@ -1,6 +1,6 @@
 import { UsernameInput } from "./UsernameInput";
 import { GameButton } from "./GameButton";
-import "./WelcomeScreen.css";
+import "./style/WelcomeScreen.css";
 
 export const WelcomeScreen = () => {
   return (

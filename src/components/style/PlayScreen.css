@@ -13,8 +13,13 @@
 
 #username {
   position: absolute;
-  top: 0;
-  right: 1rem;
+  top: 35px;
+  right: 35px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: medium;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .control-button {
@@ -44,6 +49,7 @@
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.8);
   margin-bottom: 3rem;
+  padding: 25px;
   color: white;
   margin: auto;
 }
@@ -61,6 +67,23 @@
 
 #restart {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 55px;
+  left: 35px;
+}
+@media only screen and (max-width: 630px) {
+  .text-area {
+    min-width: unset;
+    margin-top: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  #restart {
+    top: 25px;
+  }
+
+  #username {
+    top: 20px;
+    padding: 0.7rem;
+  }
 }

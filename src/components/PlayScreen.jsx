@@ -4,7 +4,7 @@ import { useGameStore } from "../stores/useGameStore";
 import Lottie from "lottie-react";
 
 import footstepsAnimation from "../assets/animations/footsteps.json";
-import "./PlayScreen.css";
+import "./style/PlayScreen.css";
 import { useRef, useEffect } from "react";
 
 export const PlayScreen = () => {

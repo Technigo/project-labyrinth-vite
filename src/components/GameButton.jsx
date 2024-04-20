@@ -1,6 +1,6 @@
 import { useGameStore } from "../stores/useGameStore";
 import { useRef } from "react";
-import "./GameButton.css";
+import "./style/GameButton.css";
 
 export const GameButton = ({ buttonName }) => {
   const { username, action, setIsStarted, isStarted, startGame, makeMove } =

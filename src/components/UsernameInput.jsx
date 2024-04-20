@@ -1,6 +1,6 @@
 import { useGameStore } from "../stores/useGameStore";
 import { GameButton } from "./GameButton";
-import "./UsernameInput.css";
+import "./style/UsernameInput.css";
 
 export const UsernameInput = () => {
   const { setUserName, username } = useGameStore();
