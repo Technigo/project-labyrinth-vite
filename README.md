@@ -16,7 +16,7 @@ If I had more time, I would have worked more on styling, as well as trying out m
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://gleaming-panda-f1e201.netlify.app/
 
 ## Instructions
 
