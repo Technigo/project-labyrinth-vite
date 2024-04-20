@@ -6,7 +6,7 @@ const actionUrl = "https://labyrinth.technigo.io/action";
 export const useLabyrinthStore = create((set, get) => ({
   playerJoinIn: false,
   userName: "",
-  levelDesciption: "",
+  levelDescription: "",
   actions: "",
 
   setUserName: (newUserName) => set({ userName: newUserName }),
@@ -28,8 +28,8 @@ export const useLabyrinthStore = create((set, get) => ({
       }
 
       const data = await response.json();
-
-      set({ levelDesciption: data.description });
+      console.log(data);
+      set({ levelDescription: data.description });
       set({ actions: data.actions });
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -56,7 +56,7 @@ export const useLabyrinthStore = create((set, get) => ({
       }
 
       const levelData = await response.json();
-      set({ levelDesciption: levelData.description });
+      set({ levelDescription: levelData.description });
       set({ actions: levelData.actions });
       console.log(levelData);
     } catch (Error) {

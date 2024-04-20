@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
-import Lottie from "lottie-react";
-import animationData from "./traveling.json";
+import { Typewriter } from "./Typewriter";
 
 export const DisplayLevel = () => {
-  const { description, actions, fetchLevel } = useLabyrinthStore();
+  const { levelDescription, actions, fetchLevel } = useLabyrinthStore();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleAction = async (event) => {
@@ -21,25 +20,31 @@ export const DisplayLevel = () => {
   };
 
   return isLoading ? (
-    <Lottie animationData={animationData} loop={true} />
+    <p>loading</p>
   ) : (
     <div className="level-display">
-      <h3>{description}</h3>
+      <h3>
+        <Typewriter text={levelDescription} delay={25} />
+      </h3>
       <div className="buttons">
-        {actions
-          .sort((a, b) => a.direction.localeCompare(b.direction))
-          .map((action, index) => (
-            <div key={index} className="button-list">
-              <button
-                className={`direction-button ${action.direction.toLowerCase()}`}
-                value={action.direction}
-                onClick={handleAction}
-              >
-                {action.direction}
-              </button>
-              <p className="direction-info">{action.description}</p>
-            </div>
-          ))}
+        {actions.length > 0 ? (
+          actions
+            .sort((a, b) => a.direction.localeCompare(b.direction))
+            .map((action, index) => (
+              <div key={index} className="button-list">
+                <button
+                  className={`direction-button ${action.direction.toLowerCase()}`}
+                  value={action.direction}
+                  onClick={handleAction}
+                >
+                  {action.direction}
+                </button>
+                <p className="direction-info">{action.description}</p>
+              </div>
+            ))
+        ) : (
+          <p>Game Completed</p>
+        )}
       </div>
     </div>
   );

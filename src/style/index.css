@@ -1,0 +1,32 @@
+:root {
+  --button-text-color: #ff7e26;
+  --button-border: #ff7e26 solid 2px;
+  --button-padding: 0 4px;
+}
+
+@font-face {
+  font-family: Deluxfont;
+  src: url("../assets/DeluxefontRegular-xoOO.ttf");
+}
+
+@font-face {
+  font-family: ShapeBitRegular;
+  src: url("../assets/ShapeBitRegular-VGZvl.otf");
+}
+
+@font-face {
+  font-family: Pixelboy;
+  src: url("../assets/Pixeboy-z8XGD.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Deluxfont;
+}
