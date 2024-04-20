@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -36,7 +36,7 @@ const DirectionButton = styled.button`
   }
 `;
 
-export const MazeCard = ({ title, description, actions, performAction }) => {
+export const MazeCard = ({ description, actions, performAction }) => {
   const [showDirections, setShowDirections] = useState(false);
   console.log(showDirections);
   return (

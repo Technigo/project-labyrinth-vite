@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useGameStore } from "../stores/useGameStore";
+import { LoadingAnimation } from "./LoadingAnimation";
 
 export const StartGame = () => {
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const {
     setDescription,
     setActions,
-    setLoading,
     setCoordinates,
     setGameStarted,
     setUsername: setStoreUsername,
@@ -42,7 +44,8 @@ export const StartGame = () => {
   };
 
   return (
-    <div>
+    !loading ? (
+<div>
       <h2>The Lost City of Azura</h2>
       <p>
         In the heart of a dense jungle lies the Lost City of Azura, rumored to
@@ -76,5 +79,7 @@ export const StartGame = () => {
         </button>
       </form>
     </div>
+    ) : <LoadingAnimation />
+    
   );
 };
