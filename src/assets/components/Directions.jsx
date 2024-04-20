@@ -3,35 +3,34 @@ import { North } from "./buttons/North";
 import { South } from "./buttons/South";
 import { West } from "./buttons/West";
 import { MainButton } from "./buttons/MainButton";
-import { useCallback } from "react";
 
 export const Directions = ({
   actions,
   performAction,
-  resetGame,
   coordinates,
+  resetGame,
 }) => {
   console.log("performAction is", typeof performAction);
 
   const startPosition = coordinates === "0,0";
   const endPosition = coordinates === "1,3";
+  console.log(endPosition);
+  console.log(startPosition);
+  console.log(coordinates);
 
   const onClickRestart = () => {
     console.log("User clicked restart");
     resetGame();
   };
 
-  const onClickGo = useCallback(
-    (type, direction) => {
-      console.log(`User clicked ${direction}`);
-      performAction(type, direction);
-    },
-    [performAction]
-  );
+  const onClickGo = (type, direction) => {
+    console.log(`User clicked ${direction}`);
+    performAction(type, direction);
+  };
 
   return (
     <>
-      {!endPosition && !startPosition && (
+      {!endPosition &&  (
         <>
           {actions.map((action) => {
             let buttonElement = null;
@@ -70,7 +69,7 @@ export const Directions = ({
       )}
       {!startPosition && (
         <MainButton
-          onClickRestart={onClickRestart}
+          onClick={onClickRestart}
           style={{ position: "absolute", bottom: "20px", right: "20px" }}
         >
           Restart

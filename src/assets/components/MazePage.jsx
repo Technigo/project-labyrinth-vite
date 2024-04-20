@@ -3,7 +3,7 @@ import { Directions } from "../components/Directions";
 import { useGameStore } from "../stores/useGameStore";
 
 export const MazePage = () => {
-  const { description, actions, performAction, gameStarted } = useGameStore();
+  const { description, actions, performAction, gameStarted, coordinates, resetGame } = useGameStore();
 
   const title = "The Lost City of Azura";
 
@@ -23,7 +23,7 @@ if (!gameStarted) {
               actions={actions}
               performAction={performAction}
             />
-            <Directions actions={actions} performAction={performAction} />
+            <Directions actions={actions} performAction={performAction} coordinates={coordinates} resetGame={resetGame}/>
           </>
         )}
       </div>

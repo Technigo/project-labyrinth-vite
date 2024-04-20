@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -36,13 +36,19 @@ const DirectionButton = styled.button`
   }
 `;
 
-export const MazeCard = ({ description, actions, performAction }) => {
+export const MazeCard = ({ title, description, actions, performAction }) => {
   const [showDirections, setShowDirections] = useState(false);
-
+  console.log(showDirections);
   return (
     <Container>
       <button
-        onClick={() => setShowDirections(!showDirections)}
+        onClick={() =>
+          setShowDirections((showDirections) => {
+            console.log("345");
+            return !showDirections;
+
+          })
+        }
         className="toggle-button"
       >
         {showDirections ? "Show Location" : "Show Directions"}

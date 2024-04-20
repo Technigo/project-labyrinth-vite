@@ -86,6 +86,7 @@ export const useGameStore = create((set, get) => ({
   // Async action to perform game moves
   performAction: async (type, direction) => {
     const username = get().username; 
+    console.log(username);
     if (!username || !type || !direction) {
       console.error("Missing required parameters:", {
         username,
@@ -95,7 +96,7 @@ export const useGameStore = create((set, get) => ({
       return;
     }
 
-    const requestBody = { username: "DefaultPlayer", type, direction };
+    const requestBody = { username, type, direction };
     console.log("Sending request with body:", JSON.stringify(requestBody));
 
     set({ loading: true });
@@ -112,10 +113,6 @@ export const useGameStore = create((set, get) => ({
         const errorText = await response.text(); // Get the error message from response
         console.error("Error in response:", errorText);
 
-        // Handle specific error scenarios based on the server response (optional)
-        // You can add conditional logic here to handle different error codes
-        // or messages returned by the server.
-
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
@@ -124,16 +121,19 @@ export const useGameStore = create((set, get) => ({
 
       set({ ...data, loading: false });
     } catch (error) {
-      console.error("Error handling action:", error);
+      console.log("Error handling action:", error.message);
       set({ loading: false });
     }
   },
-  resetGame: () =>
+  resetGame: () => {
+  console.log(123);
     set({
       description: "",
       actions: [],
       coordinates: "",
       loading: false,
       gameStarted: false,
-    }),
+    })
+  }
+
 }));
