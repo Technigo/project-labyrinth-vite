@@ -1,9 +1,16 @@
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .actions-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
+  border-top: solid 1px white;
+  }
 
 .move-btn {
   font-size: 1.2rem;
@@ -12,21 +19,15 @@
   max-width: 300px;
   font-size: 1rem;
   margin: 1rem;
-}
-
-.forward-btn {
-  background: #0000bc;
-}
-
-.back-btn {
   background: #881400;
 }
 
 .look-btn {
-  background: #9d41be;
+  background: #0000bc;
   min-width: 80px;
   font-size: 1rem;
   max-width: 300px;
+  letter-spacing: 3px;
   margin: 1rem;
 }
 

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const useLabyrinthStore = create((set) => ({
-  apiData: {},
+  apiData: null,
   username: "",
   loading: false,
   actions: [],
