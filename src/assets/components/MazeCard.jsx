@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 const Description = styled.p`
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
 `;
 
@@ -19,15 +19,18 @@ const DirectionContainer = styled.div`
 `;
 
 const DirectionDescription = styled.p`
-  font-size: 14px;
+  font-size: 18px;
   color: #666;
+  justify-content: center;
+  align-items: center;
 `;
 
 const DirectionButton = styled.button`
   background-color: #4caf50;
+  font-weight: 600;
   color: white;
   padding: 10px 15px;
-  margin: 5px 0;
+  margin: 5px auto;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -46,10 +49,8 @@ export const MazeCard = ({ description, actions, performAction }) => {
           setShowDirections((showDirections) => {
             console.log("345");
             return !showDirections;
-
           })
         }
-        className="toggle-button"
       >
         {showDirections ? "Show Location" : "Show Directions"}
       </button>

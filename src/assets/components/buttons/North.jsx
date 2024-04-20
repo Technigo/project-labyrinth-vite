@@ -1,12 +1,16 @@
+import styled from "styled-components";
 
-
+// Styled components for north button
+const Northbtn = styled.div`
+padding: 10px;
+`
 
 export const North = ({ handleClick }) => {
   console.log("Rendering North Button");
 
   return (
-    <button onClick={handleClick} className="north-button">
-      Go North
-    </button>
+    <Northbtn>
+      <button onClick={handleClick}>Go North</button>
+    </Northbtn>
   );
 };

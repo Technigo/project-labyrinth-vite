@@ -1,13 +1,15 @@
+import styled from "styled-components";
 
+const Southbtn = styled.div`
+  padding: 10px;
+`;
 
 export const South = ({ handleClick }) => {
-        console.log("Rendering South Button"); 
+  console.log("Rendering South Button");
 
   return (
-    <button onClick={handleClick} className="north-button">
-      Go South
-    </button>
+    <Southbtn>
+      <button onClick={handleClick}>Go South</button>
+    </Southbtn>
   );
 };
-
-

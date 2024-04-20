@@ -43,24 +43,11 @@ export const StartGame = () => {
     }
   };
 
-  return (
-    !loading ? (
-<div>
-      <h2>The Lost City of Azura</h2>
-      <p>
-        In the heart of a dense jungle lies the Lost City of Azura, rumored to
-        hold unimaginable treasures and ancient secrets. Many adventurers have
-        attempted to uncover its mysteries, but none have returned. You, a
-        daring explorer, have decided to embark on this perilous journey. Will
-        you unravel the secrets of Azura, or will you become another lost soul
-        swallowed by the jungle?
-      </p>
-      <p>
-        As you push through the thick foliage, you stumble upon an ancient stone
-        doorway half-buried in the overgrowth. A sense of excitement pulses
-        through your veins as you realize you've discovered the entrance to the
-        Lost City of Azura. You stand at the threshold, faced with a choice:
-      </p>
+  return !loading ? (
+    <div className="Start-wrapper">
+      <h1>The Maze</h1>
+      <p>Are you adventurous enough? <br/>
+        Delve into a world of fantasy, mystery and adventure!</p>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -73,13 +60,14 @@ export const StartGame = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           style={{ marginBottom: "10px" }}
-        />
+        />{" "}
+        <br />
         <button type="submit">
-          Enter the doorway and delve into the unknown.
+          Enter the doorway and delve into the unknown
         </button>
       </form>
     </div>
-    ) : <LoadingAnimation />
-    
+  ) : (
+    <LoadingAnimation />
   );
 };
