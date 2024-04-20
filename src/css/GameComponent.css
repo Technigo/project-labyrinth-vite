@@ -1,7 +1,57 @@
 .game-container {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
-    padding: 50px;
+    padding: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    font-family: 'Cinzel Decorative', sans-serif;
+    /*   font-family: 'Cinzel Decorative', sans-serif; */
+
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    /*    background-color: #474747; */
+    color: white;
+    /* White text for contrast */
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.show-more-btn {
+    background-color: #474747;
+}
+
+.show-more-btn:hover {
+    background-color: #2f2e2e;
+}
+
+
+.restart-btn {
+    background-color: rgba(241, 240, 240, 0.5);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.restart-btn:hover {
+    background-color: rgba(241, 240, 240, 0.2);
+    ;
+    /* Change background on hover */
+    /* Rotate the button slightly */
+}
+
+.restart-btn:hover .restart-icon {
+    transform: rotate(180deg)
+}
+
+.restart-icon {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease-in-out;
 }

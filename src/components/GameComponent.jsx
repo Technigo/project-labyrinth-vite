@@ -25,6 +25,7 @@ export const GameComponent = ({ changeImage, onRestart }) => {
             <div key={index}>
               {showDetails && <p>{action.description}</p>}
               <button
+                className="action-btn"
                 onClick={() => {
                   console.log("Performing action:", action.direction);
                   performAction(action.direction);
@@ -38,12 +39,13 @@ export const GameComponent = ({ changeImage, onRestart }) => {
       )}
 
       {actions.length > 0 && (
-        <button onClick={toggleDetails}>
+        <button className="show-more-btn" onClick={toggleDetails}>
           {showDetails ? "Hide Details" : "Show Me More"}
         </button>
       )}
 
       <button
+        className="restart-btn"
         onClick={() => {
           restart();
           changeImage("start");
@@ -52,7 +54,11 @@ export const GameComponent = ({ changeImage, onRestart }) => {
           }
         }}
       >
-        Restart
+        <img
+          src="/src/assets/restart.png"
+          alt="Restart"
+          className="restart-icon"
+        />
       </button>
     </div>
   );
