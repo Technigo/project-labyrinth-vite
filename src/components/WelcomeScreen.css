@@ -1,5 +1,5 @@
 .general-container {
-  background-image: url("/public/maze1.png");
+  background-image: url("/public/maze.jpeg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -27,5 +27,6 @@
 
 .start-user-info {
   display: flex;
+  align-items: center;
   flex-direction: row;
 }
