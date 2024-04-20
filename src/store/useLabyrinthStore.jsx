@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 
 export const useLabyrinthStore = create(
   persist((set) => ({
-    username: null,
+    name: null,
     id: null,
     loggedIn: false,
     coordinates: null,
@@ -36,7 +36,7 @@ export const useLabyrinthStore = create(
       set((state) => ({ history: [...state.history, direction] }));
     },
     startGame: async (nameInput) => {
-      set({ loading: true, error: null, history: [] });
+      set({ loading: true, error: null });
       try {
         const response = await fetch('https://labyrinth.technigo.io/start', {
           method: 'POST',
@@ -47,7 +47,6 @@ export const useLabyrinthStore = create(
           throw new Error('Could not fetch');
         }
         const data = await response.json();
-        console.log(data);
         set({
           coordinates: data.coordinates,
           description: data.description,

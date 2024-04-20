@@ -6,7 +6,7 @@ import Lottie from 'lottie-react';
 import '../styles/Location.css';
 
 export const Location = ({ changeBackground }) => {
-  const { description, loading, coordinates, history } = useLabyrinthStore();
+  const { username, description, loading, coordinates, history } = useLabyrinthStore();
   const historyRef = useRef()
 
   useEffect(() => {

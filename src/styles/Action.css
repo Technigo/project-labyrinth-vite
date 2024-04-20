@@ -10,6 +10,7 @@
     from { opacity: 0; } 
 }
 
+
 .eye {
     width: 50px;
     animation: fadeIn 2.2s infinite alternate;
@@ -92,19 +93,24 @@
     }
 
     .East {
-        right: 3rem;
-        width: 50%;
+        right: 2rem;
+        width: 60%;
     }
     
     .West{
-        left: 3rem;
+        left: 2rem;
+        width: 60%;
     }
     .North {
-        top: 3rem;
+        width: 60%;
+        margin: 0 20%;
+        top: 2rem;
     }
         
     .South {
-        bottom: 3rem;
+        width: 60%;
+        margin: 0 20%;
+        bottom: 2rem;
     }
 }
 
@@ -115,7 +121,9 @@
         background-color: rgb(73, 29, 29);
         box-shadow: 4px 4px 5px rgb(122, 42, 42);
         color: white;
+        padding: 1.5rem;
     }
+
 .North {
     width: 60%;
     margin: 0 20%;
@@ -123,17 +131,19 @@
 }
     
 .South {
-    width: 50%;
-    margin: 0 25%;
+    width: 60%;
+    margin: 0 20%;
     bottom: 1rem;
 }
 
 .East {
     right: 1rem;
+    width: 80%;
 }
 
 .West{
     left: 1rem;
+    width: 80%;
 }
 .restart {
     bottom: 1.5rem;

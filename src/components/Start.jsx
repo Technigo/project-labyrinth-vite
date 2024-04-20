@@ -19,18 +19,16 @@ export const Start = () => {
   //Store
   const { updateUsername, updateId, loggedIn, startGame } = useLabyrinthStore()
   //sound
-  const [play, { stop }] = useSound(sound, { volume: 0.5 });
+  const [play, { stop }] = useSound(sound, { volume: 0.5 })
 
   const toggleSound = () => {
-    setIsPlaying( !isPlaying )
-    console.log(isPlaying)
+    setIsPlaying(!isPlaying)
     if (isPlaying) {
       play()
     } else {
       stop()
     }
   }
-
 
   const onUsernameChange = (e) => {
     const username = e.target.value
@@ -57,35 +55,45 @@ export const Start = () => {
         <Location changeBackground={changeBackground} />
       ) : (
         <>
-        <div className="intro-text">
-        <h1>
-          Find a new world
-          </h1>
-        <h2>
-        {' '}
-            <ReactTyped
-              strings={['Your Planet is in ruins.<br> You have travelled the universe to find a new settlement for the survivors of your world - only to fail over and over. This planet seems promising.. <br><br>Enter your name and search for a new place to live.']}
-              typeSpeed={80}
-  
-            /></h2></div>
-          <form onSubmit={onSubmit}>
-            <input
-              placeholder="Your name"
-              name="username"
-              type="text"
-              value={inputUsername}
-              onChange={onUsernameChange}
-            />
-            <button disabled={inputUsername ? false : true} type="submit" className="submit-button">
-              Submit
-            </button>
-          </form>
- 
+          <div className="intro">
+            <div className="intro-text">
+              <h1>Find a new world</h1>
+              <h2>
+                {' '}
+                <ReactTyped
+                  strings={[
+                    'Your Planet is in ruins.<br> You have travelled the universe to find a new settlement for the survivors of your world - only to fail over and over.<br> This planet seems promising.. <br><br>Enter your name and begin the search.',
+                  ]}
+                  typeSpeed={80}
+                />
+              </h2>
+            </div>
+            <form onSubmit={onSubmit}>
+              <input
+                placeholder="Your name"
+                name="username"
+                type="text"
+                value={inputUsername}
+                onChange={onUsernameChange}
+              />
+              <button
+                disabled={inputUsername ? false : true}
+                type="submit"
+                className="submit-button"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </>
       )}
-       <button
-          className="sound-button"
-          onClick={() => { toggleSound() }}><img src={soundIcon} alt="sound" />
+      <button
+        className="sound-button"
+        onClick={() => {
+          toggleSound()
+        }}
+      >
+        <img src={soundIcon} alt="sound" />
       </button>
     </main>
   )
