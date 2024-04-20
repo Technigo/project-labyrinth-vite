@@ -1,15 +1,17 @@
 import { create } from "zustand";
 
-const useGameStore = create((set) => ({
-  username: "",
-  userId: 46578909,
-  gameState: null,
+export const useGameStore = create((set, get) => ({
+  username: null,
   loading: false,
+  coordinates: null,
+  description: null,
+  actions: null,
   error: null,
+  isLoggedIn: false,
 
-  setUsername: (newUsername) => set({ username: newUsername }),
-
-  startGame: async ({ username, userId }) => {
+  startGame: async ({ playerName }) => {
+    console.log("Starting game with player:", playerName);
+    const uniqueName = `${playerName}_${Date.now()}`;
     set({ loading: true, error: null });
     try {
       const response = await fetch(`https://labyrinth.technigo.io/start`, {
@@ -17,24 +19,33 @@ const useGameStore = create((set) => ({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username: `${username}_${userId}` }),
+        body: JSON.stringify({ username: uniqueName }),
         // Access username from current state
       });
       if (!response.ok) {
         throw new Error("Failed to start the game");
       }
-      const gameState = await response.json();
-      set({ gameState }); // Update game data
-      console.log("Game started successfully:", gameState);
+
+      const data = await response.json();
+      console.log("Game started with data:", data);
+
+      set({
+        username: uniqueName,
+        coordinates: data.coordinates,
+        description: data.description,
+        actions: data.actions,
+        isLoggedIn: true,
+      }); // Update game data
+
+      console.log("Game started successfully:", data);
     } catch (error) {
       set({ error: error });
-      console.error("Error fetching game data:", error);
     } finally {
       set({ loading: false }); // Set loading state to false
     }
   },
-  /*   performAction: async (action) => {
-    set({ loading: true }); // Set loading state to true
+  performAction: async (direction) => {
+    set({ loading: true, error: null }); // Set loading state to true
     try {
       const response = await fetch("https://labyrinth.technigo.io/action", {
         method: "POST",
@@ -42,20 +53,33 @@ const useGameStore = create((set) => ({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: set((state) => state.username),
-          type: action.type,
-          direction: action.direction,
+          username: get().username,
+          type: "move",
+          direction: direction,
         }),
       });
-      const newData = await response.json();
-      set({ gameData: newData }); // Update game data
+      if (!response.ok) {
+        throw new Error("Movement fails...");
+      }
+      const data = await response.json();
+      set({
+        coordinates: data.coordinates,
+        description: data.description,
+        actions: data.actions,
+      }); // Update game data
     } catch (error) {
       set({ error });
       console.error("Error performing action:", error);
     } finally {
       set({ loading: false }); // Set loading state to false
     }
-  }, */
+  },
+  restart: () => {
+    console.log("Restarting game"); // Debug log
+    set({
+      isLoggedIn: false,
+    });
+  },
 }));
 
 export default useGameStore;

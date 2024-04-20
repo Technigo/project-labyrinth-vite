@@ -1,49 +1,60 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useGameStore from "../store/gameStore";
+import { GameComponent } from "./GameComponent";
+import LoadingAnimation from "./LoadingAnimation";
+import "../css/StartComponent.css";
 
-import "./StartComponent.css";
-
-const StartComponent = () => {
+export const StartComponent = () => {
   const [inputUsername, setInputUsername] = useState("");
-  const { startGame } = useGameStore();
+  const { isLoggedIn, startGame, loading } = useGameStore();
+  const imageRef = useRef();
 
-  const handleStart = async (event) => {
-    event.preventDefault();
+  const handleStart = (e) => {
+    e.preventDefault();
     if (inputUsername.trim() !== "") {
-      console.log("Starting game..");
-      try {
-        await startGame(inputUsername.trim());
-      } catch (error) {
-        console.error("Error starting game:", error);
-      }
-    } else {
-      console.error("Username cannot be empty");
+      startGame(inputUsername.trim());
     }
   };
+  /*   const changeImg = (coordinates) => {
+    imageRef.current.style.backgroundImage = `url('${coordinates}.jpeg')`;
+  };
+ */
+  if (loading) {
+    return <LoadingAnimation />;
+  }
 
   return (
-    <div className="start-container">
-      <h2 className="start-title">
-        Welcome to the Labyrinth! Please sacrifice your name at the altar of
-        confusion and chaos. Or, you know, just type it in and let the fun begin
-      </h2>
-      <form onSubmit={handleStart}>
-        <input
-          type="text"
-          className="start-input"
-          placeholder="Enter your name"
-          value={inputUsername}
-          onChange={(e) => setInputUsername(e.target.value)}
-          aria-label="Enter your name"
-        />
-        <button className="start-button" type="submit">
-          Start Game
-        </button>
-      </form>
+    <div ref={imageRef} className="start-container">
+      {isLoggedIn ? (
+        <GameComponent />
+      ) : (
+        <div>
+          <h2 className="start-title">
+            Welcome to the Labyrinth! Please sacrifice your name at the altar of
+            confusion and chaos. Or, you know, just type it in and let the fun
+            begin
+          </h2>
+          <form onSubmit={handleStart}>
+            <input
+              type="text"
+              className="start-input"
+              placeholder="Enter your name"
+              value={inputUsername}
+              onChange={(e) => setInputUsername(e.target.value)}
+              aria-label="Enter your name"
+            />
+            <button
+              className="start-button"
+              disabled={!inputUsername.trim()}
+              type="submit"
+            >
+              Start Game
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
-
-export default StartComponent;
 
 // this component uses the useGameStore hook to manage the username and trigger the game start
