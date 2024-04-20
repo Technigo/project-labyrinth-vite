@@ -1,9 +1,9 @@
-import { Start } from "./components/Start";
+import { StartInput } from "./components/StartInput";
 
 export const App = () => {
   return (
     <>
-      <Start />
+      <StartInput />
     </>
   );
 };
