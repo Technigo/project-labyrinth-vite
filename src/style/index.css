@@ -32,6 +32,7 @@ body {
   color: #ffffff;
   font-family: Deluxfont;
   cursor: url("/heartCursor.png"), auto;
+  position: relative;
 }
 
 .loading-text,
@@ -54,4 +55,15 @@ body {
 
 .loading-text-bonus {
   color: #ff9b9d;
+}
+
+.sound-button {
+  cursor: url("/heartCursor.png"), auto;
+  fill: white;
+  background-color: #000000;
+  border: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
 }
