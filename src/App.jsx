@@ -1,8 +1,15 @@
+import { StartInput } from "./components/StartInput";
+import { DisplayLevel } from "./components/DisplayLevel";
+import { useLabyrinthStore } from "./stores/useLabyrinthStore";
+import { BackgroundMusic } from "./components/BackgroundMusic";
 
 export const App = () => {
+  const { playerJoinIn } = useLabyrinthStore();
+
   return (
-  <div>
-    Labyrinth Project 
-  </div>
+    <>
+      {playerJoinIn ? <DisplayLevel /> : <StartInput />}
+      <BackgroundMusic />
+    </>
   );
 };

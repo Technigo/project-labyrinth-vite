@@ -1,0 +1,95 @@
+:root {
+  --button-text-color: #ff7e26;
+  --button-border: #ff7e26 solid 2px;
+  --button-padding: 0 4px;
+
+  --main-border: white solid 3px;
+}
+
+@font-face {
+  font-family: Deluxfont;
+  src: url("../assets/DeluxefontRegular-xoOO.ttf");
+}
+
+@font-face {
+  font-family: ShapeBitRegular;
+  src: url("../assets/ShapeBitRegular-VGZvl.otf");
+}
+
+@font-face {
+  font-family: Pixelboy;
+  src: url("../assets/Pixeboy-z8XGD.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Deluxfont;
+  cursor: url("/heartCursor.png"), auto;
+  position: relative;
+}
+
+.loading-text,
+.loading-text-bonus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+  height: 100vh;
+
+  animation: appear linear 2s;
+  font-size: 1rem;
+  line-height: 2.2rem;
+  letter-spacing: -1px;
+}
+
+.loading-text-bonus {
+  color: #ff9b9d;
+}
+
+.sound-icon {
+  cursor: url("/heartCursor.png"), auto;
+  fill: white;
+  background-color: #000000;
+  border: none;
+  width: 25px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  margin: 15px;
+}
+
+.display-icon {
+  display: block;
+}
+
+.hide-icon {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .loading-text,
+  .loading-text-bonus {
+    width: 75%;
+    max-width: none;
+    font-size: 0.6rem;
+    line-height: 1.5rem;
+    letter-spacing: 0px;
+  }
+
+  .sound-icon {
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+  }
+}
