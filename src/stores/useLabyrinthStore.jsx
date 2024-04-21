@@ -30,7 +30,7 @@ export const useLabyrinthStore = create((set, get) => ({
       }
 
       const data = await response.json();
-      console.log(data);
+
       set({ levelDescription: data.description });
       set({ actions: data.actions });
     } catch (error) {
@@ -68,11 +68,19 @@ export const useLabyrinthStore = create((set, get) => ({
       } else {
         set({ isEnd: false });
       }
-
-      console.log(levelData);
-      console.log(levelData.coordinates);
     } catch (Error) {
       console.error("Failed to get next step.");
     }
+  },
+
+  restart: () => {
+    set({
+      playerJoinIn: false,
+      userName: "",
+      levelDescription: "",
+      actions: "",
+      coordinates: "",
+      isEnd: false,
+    });
   },
 }));

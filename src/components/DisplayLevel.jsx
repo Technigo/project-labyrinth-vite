@@ -5,7 +5,8 @@ import { HeartIcon } from "./HeartIcon";
 import "../style/DisplayLevel.css";
 
 export const DisplayLevel = () => {
-  const { levelDescription, actions, fetchLevel } = useLabyrinthStore();
+  const { levelDescription, actions, fetchLevel, restart } =
+    useLabyrinthStore();
   const [isLoading, setIsLoading] = useState(false);
   const [isBeforeCheck, setIsBeforeCheck] = useState(true);
   const [checkDirection, setCheckDirection] = useState("");
@@ -38,6 +39,10 @@ export const DisplayLevel = () => {
     setTimeout(() => {
       setIsBeforeCheck(false);
     }, 100);
+  };
+
+  const handleRestart = () => {
+    restart();
   };
 
   const filtereActions = actions.filter(
@@ -75,10 +80,13 @@ export const DisplayLevel = () => {
       </h3>
       <div className="level-action">
         {actions.length === 0 ? (
-          <p className="end-text">
-            <HeartIcon />
-            The End
-          </p>
+          <>
+            <p className="end-text">
+              <HeartIcon />
+              The End
+            </p>
+            <button onClick={handleRestart}>Restart</button>
+          </>
         ) : (
           <div className="direction-description-container">
             {filtereActions.length > 0

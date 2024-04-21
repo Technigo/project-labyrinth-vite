@@ -2,10 +2,18 @@ import { useLabyrinthStore } from "../stores/useLabyrinthStore";
 import { useState } from "react";
 import "../style/StartInput.css";
 import { HeartIcon } from "./HeartIcon";
+import uniqid from "uniqid";
 
 export const StartInput = () => {
   const { userName, setUserName, fetchStart } = useLabyrinthStore();
   const [isLoading, setIsLoading] = useState(false);
+  const [rawUserName, setRawUserName] = useState("");
+
+  const handelUserName = (event) => {
+    const newName = event.target.value;
+    setRawUserName(newName);
+    setUserName(newName + uniqid()); //make it unique
+  };
 
   const handleStartButtonClick = async () => {
     if (userName === "") {
@@ -26,8 +34,12 @@ export const StartInput = () => {
     }
   };
 
+  const bonusName =
+    rawUserName.toLowerCase() === "frisk" ||
+    rawUserName.toLowerCase() === "clara";
+
   return isLoading ? (
-    userName.toLowerCase() === "frisk" || userName.toLowerCase() === "clara" ? (
+    bonusName ? (
       <p className="loading-text-bonus">I missed you...</p>
     ) : (
       <p className="loading-text">loading...</p>
@@ -55,11 +67,9 @@ export const StartInput = () => {
         className="user-input"
         id="user-input"
         type="text"
-        value={userName}
+        value={rawUserName}
         placeholder="You are yourself"
-        onChange={(event) => {
-          setUserName(event.target.value);
-        }}
+        onChange={handelUserName}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             handleStartButtonClick();
