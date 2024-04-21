@@ -76,3 +76,20 @@ body {
 .hide-icon {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .loading-text,
+  .loading-text-bonus {
+    width: 75%;
+    max-width: none;
+    font-size: 0.6rem;
+    line-height: 1.5rem;
+    letter-spacing: 0px;
+  }
+
+  .sound-icon {
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+  }
+}

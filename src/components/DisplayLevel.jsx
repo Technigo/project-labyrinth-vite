@@ -80,13 +80,13 @@ export const DisplayLevel = () => {
       </h3>
       <div className="level-action">
         {actions.length === 0 ? (
-          <>
-            <p className="end-text">
-              <HeartIcon />
-              The End
-            </p>
-            <button onClick={handleRestart}>Restart</button>
-          </>
+          <div className="end-container">
+            <HeartIcon />
+            <p className="end-text">The End</p>
+            <button className="restart-button" onClick={handleRestart}>
+              Restart
+            </button>
+          </div>
         ) : (
           <div className="direction-description-container">
             {filtereActions.length > 0
@@ -123,7 +123,9 @@ export const DisplayLevel = () => {
         )}
         {actions.length > 0 && (
           <div className="check-options">
-            <p>Which direction do you want to check?</p>
+            <p className="check-question">
+              Which direction do you want to check?
+            </p>
             <div className="check-button-list">
               <button
                 className="check-button"

@@ -4,7 +4,7 @@ import { SoundOffIcon } from "./SoundOffIcon";
 import { useEffect, useState } from "react";
 
 const myBackgroundMusic = new Audio(backgroundMusic);
-myBackgroundMusic.volume = 0.5;
+myBackgroundMusic.volume = 0.1;
 myBackgroundMusic.loop = true;
 
 export const BackgroundMusic = () => {
