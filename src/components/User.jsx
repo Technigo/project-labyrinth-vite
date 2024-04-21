@@ -2,7 +2,7 @@ import { useLabyrint } from "../stores/useLabyrint.jsx";
 import { images } from "./images";
 import { useState, useEffect } from "react";
 import { Lottie } from "./lottie";
-import "./User.css";
+import "./user.css";
 
 export const User = () => {
 	const { loading, username, setUsername, fetchLabyrint, labyrint, fetchDirectionLabyrint, setDirection, setType, setRoom, setLabyrint } = useLabyrint();
