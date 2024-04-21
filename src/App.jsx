@@ -1,8 +1,9 @@
+import { StartComponent } from "./components/StartComponent";
 
 export const App = () => {
   return (
-  <div>
-    Labyrinth Project 
-  </div>
+    <div>
+      <StartComponent />
+    </div>
   );
 };
