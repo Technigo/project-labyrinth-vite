@@ -45,6 +45,7 @@ export const DisplayLevel = () => {
     restart();
   };
 
+  //to match the check button with different direction description
   const filtereActions = actions.filter(
     (action) => action.direction.toLowerCase() === checkDirection.toLowerCase()
   );
