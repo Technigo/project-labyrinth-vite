@@ -22,7 +22,7 @@ Should probably used my time a bit better and worked on making a design before s
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+View it live: <a href="https://maze-mania.netlify.app/"> Are you the hero of the maze? </a>
 
 ## Instructions
 

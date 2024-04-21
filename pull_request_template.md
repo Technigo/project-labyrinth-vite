@@ -1,6 +1,5 @@
 ## Netlify link
-Add your Netlify link here.
-PS. Don't forget to add it in your readme as well.
+View it live: <a href="https://maze-mania.netlify.app/"> Are you the hero of the maze? </a>
 
 ## Collaborators
 solo  - no one was up for playing this week.
