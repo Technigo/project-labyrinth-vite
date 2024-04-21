@@ -1,5 +1,4 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore";
-import startJpg from "/images/start.jpg";
 import "./Home.css";
 
 export const Home = () => {
@@ -16,15 +15,19 @@ export const Home = () => {
   };
 
   return (
-    <div
-      className="input-page"
-      style={{
-        backgroundImage: `url(${startJpg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "100vh",
-      }}
-    >
+    <div className="input-page">
+      {loading && (
+        <div className="entering">
+          <h2>Entering...</h2>
+        </div>
+      )}
+
+      {error && (
+        <div className="error">
+          <h2>{error.message}</h2>
+        </div>
+      )}
+
       {!loading && !error && (
         <form onSubmit={handleStartSubmit}>
           <label>Enter your username: </label>
@@ -41,61 +44,6 @@ export const Home = () => {
           <button onClick={handleStartSubmit}>Start Labyrinth</button>
         </form>
       )}
-
-      {loading && (
-        <div className="entering">
-          <h2>Entering...</h2>
-        </div>
-      )}
-
-      {error && (
-        <div className="error">
-          <h2>{error.message}</h2>
-        </div>
-      )}
     </div>
   );
 };
-
-/* import { useState, useEffect, useRef } from "react";
-import { useUserStore } from "../stores/useUserStore";
-import { Labyrinth } from "./Labyrinth";
-
-export const Home = () => {
-  const { userName, setUserName, fetchStartData } = useUserStore();
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const inputRef = useRef(null);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newUserName = inputRef.current.value;
-    setUserName(newUserName);
-    setIsSubmitted(true);
-  };
-
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
-
-  return (
-    <div>
-      {!isSubmitted && (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Enter your username:
-            <input
-              type="text"
-              ref={inputRef}
-              defaultValue={userName}
-              placeholder="New username"
-              required
-            />
-          </label>
-          <button type="submit" onClick={() => {userName}}>Submit</button>
-        </form>
-      )}
-      {isSubmitted && <Labyrinth />}
-    </div>
-  );
-};
- */

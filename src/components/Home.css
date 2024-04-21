@@ -2,6 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("/images/start.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: inherit;
 }
 
 form {
