@@ -4,6 +4,8 @@ import { SoundOffIcon } from "./SoundOffIcon";
 import { useEffect, useState } from "react";
 
 const myBackgroundMusic = new Audio(backgroundMusic);
+myBackgroundMusic.volume = 0.5;
+myBackgroundMusic.loop = true;
 
 export const BackgroundMusic = () => {
   const [isMusicPaused, setIsMusicPaused] = useState(true);
@@ -21,13 +23,19 @@ export const BackgroundMusic = () => {
   }, [isMusicPaused]);
 
   return (
-    <button className="sound-button" onClick={toggleMusic}>
-      <SoundOnIcon
-        className={`sound-icon ${isMusicPaused ? "" : "display-icon"}`}
-      />
-      <SoundOffIcon
-        className={`sound-icon ${isMusicPaused ? "display-icon" : ""}`}
-      />
-    </button>
+    <>
+      <button
+        className={`sound-icon ${isMusicPaused ? "hide-icon" : "display-icon"}`}
+        onClick={toggleMusic}
+      >
+        <SoundOnIcon />
+      </button>
+      <button
+        className={`sound-icon ${isMusicPaused ? "display-icon" : "hide-icon"}`}
+        onClick={toggleMusic}
+      >
+        <SoundOffIcon />
+      </button>
+    </>
   );
 };

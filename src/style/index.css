@@ -57,13 +57,22 @@ body {
   color: #ff9b9d;
 }
 
-.sound-button {
+.sound-icon {
   cursor: url("/heartCursor.png"), auto;
   fill: white;
   background-color: #000000;
   border: none;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 20px;
   position: absolute;
   top: 0;
+  margin: 15px;
+}
+
+.display-icon {
+  display: block;
+}
+
+.hide-icon {
+  display: none;
 }
