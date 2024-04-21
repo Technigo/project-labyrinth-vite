@@ -1,3 +1,7 @@
+.general-container {
+  background-position: center;
+}
+
 .button-cross {
   margin: auto;
   width: 250px;
@@ -18,7 +22,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   font-size: medium;
-  padding: 1rem;
+  padding: 0.7rem 1rem 0.7rem 1rem;
   border-radius: 10px;
 }
 
@@ -45,6 +49,7 @@
 }
 
 .text-area {
+
   border: none;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.8);
@@ -52,6 +57,7 @@
   padding: 25px;
   color: white;
   margin: auto;
+    min-width: 600px;
 }
 
 .textbox p {
@@ -59,8 +65,13 @@
   padding: 1rem;
 }
 
-.textbox-direction {
-  border: 2px solid rgba(255, 255, 0, 0.811);
+.textbox-button {
+  margin-top: 50px;
+}
+
+
+.direction-cards {
+  border: 2px solid rgba(203, 219, 169, 0.804);
   border-radius: 40px;
   margin: 1rem;
 }
@@ -70,12 +81,17 @@
   top: 55px;
   left: 35px;
 }
+
 @media only screen and (max-width: 630px) {
   .text-area {
-    min-width: unset;
+  min-width: unset;
     margin-top: 150px;
     margin-left: 20px;
     margin-right: 20px;
+  }
+
+  .textbox p {
+    font-size: medium;
   }
 
   #restart {
@@ -84,6 +100,5 @@
 
   #username {
     top: 20px;
-    padding: 0.7rem;
   }
 }

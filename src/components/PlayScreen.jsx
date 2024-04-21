@@ -1,11 +1,11 @@
+import { useRef, useEffect } from "react";
 import { GameButton } from "./GameButton";
 import { TextBox } from "./TextBox";
 import { useGameStore } from "../stores/useGameStore";
 import Lottie from "lottie-react";
-
 import footstepsAnimation from "../assets/animations/footsteps.json";
 import "./style/PlayScreen.css";
-import { useRef, useEffect } from "react";
+
 
 export const PlayScreen = () => {
   const backgroundImage = useRef();
@@ -33,7 +33,7 @@ export const PlayScreen = () => {
           {labData.actions.map((action, index) => (
             <GameButton key={index} buttonName={action.direction} />
           ))}
-          {/* <GameButton buttonName="East" />
+          {/* <GameButton buttonName="East" disabled="disabled"/>
           <GameButton buttonName="South" />
           <GameButton buttonName="West" />
           <GameButton buttonName="North" /> */}

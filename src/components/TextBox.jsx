@@ -1,6 +1,5 @@
 import { useGameStore } from "../stores/useGameStore";
 import { useState } from "react";
-import "./style/TextBox.css";
 
 export const TextBox = () => {
   const { labData } = useGameStore();
@@ -13,14 +12,15 @@ export const TextBox = () => {
 
   return (
     <>
-      <button className="textbox-button" onClick={handleShow}>
+      <button className="textbox-button control-button" onClick={handleShow}>
         {showDirections ? "Show Description" : "Show Directions"}
       </button>
       {showDirections ? (
         <div className="textbox textbox-direction">
           {labData.actions
             ? labData.actions.map((direction, index) => (
-                <div className="direction-cards" key={index}>
+              <div className="direction-cards" key={index}>
+                <h3>{direction.direction}</h3>
                   <p>{direction.description} </p>
                 </div>
               ))

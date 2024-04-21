@@ -10,7 +10,7 @@
 }
 
 .start-container {
-  background-color: rgba(203, 219, 169, 0.804);
+  background-color: rgba(203, 219, 169, 0.8);
   border-radius: 50px;
   display: flex;
   flex-direction: column;
@@ -22,19 +22,15 @@
 }
 
 #start {
-  margin: 5px;
+  margin-left: 5px; 
 }
 
-.start-user-info {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
 
 @media only screen and (max-width: 630px) {
   .start-container {
     padding: 10px 80px;
   }
+  
   p {
     margin-top: 5px;
   }

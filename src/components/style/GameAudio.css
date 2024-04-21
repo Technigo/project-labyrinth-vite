@@ -3,3 +3,7 @@
   bottom: 10px;
   left: 10px;
 }
+
+#game-audio img {
+  filter: invert(1) sepia(1) saturate(0) brightness(1.5) hue-rotate(0deg);
+}

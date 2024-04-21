@@ -11,8 +11,8 @@ export const GameAudio = () => {
 
   useEffect(() => {
     if (audioOn) {
-      console.log("Hej");
       audio.play();
+      audio.volume = 0.05;
     } else {
       audio.pause();
     }

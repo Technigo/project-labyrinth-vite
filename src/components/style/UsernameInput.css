@@ -1,6 +1,14 @@
+.start-user-info {
+  display: flex;
+  height: 75px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
 .name-box {
   border-radius: 5px;
   padding: 6px;
+  height: 30px;
 }
 
 .name-label {

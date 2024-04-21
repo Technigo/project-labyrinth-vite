@@ -1,9 +1,8 @@
 import { useGameStore } from "../stores/useGameStore";
 import { useRef } from "react";
-import "./style/GameButton.css";
 
 export const GameButton = ({ buttonName }) => {
-  const { username, action, setIsStarted, isStarted, startGame, makeMove } =
+  const { username, uniqueName, action, setIsStarted, isStarted, startGame, makeMove } =
     useGameStore();
 
   const buttonRef = useRef(null);
@@ -16,7 +15,6 @@ export const GameButton = ({ buttonName }) => {
     }
 
     if (buttonName === "Start") {
-      console.log("onSubmit check: ", username);
       if (username === "") {
         alert("Please enter an user name");
         return null;
@@ -24,7 +22,7 @@ export const GameButton = ({ buttonName }) => {
     }
 
     if (isStarted) {
-      makeMove(username, action, direction);
+      makeMove(uniqueName, action, direction);
     } else if (isStarted === false) {
       startGame(username);
     }
