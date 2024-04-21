@@ -1,0 +1,119 @@
+.maze__wrapper {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card__container {
+    position: relative;
+    z-index: 100;
+    background-color: var(--bg-card);
+    border-radius: 50px;
+    padding: 50px;
+    // max-height: 500px;
+    max-width: 600px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form__username {
+    margin-top: 30px;
+    label {
+      display: grid;
+      gap: 10px;
+    }
+    button {
+      background-color: var(--clr-primary);
+      color: #fff;
+    }
+  }
+
+  //  Maze directions
+  .direction__container {
+    .direction__card {
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.5);
+      margin: 10px auto;
+      border: 1px solid rgb(179, 208, 182);
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      -moz-box-pack: center;
+      justify-content: center;
+      -moz-box-align: center;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+
+      button {
+        margin: 5px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: medium;
+        background-color: rgb(65, 97, 76);
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+  .direction__btn {
+    width: 80px;
+    height: 80px;
+  }
+
+  .east,
+  .west {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+    position: absolute;
+    top: calc(50% - 75px);
+  }
+
+  .east {
+    flex-direction: row-reverse;
+    right: 0;
+  }
+
+  .west {
+    flex-direction: row;
+    left: 0;
+  }
+
+  .north,
+  .south {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+    position: absolute;
+  }
+
+  .north {
+    flex-direction: column;
+    left: calc(50% - 75px);
+    top: 0;
+  }
+
+  .south {
+    bottom: 0;
+    flex-direction: column-reverse;
+    right: calc(50% - 75px);
+  }
+}
+
+.errorMsg {
+  color: var(--clr-error);
+}
