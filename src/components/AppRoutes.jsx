@@ -6,10 +6,18 @@ const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<StartGame />} />
+        <Route path="/" element={<StartGameWithBackground />} />
         <Route path="/rooms" element={<Rooms />} />
       </Routes>
     </Router>
+  );
+};
+
+const StartGameWithBackground = () => {
+  return (
+    <div className="withBackgroundImage">
+      <StartGame />
+    </div>
   );
 };
 

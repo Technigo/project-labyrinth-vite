@@ -12,7 +12,8 @@ const useLabyrinthStore = create((set) => ({
   startGame: async (username) => {
     try {
       set({ isLoading: true });
-      const response = await fetch("https://labyrinth.technigo.io/start", {
+      const startApi = "https://labyrinth.technigo.io/start";
+      const response = await fetch(startApi, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +32,8 @@ const useLabyrinthStore = create((set) => ({
   performAction: async (username, action) => {
     try {
       set({ isLoading: true });
-      const response = await fetch("https://labyrinth.technigo.io/action", {
+      const actionApi = "https://labyrinth.technigo.io/action";
+      const response = await fetch(actionApi, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

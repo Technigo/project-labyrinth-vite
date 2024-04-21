@@ -1,11 +1,39 @@
-.title {
-  font-family: var(---title-font);
+.withBackgroundImage {
+  background-image: url("../../public/Labyrinth.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-.introText {
-  font-family: var(---title-font);
+/*
+body {
+  background-image: url("../../public/Labyrinth.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .startGameContainer {
   font-family: var(---main-font);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 
 }
+
+.title {
+  font-family: var(---title-font);
+  color: #84c69b;
+}
+
+.introText {
+  font-family: var(---title-font);
+  color: white;
+}
+
+.usernameText {
+  color: white;
+}
+
+.usernameButton {
+  background-color: #84c69b;
+}
+*/
