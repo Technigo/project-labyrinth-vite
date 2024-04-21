@@ -1,0 +1,21 @@
+h1 {
+  font-family: "Jersey 10";
+  font-size: 50px;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+.enter-game-text {
+  font-family: "Jersey 10";
+}
+
+.description {
+  font-size: 30px;
+  font-family: "Jersey 10";
+}
+
+.animation-compass {
+  background-color: transparent;
+}
