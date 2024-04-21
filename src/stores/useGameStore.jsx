@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
 export const useGameStore = create((set, get) => ({
-  username: "John Doe",
-  uniqueName: "JohnDoe12312481749",
+  username: "The wanderer",
+  uniqueName: "thewanderer",
   action: "move", // No other action allowed.
   actions: null,
   coordinates: null,
