@@ -6,25 +6,19 @@
 
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Zustand Project  - make a labyrint game where all the actions in the game are given with posts to api.
 
 ## Getting Started with the Project
 
-### Dependency Installation & Startup Development Server
+Initially I waited to be paired up with someone, but when that wasn't possible I just got cracking.
+i started with the basics, just getting the name from the user, and posting that in the json to see what i got from the API. Then I proceeded to build logic to be able to handle the different choices.
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Spendt a lot of time playing with animation, images and shapes, before I saw that less is more, and it looked quite cluttered and crazy, and spent a lot of time removing it all 😂.
+Should probably used my time a bit better and worked on making a design before starting, and going for making a map, and store the choices in local storage. but on the other hand I had fun with animation and clipping masks, even if i didn't actually use them all.
+`
 
 ### View it live
 
