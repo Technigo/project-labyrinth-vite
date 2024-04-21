@@ -51,20 +51,25 @@ export const Labyrinth = () => {
       )}
 
       {!loading && !error && (
-        <div>
-          <p>{description}</p>
+        <div className="labyrinth-content">
+          <div className="location-description">
+            <p>{description}</p>
+          </div>
 
-          {actions.map((action) => (
-            <button
-              key={action.description}
-              className={`button-${action.direction}`} // Apply the direction-specific class
-              onClick={() => handleDirectionClick(action)}
-            >
-              {action.direction}
+          <div className="navigation-buttons">
+            {actions.map((action) => (
+              <button
+                key={action.description}
+                className={`button-${action.direction}`} // Apply the direction-specific class
+                onClick={() => handleDirectionClick(action)}
+              >
+                {action.direction}
+              </button>
+            ))}
+            <button className="button-restart" onClick={handleRestart}>
+              Restart
             </button>
-          ))}
-
-          <button onClick={handleRestart}>Restart</button>
+          </div>
         </div>
       )}
     </div>

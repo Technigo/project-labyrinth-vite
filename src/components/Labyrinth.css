@@ -1,36 +1,61 @@
-.labyrinth-wrapper {
+.labyrinth-content {
   height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50% 50%;
+}
+
+.location-description {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.labyrinth-start button {
-  position: absolute;
+.location-description p {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.628);
+  color: var(--beige);
+  text-shadow: 1px 1px 3px black;
+  padding: 20px;
+  margin: 20px;
+}
+
+.navigation-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column: 1;
+  grid-row: 2;
+  gap: 40px;
+  padding: 20px;
 }
 
 .button-North {
-  top: 30px; /* Adjust the top position as needed */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%);
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .button-East {
-  top: 50%; /* Center vertically */
-  right: 30px; /* Adjust the right position as needed */
-  transform: translateY(-50%);
+  grid-column: 3;
+  grid-row: 2;
 }
 
 .button-South {
-  bottom: 30px; /* Adjust the bottom position as needed */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%);
+  grid-column: 2;
+  grid-row: 3;
 }
 
 .button-West {
-  top: 50%; /* Center vertically */
-  left: 30px; /* Adjust the left position as needed */
-  transform: translateY(-50%);
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.button-restart {
+  grid-column: 2;
+  grid-row: 5;
+  font-size: 18px;
 }
 
 /* Centering loading spinner */

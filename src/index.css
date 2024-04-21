@@ -19,6 +19,7 @@ body {
   text-align: center;
   height: 100vh;
   font-family: "Glass Antiqua", cursive;
+  /* font-size: 18px; */
   color: var(--darkbrown);
   line-height: 1.5;
   font-weight: 400;
@@ -32,6 +33,7 @@ body {
   --lightbrown: #805640;
   --yellow: #f6ce7f;
   --beige: #f6e4c0;
+  --beigeTransparent: #f6e4c017;
   --darkgreen: #776b47;
   --lightgreen: #968b66;
 }
