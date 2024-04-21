@@ -64,7 +64,6 @@ export const User = () => {
 							id="username"
 							autoComplete="given-name"
 						/>
-
 						<button onClick={handleButtonClick}>Enter the maze</button>
 					</form>
 				</div>
