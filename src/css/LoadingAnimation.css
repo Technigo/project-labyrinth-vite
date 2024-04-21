@@ -6,21 +6,55 @@
 	height: 100vh;
 }
 
-.loader {
-	border: 8px solid #f3f3f3;
-	border-top: 8px solid #331f1b;
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-	animation: spin 1s linear infinite;
+.double-spinner {
+	position: relative;
+	width: 300px;
+	height: 300px;
 }
 
-@keyframes spin {
+.inner-spinner,
+.outer-spinner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: 8px solid transparent;
+	/* Transparent border for smooth spinning */
+	border-radius: 50%;
+	/* Circular shape */
+}
+
+.outer-spinner {
+	border-top: 8px solid #fff;
+	/* Outer circle with a specific color */
+	animation: outer-spin 1s linear infinite;
+	/* Infinite spinning */
+}
+
+.inner-spinner {
+	border-bottom: 8px solid #b06647;
+	animation: inner-spin 1s linear infinite;
+}
+
+@keyframes outer-spin {
 	0% {
 		transform: rotate(0deg);
 	}
 
 	100% {
 		transform: rotate(360deg);
+		/* Full rotation */
+	}
+}
+
+@keyframes inner-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(-360deg);
+		/* Opposite direction rotation */
 	}
 }
