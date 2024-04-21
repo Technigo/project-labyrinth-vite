@@ -6,9 +6,7 @@
 
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The Labyrinth - Zustand Project utilized Zustand for global state management to create an interactive game that fetches data from an API.
 
 ## Getting Started with the Project
 
@@ -24,11 +22,11 @@ npm i && code . && npm run dev
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started by designing the game's interface in Figma and efficiently handled the global state using Zustand, ensuring seamless data retrieval from the backend through async methods and the fetch API. We employed React for the user interface, utilizing pair programming, async techniques, and branching strategies to steadily implement features while maintaining a structured workflow for consistent progress.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[Netlify link](https://maze-game-adventure.netlify.app)
 
 ## Instructions
 
