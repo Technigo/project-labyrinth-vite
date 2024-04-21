@@ -1,4 +1,4 @@
-:root {
+/*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -69,6 +69,8 @@ button:focus-visible {
 }
 
 /* APP Component CSS */
+
+/*
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -111,8 +113,9 @@ button:focus-visible {
 .read-the-docs {
   color: #888;
 }
-
+/*
 /* Bio Comp */
+/*
 .bioComp {
   border: 1px solid red;
   margin-bottom: 1em;
