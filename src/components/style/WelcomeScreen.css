@@ -10,7 +10,9 @@
 }
 
 .start-container {
-  background-color: rgba(203, 219, 169, 0.8);
+  background-color: rgba(203, 219, 169, 0.3);
+  border
+  backdrop-filter: blur(10px);
   border-radius: 50px;
   display: flex;
   flex-direction: column;
@@ -30,7 +32,7 @@
   .start-container {
     padding: 10px 80px;
   }
-  
+
   p {
     margin-top: 5px;
   }
