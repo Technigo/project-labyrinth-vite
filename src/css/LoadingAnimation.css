@@ -4,6 +4,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
+	/* Full viewport height */
 }
 
 .double-spinner {
@@ -38,23 +39,36 @@
 }
 
 @keyframes outer-spin {
-	0% {
-		transform: rotate(0deg);
+	@keyframes outer-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+			/* Full rotation */
+		}
 	}
 
-	100% {
-		transform: rotate(360deg);
-		/* Full rotation */
-	}
-}
+	@keyframes inner-spin {
+		0% {
+			transform: rotate(0deg);
+		}
 
-@keyframes inner-spin {
-	0% {
-		transform: rotate(0deg);
+		100% {
+			transform: rotate(-360deg);
+			/* Opposite direction rotation */
+			/* Full rotation */
+		}
 	}
 
-	100% {
-		transform: rotate(-360deg);
-		/* Opposite direction rotation */
+	@keyframes inner-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(-360deg);
+			/* Opposite direction rotation */
+		}
 	}
-}

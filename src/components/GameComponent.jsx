@@ -70,6 +70,7 @@ export const GameComponent = ({ changeImage, onRestart }) => {
 
       <button
         className="restart-btn"
+        className="restart-btn"
         onClick={() => {
           restart();
           changeImage("start");
