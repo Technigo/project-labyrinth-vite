@@ -27,12 +27,14 @@ export const BackgroundMusic = () => {
       <button
         className={`sound-icon ${isMusicPaused ? "hide-icon" : "display-icon"}`}
         onClick={toggleMusic}
+        aria-label="sound-button"
       >
         <SoundOnIcon />
       </button>
       <button
         className={`sound-icon ${isMusicPaused ? "display-icon" : "hide-icon"}`}
         onClick={toggleMusic}
+        aria-label="sound-button"
       >
         <SoundOffIcon />
       </button>
