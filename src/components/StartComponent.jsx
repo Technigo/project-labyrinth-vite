@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
+
 import useGameStore from "../store/gameStore";
 import { GameComponent } from "./GameComponent";
 import LoadingAnimation from "./LoadingAnimation";
+
 import "../css/StartComponent.css";
 
 export const StartComponent = () => {
@@ -31,7 +33,7 @@ export const StartComponent = () => {
   return (
     <div ref={imageRef} className="wrapper">
       {isLoggedIn ? (
-        <GameComponent changeImage={changeImage} onRestart={handleRestart} />
+        <GameComponent changeImage={changeImage} onRestart={handleRestart} npm run dev/>
       ) : (
         <div className="start-container">
           <h2 className="start-title">
