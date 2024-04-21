@@ -8,13 +8,13 @@
 
 body {
   height: 100vh;
-  background: #eaf5e5;
+  background: #2d1914;
 }
 
 #root {
   min-width: 320px;
   min-height: 100vh;
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   text-align: center;
   height: 100vh;

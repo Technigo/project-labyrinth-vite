@@ -1,3 +1,17 @@
+.labyrinth-wrapper {
+  background-size: cover;
+  background-position: top left;
+  animation: background-animation 100s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes background-animation {
+  100% {
+    background-position: bottom right;
+  }
+}
+
 .labyrinth-content {
   height: 100vh;
   display: grid;
@@ -56,6 +70,8 @@
   grid-column: 2;
   grid-row: 5;
   font-size: 18px;
+  background-color: var(--darkgreen);
+  border: 2px solid var(--lightgreen);
 }
 
 /* Centering loading spinner */
