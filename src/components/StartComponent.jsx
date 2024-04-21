@@ -33,7 +33,13 @@ export const StartComponent = () => {
   return (
     <div ref={imageRef} className="wrapper">
       {isLoggedIn ? (
-        <GameComponent changeImage={changeImage} onRestart={handleRestart} npm run dev/>
+        <GameComponent
+          changeImage={changeImage}
+          onRestart={handleRestart}
+          npm
+          run
+          dev
+        />
       ) : (
         <div className="start-container">
           <h2 className="start-title">
