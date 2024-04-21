@@ -4,12 +4,13 @@ export const Lottie = () => {
 
   return (
     <div className="loader">
+      <div className="spinner">
     <Player
-      src='https://lottie.host/0d09879c-0184-4a99-a98d-671e7e6f85f0/ffgFwekCsa.json'
+      src='https://lottie.host/6483601a-d5be-4f51-8822-9a5f375d00f9/bGyHW0SHFM.json'
       className="player"
       loop
       autoplay
-    />
+    /></div>
     </div>
   )
 }

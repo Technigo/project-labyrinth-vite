@@ -1,4 +1,3 @@
-import React from "react";
 import { useLabyrint } from "../stores/useLabyrint.jsx";
 import { images } from "./images";
 import { useState, useEffect } from "react";
@@ -8,6 +7,7 @@ import "./User.css";
 export const User = () => {
 	const { loading, username, setUsername, fetchLabyrint, labyrint, fetchDirectionLabyrint, setDirection, setType, setRoom, setParams, setLabyrint } = useLabyrint();
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [showLoading, setShowLoading] = useState(true);
 	const [currentImageDirection, setCurrentImageDirection] = useState('');
 	let currentImage = images[labyrint.coordinates];
 	if (labyrint.actions && labyrint.actions.length > 0) {
@@ -16,19 +16,21 @@ export const User = () => {
 
 	const handleInputChange = (event) => {
 		setUsername(event.target.value);
-		console.log(event.target.value);
 		currentImage = images[labyrint.coordinates];
 		if (labyrint.actions && labyrint.actions.length > 0) {
 			let currentImageDirection = images[labyrint.coordinates + labyrint.actions.direction]
-			console.log("handleinput currentimgdir", currentImageDirection)
 		}
 	};
 
 	const handleButtonClick = async () => {
+		const random = Math.floor(Math.random() * 10000000);
+		const username2 = username+random;
+		setUsername(username2);
 		setParams(`/start`);
 		event.preventDefault();
 		setIsSubmitted(true);
-		await fetchLabyrint(username);
+		await fetchLabyrint(username2);
+		console.log(username2);
 	};
 
 	useEffect(() => {
@@ -37,6 +39,7 @@ export const User = () => {
 		}
 	}, [labyrint]);
 
+
 	const handleDirection = async (direction) => {
 		try {
 			setDirection(direction);
@@ -44,10 +47,6 @@ export const User = () => {
 			setRoom(labyrint.description);
 			let params = `action`;
 			setParams(params);
-			console.log("beskrivelse:", labyrint.description);
-			console.log("handling:", labyrint.actions[0].type);
-			console.log("retning:", direction);
-			console.log("params:", params);
 			const newLabyrint = await fetchDirectionLabyrint(
 				username,
 				labyrint.actions[0].type,
@@ -58,7 +57,7 @@ export const User = () => {
 			);
 			if (newLabyrint) {
 				currentImage = images[newLabyrint.coordinates];
-				currentImageDirection = images[newLabyrint.coordinates + newLabyrint.actions.direction];
+				let currentImageDirection = images[newLabyrint.coordinates + newLabyrint.actions.direction];
 				setLabyrint(newLabyrint);
 			} else {
 				console.error('Failed to fetch new labyrinth');
@@ -73,12 +72,16 @@ export const User = () => {
 				<div className="form">
 					<form onSubmit={handleButtonClick}>
 						<h1>To enter the maze, we need a hero&#39;s name</h1>
-						<label>I am Legend, I am..</label>
+						<label name="username" htmlFor="username">I am Legend, I am..	</label>
 						<input
 							value={username}
 							type="text"
 							onChange={handleInputChange}
+							name="username"
+							id="username"
+							autoComplete="given-name"
 						/>
+
 						<button onClick={handleButtonClick}>Enter the maze</button>
 					</form>
 				</div>
@@ -90,18 +93,16 @@ export const User = () => {
 					{loading ? <Lottie /> : null}
 
 					{labyrint && labyrint.actions && (
-						<div>
-							{	/*	{JSON.stringify(labyrint)}
-							<p>you are now at: {labyrint.coordinates}</p>*/}
+						<>
 							<h2 className="area">{labyrint.description}</h2>
 							<section className="options-container">
 								{labyrint.actions.map((action, index) => (
 
 									<div key={index}>
 										<div className="option">
-										<div className="option-image" style={{
-											backgroundImage: `url(${images[labyrint.coordinates + action.direction]})`
-										}}> </div>
+											<div className="option-image" style={{
+												backgroundImage: `url(${images[labyrint.coordinates + action.direction]})`
+											}}> </div>
 
 											<div className="option-text-btn-container">
 												<p>{action.description}</p>
@@ -113,7 +114,7 @@ export const User = () => {
 
 								))}
 							</section>
-						</div>
+						</>
 					)
 					}</div>
 			)

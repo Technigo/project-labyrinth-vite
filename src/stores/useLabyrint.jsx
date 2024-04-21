@@ -15,7 +15,6 @@ export const useLabyrint = create(set => ({
   setLabyrint: (labyrint) => { set({ labyrint }); },
   fetchLabyrint: async (username) => {
     const data = { username: username };
-    console.log(data);
     set({ loading: true, error: null });
     try {
       const response = await fetch(`https://labyrinth.technigo.io/start`, {
@@ -38,10 +37,9 @@ export const useLabyrint = create(set => ({
       room: room,
       params: params,
     };
-    console.log("this is the new fetchDirdata", data);
     set({ loading: true, error: null });
     try {
-      const response = await fetch(`https://labyrinth.technigo.io/${params}`, {
+      const response = await fetch(`https://labyrinth.technigo.io/action`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },

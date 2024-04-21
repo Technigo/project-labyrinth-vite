@@ -14,7 +14,7 @@ export const images = {
   "1,0West":"/assets/1x0west.jpg",
   "1,1":"/assets/1x1.jpg",
   "1,1South":"/assets/1x1south.jpg",
-  "1,1West":"/assets/1x1west.jpg",
+  "1,1West":"/assets/0x1east.jpg",
   "0,3":"/assets/z0x3.jpg",
   "0,3East":"/assets/z0x3e.jpg",
   "0,3South":"/assets/z0x3south.jpg",
