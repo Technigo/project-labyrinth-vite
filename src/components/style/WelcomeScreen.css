@@ -10,9 +10,9 @@
 }
 
 .start-container {
-  background-color: rgba(203, 219, 169, 0.3);
-  border
-  backdrop-filter: blur(10px);
+  background-color: rgba(203, 219, 169, 0.4);
+  border:2px solid rgba(203, 219, 169, 0.8);
+  backdrop-filter: blur(5px);
   border-radius: 50px;
   display: flex;
   flex-direction: column;

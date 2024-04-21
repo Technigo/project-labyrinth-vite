@@ -115,7 +115,3 @@ Don't be afraid of storing lots of information in the global state - you can sto
 - Style each room/state based on the description. For instance, if it contains the word "forest" you may want to change the background to a forest
 - Save the global state data to localStorage, so the app data remains when you reload the page
 - Create a visual representation (drawing) of the map/labyrinth that the player is navigating. It could update after each action. The coordinates might be helpful here, or you can track the directions yourself.
-
-### Roadmap
-
-- useEffect on the fetch.
