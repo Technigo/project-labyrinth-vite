@@ -1,37 +1,34 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
-
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The Mars Labyrinth project is a text-based adventure game set on Mars. The game challenges players to navigate a labyrinth by making choices based on text-based descriptions and interactions. A project based on Zustand library.
 
 ## Getting Started with the Project
 
-### Dependency Installation & Startup Development Server
+Game Play: Players navigate through the labyrinth by choosing directions, which alters the game's state and leads to new scenarios.
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
+Dynamic Backgrounds: The game changes its background image based on player location, providing visual context to the game's narrative.
 
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
+Restart Option: Players can restart the game to explore different paths and outcomes.
 
-```bash
-npm i && code . && npm run dev
-```
+Technology Stack
+
+Frontend: Built with React for dynamic and responsive user interfaces.
+State Management: Utilizes Zustand to manage game state across components.
+CSS: Styled using custom stylesheets for a visually engaging experience
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Challenges and Solutions
+
+Managing Game State: The project utilized Zustand to maintain game state and coordinate changes across components.
+Dynamic Background Changes: The project implemented logic to change background images based on the game's state, enhancing user experience.
+
+Future Development
+
+Potential improvements could include:
+
+Adding more complex storylines and scenarios.
+Implementing animations and visual effects for transitions.
+Introducing different difficulty levels or character customization.
 
 ### View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
