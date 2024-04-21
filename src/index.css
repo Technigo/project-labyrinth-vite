@@ -8,17 +8,19 @@
 
 body {
   height: 100vh;
-  background: #EAF5E5;
+  background: #2d1914;
 }
 
 #root {
   min-width: 320px;
   min-height: 100vh;
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   text-align: center;
   height: 100vh;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Glass Antiqua", cursive;
+  /* font-size: 18px; */
+  color: var(--darkbrown);
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -26,4 +28,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --darkbrown: #63372c;
+  --lightbrown: #805640;
+  --yellow: #f6ce7f;
+  --beige: #f6e4c0;
+  --beigeTransparent: #f6e4c017;
+  --darkgreen: #776b47;
+  --lightgreen: #968b66;
+}
+
+button {
+  font-family: "Glass Antiqua", cursive;
+  font-size: 24px;
+  background-color: var(--darkbrown);
+  border: 2px solid var(--lightbrown);
+  color: var(--yellow);
+  text-shadow: 1px 1px 3px black;
+}
+
+input {
+  font-family: "Glass Antiqua", cursive;
+  color: var(--darkbrown);
 }

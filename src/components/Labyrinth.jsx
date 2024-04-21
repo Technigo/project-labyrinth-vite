@@ -51,8 +51,10 @@ export const Labyrinth = () => {
       )}
 
       {!loading && !error && (
-        <div>
-          <p>{description}</p>
+        <div className="labyrinth-content">
+          <div className="location-description">
+            <p>{description}</p>
+          </div>
 
           {actions.map((action) => (
             <button
@@ -63,8 +65,9 @@ export const Labyrinth = () => {
               {action.direction}
             </button>
           ))}
-
-          <button onClick={handleRestart}>Restart</button>
+          <button className="button-restart" onClick={handleRestart}>
+            Restart
+          </button>
         </div>
       )}
     </div>
