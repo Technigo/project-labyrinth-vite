@@ -84,6 +84,6 @@ export const useLabyrinthStore = create((set) => ({
   },
 
   restart: () => {
-    set({ gameMode: false });
+    set({ userName: "", gameMode: false });
   },
 }));

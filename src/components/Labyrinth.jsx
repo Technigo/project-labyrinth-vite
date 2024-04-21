@@ -12,6 +12,8 @@ export const Labyrinth = () => {
     coordinates,
     description,
     actions,
+    setUserName,
+    restart,
     setDirection, //Check this to see if it really works.
     /* set, */
   } = useLabyrinthStore();
@@ -34,10 +36,11 @@ export const Labyrinth = () => {
     /* console.log(userName, direction) */
   };
 
-  /* const handleRestart = () => {
-    setUserName(""); // Clear the input when restarting
+  const handleRestart = () => {
+    setUserName(""); // Clear the username input
+    restart(); // Reset the game state
   };
- */
+
   return (
     <div ref={imageRef} className="labyrinth-wrapper">
       {loading && <Loading />}
@@ -60,6 +63,8 @@ export const Labyrinth = () => {
               {action.direction}
             </button>
           ))}
+
+          <button onClick={handleRestart}>Restart</button>
         </div>
       )}
     </div>
