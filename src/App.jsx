@@ -1,8 +1,13 @@
+import { useGameStore } from "./stores/useGameStore";
+import { WelcomeScreen } from "./components/WelcomeScreen";
+import { PlayScreen } from "./components/PlayScreen";
+import { GameAudio } from "./components/GameAudio";
 
 export const App = () => {
-  return (
-  <div>
-    Labyrinth Project 
-  </div>
-  );
+  const { isStarted } = useGameStore();
+
+  return <>
+  {isStarted ? <PlayScreen /> : <WelcomeScreen />}
+  <GameAudio />
+  </>;
 };

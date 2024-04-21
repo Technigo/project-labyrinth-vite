@@ -1,0 +1,40 @@
+.general-container {
+  background-image: url("/maze.jpeg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.start-container {
+  background-color: rgba(203, 219, 169, 0.4);
+  border:2px solid rgba(203, 219, 169, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  color: black;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+#start {
+  margin-left: 5px; 
+}
+
+
+@media only screen and (max-width: 630px) {
+  .start-container {
+    padding: 10px 80px;
+  }
+
+  p {
+    margin-top: 5px;
+  }
+ 
+}
