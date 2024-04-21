@@ -36,13 +36,13 @@ body {
   font-style: normal;
   color: var(--light-color);
   background-color: var(--dark-color);
-  z-index:0;
+  z-index: 0;
 
 }
 
 
 .loader {
-  background-size:contain;
+  background-size: contain;
   z-index: 2;
   max-width: 200px;
 }
@@ -54,14 +54,15 @@ body {
   background-position: center;
   display: flex;
   justify-content: center;
-  padding:0 3vw;
+  padding: 0 3vw;
 
 }
-section{
-  justify-content:center;
-  align-items:center;
+
+section {
+  justify-content: center;
+  align-items: center;
   width: 100vw;
- height:100vh;
+  height: 100vh;
 }
 
 .game-stage {
@@ -78,15 +79,16 @@ section{
 }
 
 h1,
-h2, h3 {
-font-family: "Inter", sans-serif;
+h2,
+h3 {
+  font-family: "Inter", sans-serif;
 }
 
 h1 {
   font-size: 1.6em;
   text-align: center;
   line-height: 1;
-  margin:5vh 0 10vh 0;
+  margin: 5vh 0 10vh 0;
 
 }
 
@@ -99,10 +101,10 @@ h2 {
 }
 
 .game-stage h2 {
-padding:2vh 4vw;
-margin-bottom:1vh;
-text-wrap: wrap;
-font-weight:100;
+  padding: 2vh 4vw;
+  margin-bottom: 1vh;
+  text-wrap: wrap;
+  font-weight: 100;
 }
 
 form {
@@ -111,8 +113,8 @@ form {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-padding:10px;
-border-radius:15px;
+  padding: 10px;
+  border-radius: 15px;
 }
 
 label {
@@ -194,7 +196,7 @@ button.button-direction {
   padding: 5px 10px;
   margin: 0px 0 0 0;
   text-align: center;
-  font-family:"Crimson Text", serif;
+  font-family: "Crimson Text", serif;
   font-weight: 600;
   text-transform: none;
   animation: glow2 2s infinite;
@@ -218,14 +220,14 @@ button.button-direction {
 .option-image {
   background-size: cover;
   background-position: center;
-display:flex;
-justify-content:center;
-width:200px;
-height:200px;
-border: 3px solid var(--light-color);
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 3px solid var(--light-color);
   box-shadow: var(--shadow);
-border-radius: 50%;
-margin-bottom:-65px;
+  border-radius: 50%;
+  margin-bottom: -65px;
 }
 
 
@@ -247,90 +249,92 @@ margin-bottom:-65px;
   border-radius: 5px;
   box-shadow: var(--shadow);
   max-width: 300px;
-  text-align:left;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
 
-.game-stage h2{
-font-size: 1.5rem;
-}
-h1 {
-  font-size: 3em;
-  margin-bottom: 50px;
+  .game-stage h2 {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+  }
+
+  label {
+    font-size: 2em;
+  }
+
+  .options-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0 1vw;
+  }
+
+  .option-image {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 1vh;
+    border-width: 5px;
+  }
+
+  .option p {
+    font-size: 1.2rem;
+    padding: 1rem;
+
+  }
+
+  form {
+    background-color: var(--transparent-dark-alt);
+    padding: 50px;
+    border-radius: 50%;
+    color: var(--light-color);
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    text-shadow: var(--text-shadow);
+    transition: all 0.8s ease;
+  }
+
+
+  input {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 7px;
+    border: none;
+    font-size: 20px;
+    color: var(--dark-alt-color);
+    background-color: var(--light-color);
+    box-shadow: var(--shadow-inside);
+  }
+
+  button {
+    all: unset;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 7px;
+    box-shadow: var(--glow-min);
+    background-color: var(--dark-alt-color);
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    color: var(--light-color);
+    font-size: 20px;
+    cursor: pointer;
+    animation: glow 1.5s infinite;
+    transition: all 0.8s ease;
+  }
+
 }
 
-label{
-  font-size:2em;
-}
-
-.options-container {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  padding:0 1vw;
-}
-
-.option-image{
-  width:300px;
-  height:300px;
-  margin-bottom:1vh;
-border-width: 5px;
-}
-
-.option p{
-  font-size: 1.2rem;
-  padding: 1rem;
-
-}
-
-form {
-  background-color: var(--transparent-dark-alt);
-  padding: 50px;
-  border-radius: 50%;
-  color: var(--light-color);
-  width: 600px;
-  height: 600px;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-  text-shadow: var(--text-shadow);
-  transition: all 0.8s ease;
-}
-
-
-input {
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 7px;
-  border: none;
-  font-size: 20px;
-  color: var(--dark-alt-color);
-  background-color: var(--light-color);
-  box-shadow: var(--shadow-inside);
-}
-
-button {
-  all: unset;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 7px;
-  box-shadow: var(--glow-min);
-  background-color: var(--dark-alt-color);
-  font-family: "Inter", sans-serif;
-  text-transform: uppercase;
-  color: var(--light-color);
-  font-size: 20px;
-  cursor: pointer;
-  animation: glow 1.5s infinite;
-  transition: all 0.8s ease;
-}
-
-}
 @media screen and (min-width: 1200px) {
   .hero {
     background-image: url(/assets/zstart.jpg);
@@ -348,10 +352,10 @@ button {
     font-family: "Inter", sans-serif;
   }
 
-  .game-stage h2{
+  .game-stage h2 {
     font-size: 1.5rem;
     font-weight: 300;
-    }
+  }
 
   h1 {
     font-size: 3.5em;
@@ -451,7 +455,7 @@ button {
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 80%, 0% 0%);
     transition: all 1.5s ease-in-out;
     text-align: center;
-    font-family:"Crimson Text", serif;
+    font-family: "Crimson Text", serif;
     font-weight: 600;
     text-transform: none;
   }
@@ -483,13 +487,13 @@ button {
     background-size: cover;
     background-position: center;
     height: 400px;
-    width:400px;
+    width: 400px;
     border: 5px solid var(--light-color);
     border-radius: 5px;
     box-shadow: var(--shadow-darker);
-  border-radius: 50%;
-  transition: all 0.8s ease ;
-  margin-bottom:20px;
+    border-radius: 50%;
+    transition: all 0.8s ease;
+    margin-bottom: 20px;
   }
 
 

@@ -1,7 +1,6 @@
 import { create } from "zustand";
 
 export const useLabyrint = create(set => ({
-  params: `start`,
   labyrint: [],
   username: "",
   loading: false,
@@ -11,7 +10,6 @@ export const useLabyrint = create(set => ({
   setDirection: (direction) => { set({ direction }); },
   setCoordinates: (coordinates) => { set({ coordinates }); },
   setRoom: (room) => { set({ room }); },
-  setParams: (params) => { set({ params }); },
   setLabyrint: (labyrint) => { set({ labyrint }); },
   fetchLabyrint: async (username) => {
     const data = { username: username };
@@ -28,14 +26,14 @@ export const useLabyrint = create(set => ({
       set({ error, loading: false });
     }
   },
-  fetchDirectionLabyrint: async (username, type, direction, coordinates, room, params) => {
+  fetchDirectionLabyrint: async (username, type, direction, coordinates, room) => {
     const data = {
       username: username,
       type: type,
       direction: direction,
       coordinates: coordinates,
       room: room,
-      params: params,
+
     };
     set({ loading: true, error: null });
     try {
