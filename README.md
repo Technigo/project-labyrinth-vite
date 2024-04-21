@@ -32,3 +32,5 @@ Implementing animations and visual effects for transitions.
 Introducing different difficulty levels or character customization.
 
 ### View it live
+
+https://mars-labyrinth.netlify.app/
