@@ -74,22 +74,21 @@ export const User = () => {
 					{loading ? <Lottie /> : null}
 					{labyrint && labyrint.actions && (
 						<>
-							<h2 className="area">{labyrint.description}</h2>
+							<h2>{labyrint.description}</h2>
 							<section className="options-container">
 								{labyrint.actions.map((action, index) => (
-									<div key={index}>
-										<div className="option">
-											<div className="option-image" style={{
-												backgroundImage: `url(${images[labyrint.coordinates + action.direction]})`
-											}}> </div>
-											<div className="option-text-btn-container">
-												<p>{action.description}</p>
-												<button className="button-direction" onClick={() => handleDirection(action.direction)}> Go {action.direction}</button>
-											</div>
+									<div className="option" key={index}>
+										<div className="option-image" style={{
+											backgroundImage: `url(${images[labyrint.coordinates + action.direction]})`
+										}}></div>
+										<div className="option-text-btn-container">
+											<p>{action.description}</p>
+											<button className="button-direction" onClick={() => handleDirection(action.direction)}> Go {action.direction}</button>
 										</div>
 									</div>
 								))}
 							</section>
+
 						</>
 					)
 					}</div>

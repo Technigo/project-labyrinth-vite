@@ -5,6 +5,7 @@
   --midtone-color: #41B06E;
   --midtone-color-light: #8DECB4;
   --transparent-dark: #000000ac;
+  --transparent-darkest: #000000db;
   --transparent-dark-alt: #102c1be8;
   --transparent-dark-alt-lighter: #102c1bc6;
   --transparent-midtone: #41b06db1;
@@ -39,14 +40,6 @@ body {
   z-index: 0;
 
 }
-
-
-.loader {
-  background-size: contain;
-  z-index: 2;
-  max-width: 200px;
-}
-
 
 .hero {
   background-image: url(/assets/zstart.jpg);
@@ -95,16 +88,31 @@ h1 {
 h2 {
   color: var(--light-color);
   font-size: 1rem;
-  text-align: left;
-  background-color: var(--dark-color);
-  font-family: "Crimson Text", serif;
+  text-align: center;
+
+
 }
 
 .game-stage h2 {
-  padding: 2vh 4vw;
-  margin-bottom: 1vh;
+  padding: 3vh 5vw;
   text-wrap: wrap;
-  font-weight: 100;
+  background-color: var(--transparent-darkest);
+  font-weight: 300;
+  border-radius: 0px 0 15px 15px;
+}
+
+
+.lottie-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 form {
@@ -205,8 +213,10 @@ button.button-direction {
 
 .options-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: flex-start;
   flex-wrap: wrap;
+  align-content: center;
 }
 
 .option {
@@ -269,7 +279,7 @@ button.button-direction {
 
   .options-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -471,7 +481,7 @@ button.button-direction {
 
   .options-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
   }
 
