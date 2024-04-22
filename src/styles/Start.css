@@ -1,6 +1,6 @@
 .main-container{
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
     background-image: url('/start.jpg');
     background-repeat: no-repeat;
     background-position: center; 
@@ -37,6 +37,12 @@
     h2{
         text-align: center;
     }
+}
+form{
+    position: absolute;
+    bottom: 20%;
+    display: flex;
+    justify-content: center;
 }
 
 .submit-button{
@@ -99,28 +105,33 @@ input[type="text"]:focus {
     }
     .intro-text{
         width: 85%;
+        min-height: 100px;
         padding: 1rem;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
     
         h1{
             font-size: 30px;
         }
-
+        h2{
+            font-size: 16px;
+        }
+    }
+    input[type=text]{
+        width: 60%;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px){
+@media (min-width: 768px) and (max-width: 1025px){
     .intro-text{
         width: 70%;
         height: 90%;
     
         h1{
-            font-size: 48px;
+            font-size: 52px;
         }
-    .intro-text  h2{
-        font-size: 490px;
-        background-color: blue;
-    }
+        h2{
+        font-size: 28px;
+        }
 
     }
 
