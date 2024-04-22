@@ -24,12 +24,12 @@ const StartGame = () => {
   return (
     <div className="startGameWrapper">
       <div className="startGameContainer">
-        <h1 className="title">Welcome to the Adventure Game</h1>
+        <h1 className="title">Journey into the Unknown</h1>
         <h2 className="introText">
           Many people have been lost during the search, enter the labyrinth at
           your own risk.
         </h2>
-        <p className="usernameText">Enter your username to start the game</p>
+        <p className="usernameText">Enter your username:</p>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
