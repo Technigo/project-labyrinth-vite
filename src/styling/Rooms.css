@@ -35,4 +35,7 @@
 }
 
 @media (min-width: 745px) {
+  .roomContent {
+    width: 500px;
+  }
 }
