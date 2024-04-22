@@ -5,7 +5,6 @@ export const useLabyrinthStore = create((set) => ({
   loading: false,
   username: "",
   direction: "",
-  coordinates: "",
   description: "",
   actions: [],
   error: null,
@@ -38,7 +37,6 @@ export const useLabyrinthStore = create((set) => ({
         loading: false,
         description: data.description,
         actions: data.actions,
-        coordinates: data.coordinates,
       })
     } catch (error) {
       console.log("Error fetching data: ", error)
@@ -68,7 +66,6 @@ export const useLabyrinthStore = create((set) => ({
       const data = await response.json()
       set({
         apiData: data,
-        coordinates: data.coordinates,
         description: data.description,
         actions: data.actions,
         loading: false,

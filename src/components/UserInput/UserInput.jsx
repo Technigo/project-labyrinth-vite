@@ -7,6 +7,7 @@ export const UserInput = ({
   handleStartGame,
 }) => {
   const focusRef = useRef()
+  //Set focus on inputfield for user experience
 
   useEffect(() => {
     focusRef.current.focus()

@@ -67,6 +67,8 @@ export const StartGame = () => {
       {gameStarted && !loading && !error && username && (
         <>
           <p className="description">{description}</p>
+          <p className="direction-question">Where do you want to go?</p>
+          <img src="./chevron.png" alt="chevron down" className="chevron" />
           <ActionButtons actions={actions} handleAction={handleAction} />
         </>
       )}

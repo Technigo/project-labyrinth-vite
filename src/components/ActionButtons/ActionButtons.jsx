@@ -24,7 +24,7 @@ export const ActionButtons = ({ actions, handleAction }) => {
               ) : (
                 <img src={WestArrow} alt="West arrow" />
               )}
-              {action.direction}
+              Go {action.direction}
             </button>
           </li>
         ))}
