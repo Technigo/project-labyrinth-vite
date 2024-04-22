@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useLabyrinthStore from "../store/useLabyrinthStore";
+import Loading from "./Loading";
 
 const Rooms = () => {
   const {
@@ -39,7 +40,7 @@ const Rooms = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
