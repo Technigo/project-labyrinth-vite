@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useLabyrinthStore from "../store/useLabyrinthStore";
 import Loading from "./Loading";
+import locationData from "./location.json";
 
 const Rooms = () => {
   const {
@@ -12,6 +13,7 @@ const Rooms = () => {
     setError,
     username,
   } = useLabyrinthStore();
+  const [roomImage, setRoomImage] = useState(null);
 
   useEffect(() => {
     const fetchRoomData = async () => {
@@ -27,6 +29,17 @@ const Rooms = () => {
 
     fetchRoomData();
   }, [performAction, setLoading, setError, username]);
+
+  useEffect(() => {
+    if (currentRoom && currentRoom.coordinates) {
+      const matchingLocation = locationData.locationImages.find(
+        (location) => location.coordinates === currentRoom.coordinates
+      );
+      if (matchingLocation) {
+        setRoomImage(matchingLocation.image);
+      }
+    }
+  }, [currentRoom]);
 
   const handleAction = async (action) => {
     try {
@@ -48,7 +61,13 @@ const Rooms = () => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${roomImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <h2>{currentRoom.description}</h2>
       <ul>
         {currentRoom.actions.map((action, index) => (
