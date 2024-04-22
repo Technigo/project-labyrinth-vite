@@ -1,0 +1,39 @@
+{
+  "locationImages": [
+    {
+      "coordinates": "0,0",
+      "image": "/Archway.jpg",
+      "alt": "large archway"
+    },
+    {
+      "coordinates": "1,0",
+      "image": "/RayofSunlight.jpg",
+      "alt": "Sunlight shining through window"
+    },
+    {
+      "coordinates": "1,1",
+      "image": "/Cavern.jpg",
+      "alt": "Light on the walls of the cavern"
+    },
+    {
+      "coordinates": "0,1",
+      "image": "MechanicalGadgets.jpg",
+      "alt": "Room filled with mechanical gadgets"
+    },
+    {
+      "coordinates": "0,2",
+      "image": "/DarkRoom.jpg",
+      "alt": "A dark room"
+    },
+    {
+      "coordinates": "0,3",
+      "image": "/Bookshelf.jpg",
+      "alt": "Bookshelf filled with books"
+    },
+    {
+      "coordinates": "1,3",
+      "image": "Sunlight.jpg",
+      "alt": "Sunlight shining"
+    }
+  ]
+}

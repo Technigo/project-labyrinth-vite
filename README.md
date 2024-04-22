@@ -1,37 +1,11 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
-
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
+Creating a labyrinth game using an API from Technigo.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The Problem
 
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
-
-### The Problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We used a Figjam board to plan the project and what components was needed for it. We also used postman to post to the API and see the endpoints of it. If we had more time we would add a restard button and sound to the game and work on making even more functionalites in it.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+https://sage-meerkat-f96544.netlify.app/
