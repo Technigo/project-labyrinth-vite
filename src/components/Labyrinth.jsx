@@ -14,8 +14,7 @@ export const Labyrinth = () => {
     actions,
     setUserName,
     restart,
-    setDirection, //Check this to see if it really works.
-    /* set, */
+    setDirection,
   } = useLabyrinthStore();
 
   const imageRef = useRef();
@@ -30,10 +29,7 @@ export const Labyrinth = () => {
   const handleDirectionClick = (action) => {
     console.log("Button clicked:", action.direction);
     setDirection(action.direction);
-    /* const direction = action.direction */
-    /* set({ direction }) */
     fetchMove(userName, action.direction);
-    /* console.log(userName, direction) */
   };
 
   const handleRestart = () => {
