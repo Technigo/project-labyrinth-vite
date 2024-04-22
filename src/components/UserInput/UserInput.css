@@ -1,0 +1,37 @@
+.label {
+  font-size: 18px;
+}
+
+.username-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.username-input {
+  height: 30px;
+  width: 200px;
+  border-radius: 4px;
+  padding-left: 8px;
+  font-size: 16px;
+}
+
+.Start-game-button {
+  width: 200px;
+  height: 40px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: #5e6702;
+  color: white;
+  font-size: 16px;
+  font-family: "Lato";
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.Start-game-button:hover {
+  background-color: rgb(168, 156, 0);
+}

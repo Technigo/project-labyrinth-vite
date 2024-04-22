@@ -1,0 +1,30 @@
+h1 {
+  font-family: "Jersey 10";
+  font-size: 50px;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+.enter-game-text {
+  font-family: "Jersey 10";
+}
+
+.description {
+  font-size: 30px;
+  font-family: "Jersey 10";
+}
+
+.direction-question {
+  font-size: 24px;
+  margin-top: 80px;
+}
+
+.chevron:hover {
+  transform: scale(1.1);
+}
+
+.animation-compass {
+  background-color: transparent;
+}

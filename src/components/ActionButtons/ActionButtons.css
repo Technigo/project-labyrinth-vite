@@ -1,0 +1,43 @@
+.action-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.action-description {
+  margin: 0;
+  font-size: 20px;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: white;
+  font-family: "Lato";
+  font-size: 20px;
+  font-weight: 800;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.action-button:hover {
+  color: #77aa75;
+  transform: scale(1.1);
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: center;
+  margin: 36px;
+  padding: 20px;
+}
