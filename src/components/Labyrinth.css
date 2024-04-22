@@ -5,16 +5,7 @@
   flex-direction: column;
   align-items: center;
   background-size: cover;
-  background-position: top left;
-  animation: background-animation 100s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes background-animation {
-  100% {
-    background-position: bottom right;
-  }
+  background-position: center;
 }
 
 .labyrinth-content {
@@ -35,9 +26,8 @@
 
 .location-description p {
   display: block;
-  background-color: rgba(0, 0, 0, 0.628);
-  color: var(--beige);
-  text-shadow: 1px 1px 3px black;
+  background-color: #f6ce7fd7;
+  color: black;
   padding: 20px;
   margin: 20px;
 }
