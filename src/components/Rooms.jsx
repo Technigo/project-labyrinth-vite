@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useLabyrinthStore from "../store/useLabyrinthStore";
 import Loading from "./Loading";
 import locationData from "./location.json";
+import "../styling/Rooms.css";
 
 const Rooms = () => {
   const {
@@ -62,17 +63,22 @@ const Rooms = () => {
 
   return (
     <div
+      className="roomContainer"
       style={{
         backgroundImage: `url(${roomImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        minHeight: "100vh",
       }}
     >
-      <h2>{currentRoom.description}</h2>
-      <ul>
+      <div className="roomContent">
+        <h2 className="roomDescription">{currentRoom.description}</h2>
+      </div>
+
+      <ul className="roomList">
         {currentRoom.actions.map((action, index) => (
           <li key={index}>
-            <button onClick={() => handleAction(action)}>
+            <button className="roomButton" onClick={() => handleAction(action)}>
               {action.direction}
             </button>
           </li>

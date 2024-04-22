@@ -1,0 +1,38 @@
+.roomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.roomContent {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 60px;
+  border-radius: 30px;
+  margin: 0 30px;
+  text-align: center;
+}
+
+.roomDescription {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.roomList {
+  padding: 0;
+  list-style: none;
+}
+
+.roomButton {
+  padding: 10px 30px;
+  border-radius: 10px;
+  background-color: #d9e2a8;
+  border: none;
+  font-family: var(--main-font);
+  font-weight: 600;
+  margin: 10px 10px;
+}
+
+@media (min-width: 745px) {
+}
