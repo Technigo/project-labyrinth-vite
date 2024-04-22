@@ -5,7 +5,7 @@ const BackgroundWrapper = ({ children }) => {
   const isStartGamePage = location.pathname === "/";
 
   const backgroundStyle = isStartGamePage
-    ? { backgroundImage: "url(/../../public/Labyrinth.jpg)" }
+    ? { backgroundImage: "url(/Labyrinth.jpg)" }
     : {};
 
   return (
