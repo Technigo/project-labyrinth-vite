@@ -1,4 +1,5 @@
 import { BsCompass } from "react-icons/bs";
+import "../styling/Loading.css";
 
 const Loading = () => {
   return (
