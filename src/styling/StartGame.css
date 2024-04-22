@@ -1,22 +1,20 @@
-.withBackgroundImage {
-  background-image: url("../../public/Labyrinth.jpg");
-  background-size: cover;
-  background-position: center;
+.startGameWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  width: 100vw;
 }
 
-/*
-body {
-  background-image: url("../../public/Labyrinth.jpg");
-  background-size: cover;
-  background-position: center;
+.title {
+  margin: 0;
+  text-align: center;
 }
 
 .startGameContainer {
   font-family: var(---main-font);
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 
+  max-width: 95%;
+  margin: auto;
 }
 
 .title {
@@ -36,4 +34,3 @@ body {
 .usernameButton {
   background-color: #84c69b;
 }
-*/

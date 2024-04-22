@@ -22,25 +22,27 @@ const StartGame = () => {
   };
 
   return (
-    <div className="startGameContainer">
-      <h1 className="title">Welcome to the Adventure Game</h1>
-      <h2 className="introText">
-        Many people have been lost during the search, enter the labyrinth at
-        your own risk.
-      </h2>
-      <p className="usernameText">Enter your username to start the game</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          placeholder="Enter username"
-          className="usernameInput"
-        />
-        <button type="submit" className="usernameButton">
-          Start Game
-        </button>
-      </form>
+    <div className="startGameWrapper">
+      <div className="startGameContainer">
+        <h1 className="title">Welcome to the Adventure Game</h1>
+        <h2 className="introText">
+          Many people have been lost during the search, enter the labyrinth at
+          your own risk.
+        </h2>
+        <p className="usernameText">Enter your username to start the game</p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            placeholder="Enter username"
+            className="usernameInput"
+          />
+          <button type="submit" className="usernameButton">
+            Start Game
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
