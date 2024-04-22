@@ -1,37 +1,13 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
-
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+This project is a text-based adventure game where players navigate through a labyrinth by making choices presented to them. The game utilizes Zustand for state management and communicates with a backend API to retrieve game data and post player actions.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+For this project, we tackled the challenge of creating a text-based adventure game using Zustand for state management. Our approach involved structuring the game logic around the interactions between the player and the labyrinth, handling API requests for retrieving game data and posting player actions. We planned our development process by discussing the project requirements, defining component structure, and outlining state management strategies. The main technologies used include React for building the UI, Zustand for managing global state, and asynchronous operations for API requests.
+
+If more time were available, we would focus on enhancing the user experience by implementing additional features such as displaying action history, styling each room based on its description, and persisting game data using localStorage.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+https://labyrinth-adventure-game.netlify.app/
