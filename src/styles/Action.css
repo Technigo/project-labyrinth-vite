@@ -1,0 +1,154 @@
+.restart {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: rgba(253, 216, 216, 0.658);
+    
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+}
+
+
+.eye {
+    width: 50px;
+    animation: fadeIn 2.2s infinite alternate;
+    filter: drop-shadow(0 0 0.75rem rgb(220, 20, 20));
+}
+
+#toggleCheckbox {
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+.direction-info {
+    display: none;
+    background-color: rgba(253, 216, 216, 0.74);
+    color: black;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    box-shadow: 4px 4px 5px rgb(230, 173, 173);
+}
+  
+
+#toggleCheckbox:checked ~ .direction-info {
+    display: flex;
+  }
+
+.North {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 4rem;
+    width: 30%;
+    margin: 0 35%;
+}
+
+.South {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: absolute;
+    bottom: 4rem;
+    width: 30%;
+    margin: 0 35%;
+}
+
+.East {
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    right: 4rem;
+    top: 45%;
+    word-wrap: wrap;
+}
+
+.West {
+    display: flex;
+    position: absolute;
+    left: 4rem;
+    top: 45%;
+}
+
+/*tablet*/
+@media (min-width: 481px) and (max-width: 1025px) {
+
+
+      .direction-info {
+        background-color: rgb(73, 29, 29);
+        box-shadow: 4px 4px 5px rgb(122, 42, 42);
+        color: white;
+    }
+
+    .East {
+        right: 2rem;
+        width: 60%;
+    }
+    
+    .West{
+        left: 2rem;
+        width: 60%;
+    }
+    .North {
+        width: 60%;
+        margin: 0 20%;
+        top: 2rem;
+    }
+        
+    .South {
+        width: 60%;
+        margin: 0 20%;
+        bottom: 2rem;
+    }
+}
+
+/*mobile*/
+@media (max-width: 480px) {
+
+      .direction-info {
+        background-color: rgb(73, 29, 29);
+        box-shadow: 4px 4px 5px rgb(122, 42, 42);
+        color: white;
+        padding: 1.5rem;
+    }
+
+.North {
+    width: 60%;
+    margin: 0 20%;
+    top: 1rem;
+}
+    
+.South {
+    width: 60%;
+    margin: 0 20%;
+    bottom: 1rem;
+}
+
+.East {
+    right: 1rem;
+    width: 80%;
+}
+
+.West{
+    left: 1rem;
+    width: 80%;
+}
+.restart {
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+
+
+}

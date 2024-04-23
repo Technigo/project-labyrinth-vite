@@ -1,37 +1,16 @@
 <h1 align="center">
   <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
+    <img src="/src//assets//the-survivors-banner.png" alt="Project Banner Image">
   </a>
 </h1>
 
-# Labyrinth - Zustand Project
+### Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+This project involves building a text-based adventure game using React and Zustand for state management. Players interact with the game via POST requests to an API, navigating through choices that dictate their path and update the game state. The design focuses on handling API response delays and ensuring a good user experience, with Zustand managing game state and localStorage preserving progress. This combines technical functionality with creative interface design.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The challenge lay in grasping the game's logic, especially how player choices interact with API requests to influence game progression. Additionally, it was crucial to ensure the game was user-friendly and displayed effectively across both mobile and desktop platforms.
 
 ### View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+https://the-survivors.netlify.app/

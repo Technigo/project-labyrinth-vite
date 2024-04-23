@@ -1,0 +1,141 @@
+.main-container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/start.jpg');
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.intro{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding:  2rem;
+    gap: 2rem;
+    height: 100%;
+    min-height: 400px;
+    margin-bottom: 4rem;
+    background-color: rgba(97, 71, 71, 0.281);
+    border-radius: 20px;
+
+    h2{
+        text-align: center;
+    }
+}
+form{
+    position: absolute;
+    bottom: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button{
+    border-radius: 0 8px 8px 0;
+    height: 40px;
+    border: none;
+    font-family: Data-latin;
+    font-size: 20px;
+    padding: 0 1rem;
+}
+
+.submit-button:hover{
+    background-color: rgb(156, 89, 89);
+    color: white;
+}
+.submit-button:disabled {
+    background-color: lightgray;
+    color: light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
+    cursor: not-allowed;
+  }
+
+input[type=text]{
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 8px 0 0 8px;
+    text-indent: 0.5em;
+    font-family: Data-latin;
+    font-size: 20px;
+    border: none;
+}
+
+input[type="text"]:focus {
+    outline: none;
+  }
+
+.sound-button{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgb(240, 217, 217);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease-in-out; 
+
+    img{width: 20px}
+
+}
+
+.sound-button:hover { 
+    transform: scale(1.1); 
+    }
+
+@media (max-width: 767px) {
+    .sound-button{
+        top: 1rem;
+        right: 1rem;
+    }
+    .intro-text{
+        width: 85%;
+        min-height: 100px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    
+        h1{
+            font-size: 30px;
+        }
+        h2{
+            font-size: 16px;
+        }
+    }
+    input[type=text]{
+        width: 60%;
+    }
+    form{
+        bottom: 15%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1025px){
+    .intro-text{
+        width: 70%;
+        height: 90%;
+    
+        h1{
+            font-size: 52px;
+        }
+        h2{
+        font-size: 28px;
+        }
+
+    }
+
+}
