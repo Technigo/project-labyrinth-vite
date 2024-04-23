@@ -1,8 +1,14 @@
+import { DisplayLabyrinth } from "./components/DisplayLabyrinth";
+import { UserInput } from "./components/UserInput";
+import { useLabyrinthStore } from "./stores/useLabyrinthStore";
 
 export const App = () => {
+  const { gameFlow } = useLabyrinthStore();
+
   return (
-  <div>
-    Labyrinth Project 
-  </div>
-  );
+  <> 
+  {gameFlow ? <DisplayLabyrinth /> : <UserInput />}
+  </>
+  )
 };
+
