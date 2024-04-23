@@ -4,6 +4,7 @@
   --dark-alt-color: #102c1b;
   --midtone-color: #41B06E;
   --midtone-color-light: #8DECB4;
+  --transparent-subtle-dark: #0000006a;
   --transparent-dark: #000000ac;
   --transparent-darkest: #000000db;
   --transparent-dark-alt: #102c1be8;
@@ -25,6 +26,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+button.view {
+  background-color:var( --transparent-dark);
+  color: var(--light-color);
+font-size:0.8rem;
+  width: 100px;
+  padding: 10px;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 300;
+text-transform:capitalize;
+  animation:none;
+}
+
+
+
 
 
 html,
@@ -412,24 +430,6 @@ button.button-direction {
     box-shadow: var(--shadow-inside);
   }
 
-  @keyframes glow {
-    0% {
-      box-shadow: var(--dark-alt-color) 0 0 0px;
-    }
-
-    50% {
-      box-shadow: var(--midtone-color-light) 0 0 5px;
-    }
-
-    75% {
-      box-shadow: var(--midtone-color) 0 0 10px;
-    }
-
-    100% {
-      box-shadow: var(--midtone-color-light) 0 0 5px;
-    }
-  }
-
 
 
   button {
@@ -475,6 +475,15 @@ button.button-direction {
     color: var(--dark-alt-color);
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     width: 95%;
+
+
+  }
+
+  button.view:hover {
+    background-color: var(--light-color);
+    color: var(--dark-alt-color);
+    box-shadow: var(--glow-max);
+
 
 
   }

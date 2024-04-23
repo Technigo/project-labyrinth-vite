@@ -8,6 +8,8 @@ export const User = () => {
 	const { loading, username, setUsername, fetchLabyrint, labyrint, fetchDirectionLabyrint, setDirection, setType, setRoom, setLabyrint } = useLabyrint();
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [currentImageDirection, setCurrentImageDirection] = useState('');
+  const [showViewOption, setShowViewOption] = useState(null);
+
 	const random = Math.floor(Math.random() * 10000000);
 	const currentImage = images[labyrint.coordinates];
 
@@ -26,6 +28,7 @@ export const User = () => {
 	useEffect(() => {
 		if (labyrint.actions && labyrint.actions.length > 0) {
 			setCurrentImageDirection(images[labyrint.coordinates + labyrint.actions.direction]);
+      setShowViewOption(null);
 		}
 	}, [labyrint]);
 
@@ -78,13 +81,17 @@ export const User = () => {
 							<section className="options-container">
 								{labyrint.actions.map((action, index) => (
 									<div className="option" key={index}>
+                    <button className="view" onClick={() => setShowViewOption(showViewOption === index ? null : index)(!showViewOption)}>Look {action.direction}</button>
+                    {showViewOption === index &&
+                    <div className="option view-option">
 										<div className="option-image" style={{
 											backgroundImage: `url(${images[labyrint.coordinates + action.direction]})`
 										}}></div>
 										<div className="option-text-btn-container">
 											<p>{action.description}</p>
+                      </div>
 											<button className="button-direction" onClick={() => handleDirection(action.direction)}> Go {action.direction}</button>
-										</div>
+										</div>}
 									</div>
 								))}
 							</section>
