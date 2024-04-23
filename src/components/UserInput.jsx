@@ -31,7 +31,7 @@ export const UserInput = () => {
             className="input-field"
             id="user-input"
             type="text"
-            placeholder="chose something rare"
+            placeholder="choose something rare"
             value={userName}
             onChange={(event) => {
               setUserName(event.target.value);
