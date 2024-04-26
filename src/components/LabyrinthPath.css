@@ -1,0 +1,78 @@
+.labyrinth-wrapper {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+}
+
+.labyrinth-path {
+    display: flex;
+    justify-content: center;
+}
+
+.lottie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+}
+
+.direction {
+    z-index: 2;
+    padding-top: 50px;
+    color: rgb(255, 255, 255);
+}
+
+.description-text {
+    background-color:rgb(236, 235, 231);
+    padding: 30px;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+    text-align: center;
+}
+
+.direction-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.option-button {
+    margin: 6px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    max-width: 300px;
+}
+
+.path-text {
+    font-style: italic;
+}
+
+.path-direction {
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+ 
+
+
+
