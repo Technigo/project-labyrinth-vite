@@ -17,7 +17,7 @@ export const LabyrinthPath = () => {
 
   useEffect(() => {
     if (coordinates) {
-      imageLink.current.style.backgroundImage = `url("dist/assets/Images/${coordinates}.jpg")`;
+      imageLink.current.style.backgroundImage = `url("/assets/Images/${coordinates}.jpg")`;
     }
   }, [coordinates]);
 
