@@ -31,7 +31,6 @@ export const useLabyrinthStore = create((set, get) => ({
       }
 
       const data = await response.json();
-      console.log("Data from the fetch:", data);
       set({ start: data });
       set({ gameData: true });
       set({ actions: data.actions });
@@ -69,7 +68,6 @@ export const useLabyrinthStore = create((set, get) => ({
       set({ actions: data.actions });
       set({ description: data.description });
       set({ coordinates: data.coordinates });
-      console.log("Data from the second fetch:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {

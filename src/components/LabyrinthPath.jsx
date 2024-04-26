@@ -16,7 +16,6 @@ export const LabyrinthPath = () => {
   const imageLink = `src/components/Images/${coordinates}.jpg`;
 
   const handleClick = (action) => {
-    console.log("Button clicked:", action.direction);
     setDirection(action.direction);
     fetchMove(action.direction);
   };
