@@ -1,5 +1,6 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore.jsx";
 import "./NameInput.css";
+import startImage from "../components/Images/start.jpg"
 
 export const NameInput = () => {
   const { userName, setUserName, fetchStart } = useLabyrinthStore();
@@ -14,7 +15,7 @@ export const NameInput = () => {
 
   return (
     <div className="start-container">
-      <img className="start-img" src="src/components/Images/start.jpg" />
+      <img className="start-img" src={startImage} />
       <div className="start-text">
         <h1>Welcome to the maze</h1>
         <div className="input">
