@@ -1,6 +1,6 @@
 import { useLabyrinthStore } from "../stores/useLabyrinthStore.jsx";
 import "./NameInput.css";
-import startImage from "../components/Images/start.jpg"
+import startImage from "/public/Images/start.jpg"
 
 export const NameInput = () => {
   const { userName, setUserName, fetchStart } = useLabyrinthStore();
