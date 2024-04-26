@@ -1,9 +1,11 @@
 import Lottie from "lottie-react";
 import Loading from "../assets/Loading.json";
+import { useRef, useEffect } from "react";
 import { useLabyrinthStore } from "../stores/useLabyrinthStore.jsx";
 import "./LabyrinthPath.css";
 
 export const LabyrinthPath = () => {
+  const imageLink = useRef();
   const {
     loading,
     actions,
@@ -13,7 +15,11 @@ export const LabyrinthPath = () => {
     coordinates,
   } = useLabyrinthStore();
 
-  const imageLink = `src/components/Images/${coordinates}.jpg`;
+  useEffect(() => {
+    if (coordinates) {
+      imageLink.current.style.backgroundImage = `url("src/components/Images/${coordinates}.jpg")`;
+    }
+  }, [coordinates]);
 
   const handleClick = (action) => {
     setDirection(action.direction);
@@ -29,24 +35,25 @@ export const LabyrinthPath = () => {
   }
 
   return (
-    <div className="labyrinth-path">
-      <img src={imageLink} className="background-img" />
-      <div className="direction">
-        <p className="description-text">{description}</p>
-        <div className="options">
-          {actions.map((action) => (
-            <div className="direction-buttons" key={action.coordinates}>
-              <button
-                className="option-button"
-                key={action.coordinates}
-                value={action.direction}
-                onClick={() => handleClick(action)}
-              >
-                <p className="path-text">{action.description}</p>
-                <p className="path-direction">Go {action.direction}</p>
-              </button>
-            </div>
-          ))}
+    <div className="labyrinth-wrapper" ref={imageLink}>
+      <div className="labyrinth-path">
+        <div className="direction">
+          <p className="description-text">{description}</p>
+          <div className="options">
+            {actions.map((action) => (
+              <div className="direction-buttons" key={action.coordinates}>
+                <button
+                  className="option-button"
+                  key={action.coordinates}
+                  value={action.direction}
+                  onClick={() => handleClick(action)}
+                >
+                  <p className="path-text">{action.description}</p>
+                  <p className="path-direction">Go {action.direction}</p>
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
