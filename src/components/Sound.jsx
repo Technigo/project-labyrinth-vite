@@ -22,7 +22,7 @@ export const Sound = () => {
 
   return (
     <button className="sound-button" onClick={toggleSound}>
-      {isMuted ? "Unmute Sound" : "Mute Sound"}
+      {isMuted ? "🔊 Sound" : "🔇 Sound"}
     </button>
   );
 };
