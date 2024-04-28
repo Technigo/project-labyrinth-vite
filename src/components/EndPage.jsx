@@ -1,7 +1,7 @@
 import { appContentStore } from "../stores/appContentStore"
 
 export const EndPage = () => {
-  const {gameData, imageLink} = appContentStore()
+  const {gameData, imageLink, startOver} = appContentStore()
  
   return (
     <div className="story-page">
@@ -13,10 +13,10 @@ export const EndPage = () => {
         </div>
       </div>
       <div className="end-container">
-        <button>
+        <button onClick={() => startOver()}>
           <p>Start over</p>
         </button>
       </div>
     </div>
-  )
+  );
 }

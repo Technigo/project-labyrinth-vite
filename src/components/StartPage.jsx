@@ -5,41 +5,12 @@ import cogWheels from "../assets/cog-wheels.json"
 import "./StartPage.css"
 
 export const StartPage = () => {
-    const { loading, userName, toggleLoading, setGameData, setUserName, setDirections, setImageLink } = appContentStore()
+    const { loading, setUserName, startGame } = appContentStore()
     const focusRef = useRef()
 
     useEffect(() => {
       focusRef.current.focus()
     }, [])
-
-    const startGame = () => {
-      toggleLoading()
-      fetch(`https://labyrinth.technigo.io/start`,{
-            method: "POST",
-            body: JSON.stringify({
-              username: userName,
-            }),
-            headers: { "Content-Type": "application/json" },
-        })
-      .then((response) => response.json())
-      .then((json) => {
-        setGameData(json)
-        if (json.actions.length === 1) {
-        setDirections([json.actions[0].direction])
-        } else if (json.actions.length === 2) {
-          setDirections([json.actions[0].direction, json.actions[1].direction])
-        }
-        setImageLink(json.coordinates)
-      })
-      .catch((error) => {
-        console.log("error:", error)
-      })
-      .finally(
-        setTimeout(() => {
-        toggleLoading()}, 2000)
-      )
-    }
-
 
     const handleSubmit = (event) => {
       event.preventDefault()

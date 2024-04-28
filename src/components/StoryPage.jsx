@@ -5,37 +5,7 @@ import cogWheels from "../assets/cog-wheels.json"
 import "./StoryPage.css"
 
 export const StoryPage = () => {
-  const { loading, userName, gameData, directions, imageLink, toggleLoading, setGameData, setDirections, setImageLink } = appContentStore()
-
-  const continueStory = (direction) => {
-    toggleLoading();
-    fetch(`https://labyrinth.technigo.io/action`, {
-      method: "POST",
-      body: JSON.stringify({
-        username: userName,
-        type: "move",
-        direction: direction
-      }),
-      headers: { "Content-Type": "application/json" },
-    })
-    .then((response) => response.json())
-    .then((json) => {
-      setGameData(json)
-      if (json.actions.length === 1) {
-        setDirections([json.actions[0].direction])
-      } else if (json.actions.length === 2) {
-        setDirections([json.actions[0].direction, json.actions[1].direction])
-      }
-      setImageLink(json.coordinates)
-    })
-    .catch((error) => {
-      console.log("error:", error)
-    })
-    .finally(
-      setTimeout(() => {
-      toggleLoading()}, 2000)
-    )
-  }
+  const { loading, gameData, directions, imageLink, continueStory } = appContentStore()
 
   if (loading) {
     return (

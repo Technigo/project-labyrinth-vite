@@ -7,7 +7,7 @@ import zerothree from "../assets/zerothree.jpg"
 import zerotwo from "../assets/zerotwo.jpg"
 import zerozero from "../assets/zerozero.jpg"
 
-export const appContentStore = create((set) => ({
+export const appContentStore = create((set, get) => ({
   loading: false,
   userName: "Erika",
   gameData: null,
@@ -47,4 +47,61 @@ export const appContentStore = create((set) => ({
         set({ imageLink: zerozero })
     }
   }, 
+  startGame: () => {
+      get().toggleLoading()
+      fetch(`https://labyrinth.technigo.io/start`,{
+            method: "POST",
+            body: JSON.stringify({
+              username: get().userName,
+            }),
+            headers: { "Content-Type": "application/json" },
+        })
+      .then((response) => response.json())
+      .then((json) => {
+        get().setGameData(json)
+        if (json.actions.length === 1) {
+        get().setDirections([json.actions[0].direction])
+        } else if (json.actions.length === 2) {
+          get().setDirections([json.actions[0].direction, json.actions[1].direction])
+        }
+        get().setImageLink(json.coordinates)
+      })
+      .catch((error) => {
+        console.log("error:", error)
+      })
+      .finally(
+        setTimeout(() => {
+        get().toggleLoading()}, 2000)
+      )
+  },
+  continueStory: (direction) => {
+    get().toggleLoading()
+    fetch(`https://labyrinth.technigo.io/action`, {
+      method: "POST",
+      body: JSON.stringify({
+        username: get().userName,
+        type: "move",
+        direction: direction
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((response) => response.json())
+    .then((json) => {
+      get().setGameData(json)
+      if (json.actions.length === 1) {
+        get().setDirections([json.actions[0].direction])
+      } else if (json.actions.length === 2) {
+        get().setDirections([json.actions[0].direction, json.actions[1].direction])
+      }
+      get().setImageLink(json.coordinates)
+    })
+    .catch((error) => {
+      console.log("error:", error)
+    })
+    .finally(
+      setTimeout(() => {
+      get().toggleLoading()}, 2000)
+    )
+  }
+
 }))

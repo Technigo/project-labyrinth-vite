@@ -2,6 +2,10 @@
     background-color: rgb(247, 240, 230);
     border-radius: 150px 80px 100px 50px;
     padding: 20px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }
 
 .story-page {
