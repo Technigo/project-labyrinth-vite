@@ -81,7 +81,6 @@ This project's backend is designed so that there is some delay until the request
 
 - Will you use a planning tool (Jamboard, Figma) to plan your design/app structure?
 - How are you going to work together?
-⭐⭐⭐⭐⭐⭐
 - What will the summary screen look like?
 - What components do you need?
 - How are you dealing with the styling?
@@ -102,10 +101,9 @@ Don't be afraid of storing lots of information in the global state - you can sto
 ## Requirements
 ✅- Your Labyrinth game should guide the user with instructions about the game and moves to make
 ✅- Use Zustand to store the current state of the game
-- Perform asynchronous operations in the app store
-- Focus on making the UX of your app good. Handle the response delay
-- Don't forget CSS! Your Labyrinth should be well-styled
-
+✅- Perform asynchronous operations in the app store
+✅- Focus on making the UX of your app good. Handle the response delay
+✅- Don't forget CSS! Your Labyrinth should be well-styled
 
 ## Stretch Goals
 ✅- Show the descriptions of the directions in the main description of the current room. Present clear and simple actions. For example, your button would say *"Go East"*.  Instead of *"East -A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"*

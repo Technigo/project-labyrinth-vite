@@ -9,7 +9,7 @@ export const EndPage = () => {
         <img src={imageLink} alt={gameData.description} />
         <div className="story-info">
           <p>{gameData.description}</p>
-          <p>The end!</p>
+          <p id="the-end">The end!</p>
         </div>
       </div>
       <div className="end-container">
