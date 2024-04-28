@@ -63,37 +63,39 @@ export const StoryPage = () => {
         </div>
         <div className="arrow-container">
           <button
+            className="north"
             onClick={() => continueStory("North")}
             disabled={directions.length === 0 || !directions.includes("North")}
           >
             <p>Go North</p>
-            <img src="/arrow-up.png" alt="up-arrow" />
+            <img className="arrow" src="/arrow-up.png" alt="up-arrow" />
           </button>
-          <div className="side-arrows">
-            <button
-              onClick={() => continueStory("West")}
-              disabled={directions.length === 0 || !directions.includes("West")}
-            >
-              <p>Go West</p>
-              <img src="/arrow-left.png" alt="left-arrow" />
-            </button>
-            <button
-              onClick={() => continueStory("East")}
-              disabled={directions.length === 0 || !directions.includes("East")}
-            >
-              <p>Go East</p>
-              <img src="/arrow-right.png" alt="right-arrow" />
-            </button>
-          </div>
           <button
+            className="west"
+            onClick={() => continueStory("West")}
+            disabled={directions.length === 0 || !directions.includes("West")}
+          >
+            <p>Go West</p>
+            <img className="arrow" src="/arrow-left.png" alt="left-arrow" />
+          </button>
+          <button
+            className="east"
+            onClick={() => continueStory("East")}
+            disabled={directions.length === 0 || !directions.includes("East")}
+          >
+            <p>Go East</p>
+            <img className="arrow" src="/arrow-right.png" alt="right-arrow" />
+          </button>
+          <button
+            className="south"
             onClick={() => continueStory("South")}
             disabled={directions.length < 1 || !directions.includes("South")}
           >
             <p>Go South</p>
-            <img src="/arrow-down.png" alt="down-arrow" />
+            <img className="arrow" src="/arrow-down.png" alt="down-arrow" />
           </button>
         </div>
       </div>
-    )
+    );
   }
 }

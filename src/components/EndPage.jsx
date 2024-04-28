@@ -12,7 +12,7 @@ export const EndPage = () => {
           <p>The end!</p>
         </div>
       </div>
-      <div className="arrow-container">
+      <div className="end-container">
         <button>
           <p>Start over</p>
         </button>

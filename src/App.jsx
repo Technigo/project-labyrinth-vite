@@ -14,7 +14,7 @@ export const App = () => {
     }
   } else {
     return (
-    <div> 
+    <div className="start-div"> 
       <StartPage />
     </div>
     )

@@ -21,7 +21,7 @@ export const Options = () => {
     )
   } else {
     return (
-      <div>
+      <div className="options">
         <p>
           To the {optionOne.direction}{" "}
           {optionOne.description.replace(
