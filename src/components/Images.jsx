@@ -6,5 +6,5 @@ export const images = {
   "0,2": "https://i.ibb.co/wwM3CcL/Door.png",
   "0,3": "https://i.ibb.co/6tSPh81/Chest.png",
   "1,3": "https://i.ibb.co/RPxXSHh/End.png",
-  start: "https://i.ibb.co/gtxsB6D/Start.png",
+  start: "https://i.ibb.co/6XmCGXx/Start-min.png",
 };
