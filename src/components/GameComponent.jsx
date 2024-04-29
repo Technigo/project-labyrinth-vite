@@ -15,18 +15,8 @@ export const GameComponent = ({ username }) => {
 
   const startGame = useCallback(() => {
     setIsLoading(true)
-    fetch("https://labyrinth.technigo.io/start", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-      }),
-    })
-      .then((response) => response.json())
+    setGameState(username)
       .then((data) => {
-        setGameState(data)
         setShowInfo({})
         setShowOptions(new Array(data.actions.length).fill(true))
       })
@@ -46,20 +36,8 @@ export const GameComponent = ({ username }) => {
 
   const handleAction = (action) => {
     setIsLoading(true)
-    fetch("https://labyrinth.technigo.io/action", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        type: action.type,
-        direction: action.direction,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setGameState(data)
+    setGameState(username, action.type, action.direction)
+      .then(() => {
         setShowInfo({})
         setShowOptions((prevOptions) => {
           return prevOptions.filter((option, index) => index !== action.index)
