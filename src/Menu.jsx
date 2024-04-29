@@ -20,25 +20,25 @@ export const Menu = () => {
     start(username);
   };
   return (
-    // ${loading ? "Menu-loading" : ""}`} this is  ternary operator
-    <div className={`Menu ${loading ? "Menu-loading" : ""}`}>
-      <h1 className="Menu-title">Labyrinth Project</h1>
-      <p className="Menu-name">
+    // ${loading ? "menu-loading" : ""}`} this is  ternary operator
+    <div className={`menu ${loading ? "menu-loading" : ""}`}>
+      <h1 className="menu-title">Labyrinth Project</h1>
+      <p className="menu-name">
         Start your adventure by entering your name below:
       </p>
       {/* htmlFor is so that when clicking the label, the cursor activates (its for accessibility)  */}
 
-      <form className="Menu-form" onSubmit={onSubmit}>
-        <label className="Menu-label" htmlFor="input">
+      <form className="menu-form" onSubmit={onSubmit}>
+        <label className="menu-label" htmlFor="input">
           Enter your username:
         </label>
         <input
-          className="Menu-input"
+          className="menu-input"
           onChange={onChange}
           type="text"
           id="input"
         />
-        <button className="Menu-button" onClick={onClick}>
+        <button className="menu-button" onClick={onClick}>
           Start
         </button>
       </form>

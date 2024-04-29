@@ -6,10 +6,10 @@ export const useGameStateStore = create((set) => ({
   username: "",
   // here we are declaring the loading after pressing button
   loading: false,
-  gameState: undefined,
+  gameState: null,
 
   restart: () => {
-    set({ gameState: undefined });
+    set({ gameState: null });
   },
 
   start: (username) => {

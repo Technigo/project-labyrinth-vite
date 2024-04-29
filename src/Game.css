@@ -1,7 +1,4 @@
-.Game {
-}
-
-.Game-description {
+.game-description {
   position: absolute;
   top: 60px;
   left: 16px;
@@ -12,7 +9,7 @@
   place-content: center;
 }
 
-.Game-actions {
+.game-actions {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -21,7 +18,7 @@
   row-gap: 1rem;
 }
 
-.Game-navigate {
+.game-navigate {
   color: white;
   background-color: black;
 
@@ -30,7 +27,7 @@
   }
 }
 
-.North {
+.north {
   position: absolute;
   top: 16px;
   left: 50%;
@@ -38,28 +35,28 @@
   transform: translateX(-50%);
 }
 
-.West {
+.west {
   position: absolute;
   top: 50%;
   left: 16px;
   transform: translateY(-50%);
 }
 
-.South {
+.south {
   position: absolute;
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.East {
+.east {
   position: absolute;
   top: 50%;
   right: 16px;
   transform: translateY(-50%);
 }
 
-.Game-restart {
+.game-restart {
   position: absolute;
   bottom: 16px;
   right: 16px;

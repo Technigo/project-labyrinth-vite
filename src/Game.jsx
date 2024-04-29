@@ -8,22 +8,22 @@ export function Game() {
   console.log(loading);
   return (
     <div className="Game">
-      <p className="Game-description">{gameState.description}</p>
+      <p className="game-description">{gameState.description}</p>
       <button
         onClick={() => {
           restart();
         }}
-        className="Game-restart"
+        className="game-restart"
       >
         Restart
       </button>
-      <ul className="Game-actions">
+      <ul className="game-actions">
         {gameState.actions.map((action, index) => (
           <li key={index}>
             {/* here i made it so that the buttons are not clickble when loading */}
             <button
               // ${action.direction} is a template literal, it will be replaced with the value of action.direction
-              className={`Game-navigate ${action.direction}`}
+              className={`game-navigate ${action.direction.toLowerCase()}`}
               disabled={loading}
               onClick={() => move(action.direction)}
             >
