@@ -10,13 +10,14 @@ export const StoryPage = () => {
   if (loading) {
     return (
       <div className="loading-page">
-        <p>Loading...</p>
-        <Lottie
-          animationData={cogWheels}
-          loop
-          autoplay
-          style={{ width: 400, height: 400 }}
-        />
+        <div className="loading-box">
+          <p>Loading...</p>
+          <Lottie
+            animationData={cogWheels}
+            loop
+            autoplay
+          />
+        </div>
       </div>
     )
   }
@@ -66,6 +67,6 @@ export const StoryPage = () => {
           </button>
         </div>
       </div>
-    );
+    )
   }
 }

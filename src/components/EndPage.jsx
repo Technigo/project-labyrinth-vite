@@ -18,5 +18,5 @@ export const EndPage = () => {
         </button>
       </div>
     </div>
-  );
+  )
 }
