@@ -1,37 +1,17 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
-
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+This is a site where the user can walk back and forth through a path. On each location there is a description of the current room and available options.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I got inspiration from the interactive storybook-games I had as a kid in the 90s and wanted my "game" to resemble those. Other inspirations were the gamepads from Playstation etc with four arrows for the player to move around with and the hand-drawn feeling of the images I downloaded for my navigation tool.
+
+I spent a lot of time making sure the navigation buttons are disabled if there is no option in that direction, and ended up with an array in the global state that keeps track of available options.
+
+I also wanted different pictures for each room, so I made a switch that changes the image-path depending on the coordinates in the API.
+
+I wish there was a way to reset the game for a specific player, but there is not, so the "Start over"-button only sends you back to the home-page where you have to write a new user name in order to play again.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+https://sweet-gingersnap-a21875.netlify.app
