@@ -1,0 +1,64 @@
+.game-description {
+  position: absolute;
+  top: 60px;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  bottom: calc(50% + 20px);
+  display: grid;
+  place-content: center;
+}
+
+.game-actions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.game-navigate {
+  color: white;
+  background-color: black;
+
+  &:disabled {
+    background-color: grey;
+  }
+}
+
+.north {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  /* translateX(-50%) moves the element 50 % of its own width */
+  transform: translateX(-50%);
+}
+
+.west {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+}
+
+.south {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.east {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+
+.game-restart {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  border: 1px solid black;
+}
