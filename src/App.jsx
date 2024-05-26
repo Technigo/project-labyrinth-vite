@@ -1,7 +1,11 @@
-import { StartPage } from "./components/StartPage";
+import GamePage from "./components/GamePage";
+import StartPage from "./components/StartPage";
 
 export const App = () => {
   return (
-    <StartPage />
+    <div>
+      <StartPage />
+      <GamePage />
+    </div>
   );
 };
