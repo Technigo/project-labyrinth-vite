@@ -1,6 +1,4 @@
 import { useGlobalStoreData } from "../stores/storeData";
-import storeData from '../../stores/storeData';
-console.log(storeData);
 import { LoginStart } from "../components/LoginStart";
 import { GameScreen } from "../components/GameScreen";
 import "../styles/Maze.css";
