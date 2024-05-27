@@ -1,0 +1,13 @@
+.otherButtons {
+  margin: 10px;
+  padding: 10px;
+  background-color: var(--input-bg-color);
+  color: var(--main-text-color);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+}
+
+.otherButtons:hover {
+  background-color: var(--hover-bg-color);
+}
