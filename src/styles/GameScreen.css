@@ -1,0 +1,32 @@
+.game-screen-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.game-screen {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.actions {
+  opacity: 0;
+  animation: fade-in 1s ease-in-out forwards;
+}
+
+.otherButtons:hover {
+  background-color: var(--hover-bg-color);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
