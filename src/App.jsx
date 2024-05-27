@@ -1,8 +1,11 @@
+import React from "react";
+import { Maze } from "./components/Maze";
+import "./styles/App.css";
 
 export const App = () => {
   return (
-  <div>
-    Labyrinth Project 
-  </div>
+    <React.StrictMode>
+      <Maze />
+    </React.StrictMode>
   );
 };
