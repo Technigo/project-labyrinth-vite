@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGlobalStoreData } from "../stores/storeData";
+import { useGlobalStoreData } from "../../stores/storeData";
 import { RestartButton } from "../components/Buttons/Buttons";
 import "../styles/GameScreen.css";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGlobalStoreData } from "../stores/StoreData";
+import { useGlobalStoreData } from "../../stores/storeData";
 import "../styles/LoginStart.css";
 
 export const LoginStart = () => {
