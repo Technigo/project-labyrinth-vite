@@ -1,15 +1,21 @@
-import useLabyrinthStore from "../stores/useLabyrinthStore";
+import { useEffect } from 'react';
+import useLabyrinthStore from '../stores/useLabyrinthStore';
+import './GamePage.css';
 
-const GamePage = () => {
-  const { description, actions, loading, error, performAction } =
+const GamePage = ({ changeBgImg }) => {
+  const { coordinates, description, actions, loading, error, performAction, restart } =
     useLabyrinthStore();
 
+  useEffect(() => {
+    changeBgImg(coordinates);
+  }, [changeBgImg, coordinates]);
+
   const handleAction = async (direction) => {
-    await performAction("move", direction);
+    await performAction('move', direction);
   };
 
   return (
-    <div>
+    <div className="game-container">
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {!loading && !error && (
@@ -27,6 +33,16 @@ const GamePage = () => {
               </li>
             ))}
           </ul>
+          <button
+            className="restart-button"
+            type="button"
+            onClick={() => {
+              restart();
+              changeBgImg('start');
+            }}
+          >
+            Restart
+          </button>
         </>
       )}
     </div>

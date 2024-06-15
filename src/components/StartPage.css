@@ -1,0 +1,41 @@
+.start-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .start-container h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .start-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .start-container label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .start-container input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .start-container button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }

@@ -1,52 +1,13 @@
-/*import { useLabyrinthStore } from "../stores/useLabyrinthStore"
-import { useState } from "react"
-import { GamePage } from "./GamePage"
-
-export const StartPage = () => {
-  const { startGame, loggedIn } = useLabyrinthStore()
-
-  const [userName, setUserName] = useState("")
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (userName === "") {
-      alert("Please let us know your name!")
-    } else {
-      startGame(userName)
-    }
-  }
-
-  return (
-    <div>
-      {loggedIn ? (
-        <GamePage />
-      ) : (
-        <div className="start-wrapper">
-            <h1>Are you ready to begin your journey?</h1>
-            <h2>Follow the footsteps of the legendary Lara Croft and Indiana Jones...</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="userName">What is your name?</label>
-                <input
-                    id="userName"
-                    value={userName}
-                    type="text"
-                    onChange={(e) => setUserName(e.target.value)}
-                />
-                <button type="submit">Begin journey</button>
-            </form>
-        </div>
-      )}
-    </div>
-  )
-}*/
-
-// StartPage.js
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useLabyrinthStore from "../stores/useLabyrinthStore";
 
-const StartPage = () => {
+const StartPage = ({ changeBgImg }) => {
   const [username, setUsername] = useState("");
   const { startGame, loading, error } = useLabyrinthStore();
+
+  useEffect(() => {
+    changeBgImg("start");
+  }, [changeBgImg]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,5 +40,3 @@ const StartPage = () => {
 };
 
 export default StartPage;
-
-  
