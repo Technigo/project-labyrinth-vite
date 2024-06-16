@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import useLabyrinthStore from "../stores/useLabyrinthStore";
+import { LoadingAnimation } from "./LoadingAnimation";
+import './StartPage.css';
 
-const StartPage = ({ changeBgImg }) => {
+export const StartPage = ({ changeBgImg }) => {
   const [username, setUsername] = useState("");
   const { startGame, loading, error } = useLabyrinthStore();
 
@@ -18,11 +20,16 @@ const StartPage = ({ changeBgImg }) => {
     startGame(username);
   };
 
+  if (loading) {
+    return <LoadingAnimation />;
+  }
+
   return (
-    <div>
+    <div className="start-container">
       <h1>Are you ready to begin your journey?</h1>
+      <h2>The labyrinth awaits you...</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Enter your username:</label>
+        <label htmlFor="username">What is your name, brave soul?</label>
         <input
           type="text"
           id="username"
@@ -31,12 +38,10 @@ const StartPage = ({ changeBgImg }) => {
           disabled={loading}
         />
         <button type="submit" disabled={loading}>
-          {loading ? "Starting..." : "Start game"}
+          {loading ? "Starting..." : "START GAME"}
         </button>
       </form>
       {error && <p>Error: {error}</p>}
     </div>
   );
 };
-
-export default StartPage;

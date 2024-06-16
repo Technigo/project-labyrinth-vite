@@ -1,22 +1,27 @@
 .game-container {
-    color: white;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .restart-button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-  }
+  background-color: rgb(169, 169, 169, 0.8);
+  width: 50%;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 10px;
+}
 
-  @media (max-width: 768px) {
-    .game-container {
-      background-size: cover;
-    }
+p {
+  font-size: 1.2rem;
+}
+
+.restart-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    width: 90%;
   }
+}

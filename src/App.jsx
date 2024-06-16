@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
-import StartPage from "./components/StartPage";
-import GamePage from "./components/GamePage";
+import { StartPage } from "./components/StartPage";
+import { GamePage } from "./components/GamePage";
 import useLabyrinthStore from "./stores/useLabyrinthStore";
 import "./App.css";
 
@@ -33,4 +33,3 @@ export const App = () => {
   );
 };
 
-export default App;
