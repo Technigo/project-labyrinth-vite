@@ -17,6 +17,7 @@ form {
 label {
   display: block;
   margin-bottom: 8px;
+  font-size: 1.2rem;
 }
   
 input {
@@ -31,27 +32,8 @@ input {
   .start-container {
     width: 90%;
   }
-}
 
-
-
-
-/* CSS */
-.button-72 {
-  align-items: center;
-  display: flex;
-  font-family: Quicksand,sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  justify-content: center;
-  letter-spacing: .04em;
-  line-height: 16px;
-  margin: 0;
-  padding: 18px 18px;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
+  input {
+    width: 150px;
+  }
 }

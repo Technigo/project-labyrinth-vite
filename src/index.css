@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
-
 :root {
-  font-family: 'Jacques Francois', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Zilla Slab', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -30,7 +28,7 @@ ul {
 
   
 button {
-  background-color: #926c15;
+  background-color: #dbb42c;
   color: #283618;
   padding: 10px 20px;
   font-size: 1rem;
@@ -39,10 +37,18 @@ button {
   border-radius: 10px;
   border: none;
   font-family: inherit;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
 button:hover {
   color: #ffe169;
+}
+
+@media (max-width: 768px) {
+  button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
 }
 
