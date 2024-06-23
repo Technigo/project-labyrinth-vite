@@ -12,4 +12,4 @@ To create an engaging and responsive labyrinth game where users can log in, star
 
 ### View it live
 
-
+https://mazemaze.netlify.app/
