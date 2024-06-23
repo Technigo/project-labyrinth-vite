@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGlobalStoreData } from "../stores/storeData";
+import { useGlobalStoreData } from "../store/Data";
 import { RestartButton } from "../components/Buttons/Buttons";
 import "../styles/GameScreen.css";
 
@@ -28,14 +28,22 @@ export const GameScreen = () => {
   const cleanCoordinates = gamedata.coordinates.replace(",", "-");
   const backgroundImageUrl = `/background-image-${cleanCoordinates}.png`;
 
-  const hasDirections = gamedata.actions.some((action) => action.type === "move");
+  const hasDirections = gamedata.actions.some(
+    (action) => action.type === "move"
+  );
 
   return (
-    <div className="game-screen-background" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
+    <div
+      className="game-screen-background"
+      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+    >
       <div className="game-screen">
         <p className="description">{gamedata.description}</p>
         {hasDirections && (
-          <button className="otherButtons showDirections" onClick={() => setShowActions(!showActions)}>
+          <button
+            className="otherButtons showDirections"
+            onClick={() => setShowActions(!showActions)}
+          >
             {showActions ? "Hide Directions" : "Show Directions"}
           </button>
         )}
@@ -44,7 +52,11 @@ export const GameScreen = () => {
             {gamedata.actions.map((action, index) => (
               <div key={index}>
                 {action.type === "move" && (
-                  <button className="btnDirection" onClick={() => handleAction(action)} disabled={isLoading}>
+                  <button
+                    className="btnDirection"
+                    onClick={() => handleAction(action)}
+                    disabled={isLoading}
+                  >
                     Go: {action.direction}
                   </button>
                 )}
