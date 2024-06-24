@@ -22,14 +22,14 @@ h2 {
 
 .description {
   font-size: 30px;
-  color: #333;
+  color: rgb(201, 199, 199);
   margin: 20px 0;
 }
 
 .direction-question {
   font-size: 24px;
   margin-top: 40px;
-  color: #444;
+  color: rgb(201, 199, 199);
 }
 
 .chevron:hover {
