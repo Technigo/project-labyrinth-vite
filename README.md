@@ -10,3 +10,4 @@ I did this as my last project due to lack of time and it was hard. When i though
 
 Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
 
+https://sage-cheesecake-3111f7.netlify.app/
