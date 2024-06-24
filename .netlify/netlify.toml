@@ -1,0 +1,28 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\loren\\Desktop\\project-labyrinth-zustand-vite\\build"
+publishOrigin = "ui"
+base = "C:\\Users\\loren\\Desktop\\project-labyrinth-zustand-vite"
+command = "npm run build"
+commandOrigin = "ui"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
