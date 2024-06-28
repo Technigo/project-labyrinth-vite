@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useUserStore } from "../stores/useUserStore";
 import "./Labyrinth.css";
+import Lottie from "lottie-react";
+import animationLoading from "../assets/compass-animation.json";
+import animationDirection from "../assets/direction-animation.json";
+
 
 export const Labyrinth = () => {
   const imageRef = useRef();
@@ -47,11 +51,17 @@ export const Labyrinth = () => {
         return { gridColumn: 2, gridRow: 3 };
       case "North":
         return { gridColumn: 2, gridRow: 1 };
+        default:
+          return {};
     }
   };
 
   if (loading) {
-    return <div>{loading}</div>;
+    return (
+      <div className="compass-animation">
+        <Lottie animationData={animationLoading} loop={true} />
+      </div>
+    );
   }
 
   return (
@@ -85,6 +95,7 @@ export const Labyrinth = () => {
                 </button>
               </div>
             ))}
+            <Lottie animationData={animationDirection} loop={true} className="animation-direction" />
           </div>
           <button className="button-restart" onClick={handleRestart}>
             Restart Game

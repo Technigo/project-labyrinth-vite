@@ -1,5 +1,7 @@
 import { useUserStore } from "../stores/useUserStore";
 import "./User.css";
+import Lottie from "lottie-react";
+import animationData from "../assets/compass-animation.json";
 
 export const User = () => {
   const { userName, setUserName, fetchGameStart, loading, error } =
@@ -13,6 +15,14 @@ export const User = () => {
       fetchGameStart(userName);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="compass-animation">
+        <Lottie animationData={animationData} loop={true} />
+      </div>
+    );
+  }
 
   return (
     <div className="start-page">
