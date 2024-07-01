@@ -5,7 +5,6 @@ import Lottie from "lottie-react";
 import animationLoading from "../assets/compass-animation.json";
 import animationDirection from "../assets/direction-animation.json";
 
-
 export const Labyrinth = () => {
   const imageRef = useRef();
 
@@ -51,8 +50,8 @@ export const Labyrinth = () => {
         return { gridColumn: 2, gridRow: 3 };
       case "North":
         return { gridColumn: 2, gridRow: 1 };
-        default:
-          return {};
+      default:
+        return {};
     }
   };
 
@@ -70,7 +69,6 @@ export const Labyrinth = () => {
       {error && (
         <div key="error">
           <h2>{error}</h2>
-          <button onClick={handleRestart}>Enter Again</button>
         </div>
       )}
 
@@ -88,14 +86,18 @@ export const Labyrinth = () => {
                   onClick={() => handleDirectionClick(action)}
                   onMouseEnter={() => setHoveredDirection(action.direction)}
                   onMouseLeave={() => setHoveredDirection(null)}>
-                  {hoveredDirection === action.direction && (
-                    <p>{action.description}</p>
-                  )}
                   <p>Go {action.direction}</p>
+                  {hoveredDirection === action.direction && (
+                    <div className="tooltip">{action.description}</div>
+                  )}
                 </button>
               </div>
             ))}
-            <Lottie animationData={animationDirection} loop={true} className="animation-direction" />
+            <Lottie
+              animationData={animationDirection}
+              loop={true}
+              className="animation-direction"
+            />
           </div>
           <button className="button-restart" onClick={handleRestart}>
             Restart Game

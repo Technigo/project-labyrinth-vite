@@ -7,14 +7,3 @@ export const App = () => {
 
   return <>{loggedIn ? <Labyrinth /> : <User />}</>;
 };
-
-// return (
-//   <Router>
-//     <Switch>
-//       <Route path="/user" component={User} />
-//       <Route path="/labyrinth" component={Labyrinth} />
-//       <Redirect to="/user" /> {/* Redirect to User component by default */}
-//     </Switch>
-//   </Router>
-// );
-// }

@@ -35,7 +35,6 @@ export const useUserStore = create((set) => ({
       }
 
       const data = await response.json();
-      console.log("Data from fetchGameStart:", data);
 
       set({
         userName: userName,
@@ -55,8 +54,6 @@ export const useUserStore = create((set) => ({
 
   moveDirection: async (userName, direction) => {
     set({ loading: true, error: false });
-
-    console.log(`Moving direction: ${direction} for user: ${userName}`); // Add log here
 
     try {
       const response = await fetch("https://labyrinth.technigo.io/action", {
@@ -80,7 +77,6 @@ export const useUserStore = create((set) => ({
       }
 
       const data = await response.json();
-      console.log("Data from moveDirection:", data);
 
       set({
         coordinates: data.coordinates,

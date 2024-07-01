@@ -21,6 +21,10 @@
 h2 {
   font-family: monospace;
   font-size: large;
+  margin-left: 35px;
+  margin-right: 35px;
+  color: white;
+  margin-bottom: 170px;
 }
 
 .content {
@@ -40,13 +44,11 @@ h2 {
   width: fit-content;
   height: fit-content;
   padding: 10px;
-  margin-left: auto;
   margin-right: 35px;
-  justify-content: center;
-  align-items: center;
   border-radius: 10px;
   font-family: monospace;
   font-size: large;
+  text-align: left;
   color: white;
   background-color: rgb(108, 63, 187);
   opacity: 0.85;
@@ -54,14 +56,12 @@ h2 {
 
 .button-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: auto auto auto; 
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
 }
 
 .direction-button {
-  display: flex;
-  justify-self: center; 
-  align-self: center;  
+  position: relative;
   padding-top: 50px;
   height: 30px;
   width: 120px;
@@ -71,17 +71,52 @@ h2 {
   font-weight: 600;
   color: white;
   background-color: transparent;
+  border: none;
+}
+
+.tooltip {
+  position: absolute;
+  max-width: 300px;
+  margin-right: 35px;
+  padding: 5px;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  text-align: left;
+  white-space: normal;
+  z-index: 100;
+  visibility: hidden;
+}
+
+.direction-button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.direction-button:active {
+  outline: none;
+  border: none;
 }
 
 .animation-direction {
   height: 80px;
   width: 80px;
   grid-column: 2;
-  grid-row: 2;   
-  justify-self: center; 
-  align-self: center;   
-  background: radial-gradient(circle, rgba(220, 122, 18, 0.85) 50%, rgba(220, 122, 55, 0) 100%);
+  grid-row: 2;
+  justify-self: center;
+  align-self: center;
+  background: radial-gradient(
+    circle,
+    rgba(220, 122, 18, 0.85) 50%,
+    rgba(220, 122, 55, 0) 100%
+  );
   border-radius: 45px;
+}
+
+.compass-animation {
+  background-position: center;
+  background-size: cover;
 }
 
 .button-restart {
@@ -103,10 +138,22 @@ h2 {
   .background-image {
     height: 80vh;
   }
+  .description {
+    margin-top: 200px;
+  }
+  .tooltip {
+    width: fit-content;
+  }
 }
 
 @media (min-width: 1024px) {
   .background-image {
     height: 100vh;
+  }
+  .description {
+    margin-right: 65px;
+  }
+  .tooltip {
+    width: fit-content;
   }
 }
