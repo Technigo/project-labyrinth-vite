@@ -6,32 +6,13 @@
 
 # Labyrinth - Zustand Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+A project to practise Global State and useRef hook to maintain and store user preferences throughout a simple Labyrinth game.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by creating the user store followed by the components for functionality. The most time consuming part of this project was to figure out how to use CSS to make all elements appear where and when I wanted them. Super fun project! If I had more time, I'd put more effort on the design and make it look neat.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://stunning-capybara-d73e5e.netlify.app/
 
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
