@@ -1,8 +1,9 @@
+import { useUserStore } from "./stores/useUserStore";
+import { Labyrinth } from "./components/Labyrinth";
+import { User } from "./components/User";
 
 export const App = () => {
-  return (
-  <div>
-    Labyrinth Project 
-  </div>
-  );
+  const { loggedIn } = useUserStore();
+
+  return <>{loggedIn ? <Labyrinth /> : <User />}</>;
 };
