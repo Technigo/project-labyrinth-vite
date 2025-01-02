@@ -39,7 +39,7 @@ h2 {
   gap: 20px;
   position: relative;
   width: 90%;
-  margin: auto; /* Center content */
+  margin: auto;
   padding: 10px;
   
   /* display: grid;
@@ -93,12 +93,12 @@ h2 {
 
 .direction-button {
   position: relative;
-  padding-top: 50px;
+  padding: auto;
   height: 30px;
   width: 120px;
   border-radius: 10px;
   font-family: monospace;
-  font-size: large;
+  font-size: auto;
   font-weight: 600;
   color: white;
   background-color: transparent;
@@ -128,8 +128,8 @@ h2 {
 
 @media (max-width: 768px) {
   .tooltip {
-    visibility: visible; /* Always visible on mobile */
-    position: relative; /* Prevent it from being cut off */
+    visibility: visible;
+    position: relative; 
     margin-top: 10px;
   }
 }
