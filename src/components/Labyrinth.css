@@ -163,10 +163,11 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25px;
+  height: 30px;
   width: 120px;
   font-family: monospace;
-  font-size: medium;
+  font-size: auto;
+  padding: auto;
   color: white;
   background-color: rgb(173, 55, 4);
   opacity: 0.99;
