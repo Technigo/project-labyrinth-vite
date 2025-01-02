@@ -9,17 +9,29 @@
 
 html,
 body {
-  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
 .background-image {
   display: flex;
+  position: fixed; /* Ensures it stays fixed on the screen */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ensures it spans the entire width of the viewport */
+  height: 100vh; /* Ensures it spans the entire height of the viewport */
+  background-position: center;
+  background-size: cover; /* Scales background image */
+  background-repeat: no-repeat; /* Prevents tiling */
+  
+  /* display: flex;
   justify-content: center;
   align-items: center;
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 100%;
+  height: 100%; */
 }
 
 h2 {
@@ -41,18 +53,6 @@ h2 {
   width: 90%;
   margin: auto;
   padding: 10px;
-  
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(300px, 1fr)
-  );
-  gap: 20px;
-  position: relative;
-  width: 90%;
-  height: 90%;
-  padding: 20px; */
 }
 
 .description {
@@ -67,22 +67,6 @@ h2 {
   color: white;
   background-color: rgb(108, 63, 187);
   opacity: 0.85;
-
-  /* grid-column: 1 / span 3;
-  grid-row: 3;
-  display: grid;
-  max-width: 80%; /* Limit the maximum size */
-  /* min-width: 300px;
-  height: fit-content;
-  padding: 10px;
-  margin-right: 35px;
-  border-radius: 10px;
-  font-family: monospace;
-  font-size: large;
-  text-align: left;
-  color: white;
-  background-color: rgb(108, 63, 187);
-  opacity: 0.85; */ 
 }
 
 .button-grid {
